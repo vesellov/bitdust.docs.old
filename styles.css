@@ -1,0 +1,140 @@
+@font-face { 
+    font-family: 'BitPie_NET Gothic'; 
+    src:  url('http://bitpie.net/century_gothic.eot'); 
+    src:  url('http://bitpie.net/century_gothic.eot?#iefix') format('embedded-opentype'), 
+          url('http://bitpie.net/century_gothic.svg#Century Gothic') format('svg'), 
+          url('http://bitpie.net/century_gothic.woff') format('woff'), 
+          url('http://bitpie.net/century_gothic.ttf') format('truetype'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px; 
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+h3 {
+    font-size: 1.7em;
+    margin-bottom: 5px;
+}
+
+h4 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+h5 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+h5 + h5 {
+    margin-top:     -10px;
+}
+
+h6 {
+    font-size: 1.0em;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+pre { 
+    padding: 10px; 
+    border: 1px solid lightgray; 
+    background: #f4f4f4;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+code {
+    font-size:          1.0em;
+    font-weight:        600;
+    font-family:        Consolas,Liberation Mono,DejaVu Sans Mono,monospace;
+    line-height:        1.0;   
+    word-spacing:       0.0em; 
+    letter-spacing:     0.0em; 
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+p + p {
+    margin-top: 1em; 
+} 
+
+a {
+    color: #446E9B;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: #345578;
+    text-decoration: underline;
+}
+
+a:link, a:visited {
+    color: blue;
+    text-decoration: none; 
+}
+
+a:active {
+    color: red;
+}
+
+a:hover {
+    text-decoration: underline; 
+} 
+
+#content {
+    margin:             0 auto;
+    text-decoration:    none;
+    text-align:         justify;
+    background-color:   #fff;
+    min-height:         500px;
+    padding-right:      15px;
+    padding-bottom:     45px;
+    width:              1010px;
+    position:           relative;
+    margin-left:        auto;
+    margin-right:       auto; 
+    font-family:        "Century Gothic", "BitPie_NET Gothic", Helvetica, Arial, sans-serif;
+    font-weight:        500;
+    font-size:          1.25em;
+    line-height:        1.7;  
+    word-spacing:       0.2em;
+    letter-spacing:     0.04em;
+}
+
+.warning {
+    padding: 20px; 
+    border: 1px solid lightgray; 
+    background-color:   #fee;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+
+
+
