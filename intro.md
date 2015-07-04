@@ -1,42 +1,17 @@
+# About the Project
+
+BitDust is a decentralized secure online storage, in which only data owner has an access to his data.
+
+Imagine a situation when two friends of yours and you agree to help each other store the data. On your computer you store the data that both of your friends uploaded to you via Internet, and you in turn get a chance to use the free space on their machines. This creates redundancy, but allows storing important data in a safer way. It is also a fair deal, because all three of you are interested in the maximum safety and upmost availability of stored information.
+
+BitDust network is a voluntary association of people sharing resources of their personal computers. Their machines run the same copies of BitDust program, which enables device communication via Internet when data are transmitted directly from one user to another and stored on usersвЂ™ hard disk drives. 
+
+By download the input data are backupped, divided into blocks and fragments, encrypted and uploaded on other usersвЂ™ computers. The system is designed to perform continuous monitoring of each node, which stores your data.
+The BitDust program constantly keeps a state, which enables you to download your data back on your computer at any moment. The mechanism of automatic data restoring allows dynamic reassembling of the data fragments uploaded in the network on the new nodes without any action from the user. 
+
+BitDust program is written in [Python](http://python.org) using [Twisted](http://twistedmatrix.com/) Framework and is distributed in open source code under the [private license](http://bitdust.io/license.html).
 
 
-# What?
-
-BitDust is a distributed computer network designed for safe information storage and retrieval.
-BitDust network is like "digital dust": it works over existing Internet 
-connections via secure channels and has a fully distributed structure.
-
-The BitDust project is based on the following principles:
-
-+ equal rights of all participants
-+ personal information security
-+ anonymous network logon
-+ equitable relationship
-+ openness and understandability
-+ usability
-
-
-# What for?
-
-BitDust is a holistic ecosystem, the basic idea of which is to complete the decentralization 
-of information flows and stored data.
-
-Our goal is to provide all network participants with security, independence, privacy and full 
-control over personal data.
-
-Autonomy of each node in the BitDust network and security of all connections allow free flow of
-information without possibility of any control, detection or pressure by third parties.
-
-
-# How?
-
-Instead of the usual interaction model "client-server” BitDust network uses such links as "user-user."
-
-Connection and transmission of information take place directly from node to node in encrypted 
-form - Transport Channels are safe and protected from outside influence.
-
-Like "dust", user data is broken into multiple fragments and stored distributed randomly on machines 
-of other users on the principle of "at each other".
-
-Computers of all the users provide a share of their hardware resources in the BitDust network to support 
-its operations.
+<div style="text-align: center;" markdown="1"> <br>
+[\[table of contents\]](toc)
+</div>
