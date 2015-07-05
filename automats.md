@@ -34,7 +34,7 @@ As compared to the classic method of Anatoliy Shalyto my approach has some small
 * use of function names instead of number indications creates more "talking" drawings
 * you can write whole statements on Python on the arcs, which opens more possibilities to the developer
 
-Each automaton is a descendant of the
+Each automat is a descendant of the
 [`Automat`](http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l202) class,
 which establishes all key collaborations in the BitDust program:
 
@@ -51,7 +51,7 @@ which establishes all key collaborations in the BitDust program:
 
 As an example, consider a simple finite state machine which is designed for tracking the current status of user’s  connection to the given node in the BitDust network.
 
-In this picture you can see an automation called
+In this picture you can see an automat called
 [`contact_status()`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244),
 which has four states.
 
@@ -60,26 +60,24 @@ which has four states.
 There are following elements:
 
 
-| states | events       | conditions        | actions         | variables |
-| ---       | ---           | ---            |   ---            | ---        |
-| **OFFLINE**  | <font color=#FF0000>outbox-packet</font> | <span style="color:#00FF00">isPingPacket()</span> | <span style="color:#00FFFF">doRepaint()</span> | AckCounter |
-| **CONNECTED** | <span style="color:#FF0000">inbox-packet</span> | <span style="color:#00FF00">isDataPacket()</span> | <span style="color:#00FFFF">doRememberTime()</span> |  |
-| **PING**     | <span style="color:#FF0000">file-sent</span>    |  |  |  |
-| **ACK?**     | <span style="color:#FF0000">sent-done</span>     |  |  |  |
-|     | <span style="color:#FF0000">sent-failed</span>   |  |  |  |
-|     | <span style="color:#FF0000">timer-20sec</span>   |  |  |  |
+| states         | events          | conditions     | actions           | variables     |
+| ---            | ---             | ---            |   ---             | ---           |
+| **OFFLINE**    | outbox-packet   | isPingPacket() | doRepaint()       | AckCounter    |
+| **CONNECTED**  | inbox-packet    | isDataPacket() | doRememberTime()  |               |
+| **PING**       | file-sent       |                |                   |               |
+| **ACK?**       | sent-done       |                |                   |               |
+|                | sent-failed     |                |                   |               |
+|                | timer-20sec     |                |                   |               |
 
-</div>
+The automat `contact_status()` works as follows:
 
-The automaton `contact_status()` works as follows:
++ at the moment of creation it starts in the **OFFLINE** state
++ when receiving the incoming packet from the target node it turns to **CONNECTED** state and the current moment of time is "registered" to keep track the duration of node connection
++ if the special service packet was sent from the program to check the current status of connection and condition `isPingPacket()` triggered, the automat will pass to the **PING** state and wait for response from the remote machine
++ in case of request time out or packet sending to the target node was failed, the state machine will turn to **OFFLINE** state
 
-+ at the moment of production it is in the **OFFLINE** state
-+ when receiving the incoming packet from the target node it turns to **CONNECTED** state and the current time is "registered" to track the duration of node connection
-+ if the special service pack is sent to check the current status of connection and condition `isPingPacket()` goes off, the automaton will pass to the **PING** state and wait for response from the remote machine
-+ in case of request time out or failed package sending to the target node, the automaton will turn to **OFFLINE** state
-
-Proper operation of the automaton helps constantly tracking the current status of connection with the given node – you just need to check the value written in the `state` variable, which is the `ContactStatus` class member. 
-For instance `self.state == 'CONNECTED'` means that user is online at the current moment.
+Proper operation of the automat helps constantly tracking the current status of connection with the given node – you just need to check the value written in the `state` variable, which is the `ContactStatus` class member. 
+For instance `self.state == 'CONNECTED'` means that user is on-line at the current moment.
 
 
 ## The Core
@@ -136,89 +134,123 @@ of `ContactStatus` class:
                 self.AckCounter=0
                 self.doRepaint(arg)
 
-This code is automatically generated under the visual framework of the transition graph of the finite state machine and the source files of the project can be automatically updated after modification implementation in the finite automaton. How it works is described below. 
+This code is automatically generated from transition graph vector diagram of the finite state machine and you do not need to code all that lines and so have no chance to made the mistake.
+The source files of the project can be automatically updated after any modifications applied in the finite state machine, how it works is described below. 
 
-Within the concept of open project documentation movement transition graphs are used not only at the stage of design and development, but also in documentation and product requirements list. This helps eliminate errors in programming logic – with this process automation the working code becomes absolutely identical to the visual framework of finite automaton. 
+Within the concept of the open project documentation the transition graphs are used not only at the stage of design and development, but also in documentation and product description plan. This helps eliminate errors in programming logic – with this process automation the working code becomes absolutely identical to the visual framework of finite automat. Also it helps all sides to understand each other more clearly: customers, developers, testers, end-users.
 
 This allows to split software development process in at least two paths and significantly optimizes the whole working process on the project: 
 
-+ behavior design проектирование поведения
-+ functional development and test
++ behavior design of the program
++ functional development and tests
+
 
 ## Relation to the Code
 
-In the example given the method
+Let's see on example below, the given method
 [`doRememberTime()`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l321)
-of `ContactStatus` class makes a record of the current time moment – this is exactly the part of the functional, which is managed by the finite automaton:
+of `ContactStatus` class makes a record of the current time moment – this is exactly the part of the functional, which is managed by the finite automat:
 
     def doRememberTime(self, arg):
         self.time_connected = time.time()
+        
+This is very simple code, but it makes a useful action and calls an external code. Actions and conditions become separated from the state machine - this is depends from developer and his understanding of the whole process. 
 
-For every new network connection a new specific instance of this finite automaton will be created, method
+For every new network connection a new single instance of this automat will be created, method
 [`A(idurl, event, arg)`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l229)
-creates new instances and refers to existing instances of the automaton.
+creates new instances and refers to existing instances of the automat.
 
-External reference to the automaton is carried out through [`automat(event, args)`](http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l348) 
-method of `Automat` class, for example after receiving new incoming package from the target node an event transfer will take place 
-<span style="color:#FF0000">`inbox-packet`</span>:
+External reference to the automat is carried out through [`automat(event, args)`](http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l348) 
+method of `Automat` class, for example after receiving new incoming packet from the target node an event `inbox-packet` will be passed to the state machine:
 
     def Inbox(newpacket, info, status, message):
         A(newpacket.OwnerID, 'inbox-packet', (newpacket, info, status, message))
-        ratings.remember_connected_time(newpacket.OwnerID)
+        ...
+        
+In other words we can divide useful logic from the rest of the code within the development process and also structure the key interactions throughout the software. 
 
-In other words we can divide useful logic from the rest code within the development process and also structure the key interactions throughout the software. 
 This reduces the likelihood of logic errors in the program to zero, while troubleshooting in most cases is the most complex and high-runner process at the stage of development and tests. As a rule the functional of software is divided into multiple methods, which can be programmed and tweaked separately or in a specially created test environment with the use of different automatic test and tweak procedures. 
 
 
 ## Transition Graphs
 
-Transition graph is a graphical representation of the multiple conditions of the automaton and functions of transitions between them. In the visual framework of the finite state machine you can see the logic of algorithm and all the possible process stages, outcomes and interconnections. States and transitions form the program behavioral model of the control over the specific unit or process.
+Transition graph is a graphical representation of the multiple conditions of the automat and functions of transitions between them. In the visual framework of the finite state machine you can see the logic of algorithm and all the possible process stages, outcomes and interconnections. States and transitions form the program behavioral model of the control over the specific unit or process.
 
-State is the key element of the finite automaton, it divides the stages which the algorithm does. While the program runs the automaton does transition between its states. It can get in the same state several times or on the opposite not get in any predefined state.
+State is the key element of the finite automat, it divides the stages which the algorithm does. While the program runs the automat does transition between its states. It can get in the same state several times or on the opposite not get in any predefined state.
 
-By transition from one state to another the testing of the condition, which is assigned to given transition, is preliminary conducted. The condition can be written as a statement in Python and can consist of function invocations, access to variables or status inspection of other automatons.
+By transition from one state to another the testing of the condition, which is assigned to given transition, is preliminary conducted. The condition can be written as a statement in Python and can consist of function invocations, access to variables or status inspection of other automats.
 
 If the condition works, the transition to other state is conducted and the actions assigned for this transition are taken. These may include functions, statements in Python or other finite state machines invocations.
 
-All interactions of the finite automaton are done through events accepting and communication. They are transferred directly into the automaton kernel and launch inspection of the transition between states.
+All interactions of the finite state machine are done through events accepting and communication. They are transferred directly into the automat kernel and launch inspection of the transition between states.
 
 Events, conditions and actions form the finite statement for the transition function from one state to another. Below are given the examples of elements which can be used for the text record of these statements on the transition graph:
 
-<style type="text/css">div#table02 td, th { vertical-align: top; padding: 0px 15px; width:20%;}</style>
 
-<div id=table02 markdown="1">
+| element   | example |                    
+| :---      | :--- |
+| event     | inbox-packet | 
+|           | contact_status.state is PING |
+|           | timer-30sec |
+| condition | isDataPacket() |
+|           | AckCounter>1 |
+|           | sent-failed and AckCounter==1 |
+| action    | doRepaint() |
+|           | AckCounter=0 |
+|           | Attempts+=1 |
+|           | contact_status(init) |
 
-| элемент | пример |                    
-| :---    | :---   |
-| событие | <span style="color:#FF0000">inbox-packet</span> | 
-|   | <span style="color:#FF0000">contact_status.state</span> <span style="color:#C0C0C0">is</span> <span style="color:#00FF00">PING</state> |
-|   | <span style="color:#FF0000">timer-30sec</span> |
-| условие | <span style="color:#00FF00">isDataPacket()</span> |
-|   | <span style="color:#00FF00">AckCounter>1</span> |
-|   | <span style="color:#C0C0C0">and</span> <span style="color:#00FF00">AckCounter==1</span> |
-| действие |   <span style="color:#00FFFF">doRepaint()</span> |
-|   | <span style="color:#00FFFF">AckCounter=0</span> |
-|   | <span style="color:#00FFFF">Attempts+=1</span> |
-|   | <span style="color:#FFFF00">contact_status(</span><span style="color:#FF0000">init</span><span style="color:#FFFF00">)</span> |
-
-</div>
 
 
 ## visio2python
 
 Microsoft Visio 2007 is used for creation of the vector schemes of transition graphs. Transition graphs of finite state machines, which control the behavior of BitDust client software, reside in *.vsd files.
 
-A small tool called `visio2python` was developed, it optimizes and
-facilitates the development of programs in Python, which use the finite state machines. It can translate the transition graphs, created in Microsoft Visio into the code in Python.
+A small tool called `visio2python` was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
+It can translate the transition graphs, created in Microsoft Visio into the code in Python or JavaScript languages.
 
 
 ## BitDust Finite State Machines
 
-...
+* [backup()](automat_backup.md)
+* [backup_db_keeper()](automat_backup_db_keeper.md)
+* [backup_monitor()](automat_backup_monitor.md)
+* [backup_rebuilder()](automat_backup_rebuilder.md)
+* [contact_status()](automat_contact_status.md)
+* [customers_rejector()](automat_customers_rejector.md)
+* [data_sender()](automat_data_sender.md)
+* [fire_hire()](automat_fire_hire.md)
+* [id_registrator()](automat_id_registrator.md)
+* [id_restorer()](automat_id_restorer.md)
+* [id_server()](automat_id_server.md)
+* [initializer()](automat_initializer.md)
+* [install_wizard()](automat_install_wizard.md)
+* [installer()](automat_installer.md)
+* [list_files_orator()](automat_list_files_orator.md)
+* [local_service()](automat_local_service.md)
+* [network_connector()](automat_network_connector.md)
+* [network_transport()](automat_network_transport.md)
+* [nickname_holder()](automat_nickname_holder.md)
+* [nickname_observer()](automat_nickname_observer.md)
+* [p2p_connector()](automat_p2p_connector.md)
+* [packet_in()](automat_packet_in.md)
+* [packet_out()](automat_packet_out.md)
+* [raid_worker()](automat_raid_worker.md)
+* [restore()](automat_restore.md)
+* [shutdowner()](automat_shutdowner.md)
+* [stun_client()](automat_stun_client.md)
+* [stun_server()](automat_stun_server.md)
+* [supplier_connector()](automat_supplier_connector.md)
+* [supplier_finder()](automat_supplier_finder.md)
+* [tcp_connection()](automat_tcp_connection.md)
+* [udp_connector()](automat_udp_connector.md)
+* [udp_node()](automat_udp_node.md)
+* [udp_session()](automat_udp_session.md)
+* [udp_stream()](automat_udp_stream.md)
 
 
 
 
-<div style="text-align: center;" markdown="1"> <br>
-[\[содержание\]](toc.md)
-</div>
+
+[table of contents](toc.md)
+
