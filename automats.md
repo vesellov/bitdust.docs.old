@@ -206,9 +206,10 @@ Events, conditions and actions form the finite statement for the transition func
 
 Microsoft Visio 2007 is used for creation of the vector schemes of transition graphs. Transition graphs of finite state machines, which control the behavior of BitDust client software, reside in *.vsd files.
 
-A small tool called `visio2python` was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
+A small tool called [`visio2python`](http://gitlab.bitdust.io/devel/visio2python/tree/master) was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
 It can translate the transition graphs, created in Microsoft Visio into the code in Python or JavaScript languages.
 
+[!(visio2python)[http://bitdust.io/visio2python/visio2python-screen1.png]](http://gitlab.bitdust.io/devel/visio2python/tree/master)
 
 ## BitDust Finite State Machines
 
