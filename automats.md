@@ -55,7 +55,7 @@ In this picture you can see an automation called
 [`contact_status()`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244),
 which has four states.
 
-[![contact_status()](p2p/_contact_status.png)](p2p/contact_status.pdf)
+[![contact_status()](p2p/contact_status.png)](p2p/contact_status.pdf)
 
 There are following elements:
 
