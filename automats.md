@@ -59,17 +59,15 @@ which has four states.
 
 There are following elements:
 
-<div id=table01 markdown="1">
-<style>div#table01 td, th { vertical-align: top; padding: 0px 15px; width:20%;}</style>
 
 | states | events       | constraints        | moves         | variables |
 | ---       | ---           | ---            |   ---            | ---        |
 | **OFFLINE**  | <span style="color:#FF0000">outbox-packet</span> | <span style="color:#00FF00">isPingPacket()</span> | <span style="color:#00FFFF">doRepaint()</span> | AckCounter |
-| **CONNECTED** | <span style="color:#FF0000">inbox-packet</span> | <span style="color:#00FF00">isDataPacket()</span> | <span style="color:#00FFFF">doRememberTime()</span> | &nbsp; |
-| **PING**     | <span style="color:#FF0000">file-sent</span>    | &nbsp; | &nbsp; | &nbsp; |
-| **ACK?**     | <span style="color:#FF0000">sent-done</span>     | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp;    | <span style="color:#FF0000">sent-failed</span>   | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp;    | <span style="color:#FF0000">timer-20sec</span>   | &nbsp; | &nbsp; | &nbsp; |
+| **CONNECTED** | <span style="color:#FF0000">inbox-packet</span> | <span style="color:#00FF00">isDataPacket()</span> | <span style="color:#00FFFF">doRememberTime()</span> |  |
+| **PING**     | <span style="color:#FF0000">file-sent</span>    |  |  |  |
+| **ACK?**     | <span style="color:#FF0000">sent-done</span>     |  |  |  |
+|     | <span style="color:#FF0000">sent-failed</span>   |  |  |  |
+|     | <span style="color:#FF0000">timer-20sec</span>   |  |  |  |
 
 </div>
 
@@ -193,15 +191,15 @@ Events, conditions and actions form the finite statement for the transition func
 | элемент | пример |                    
 | :---    | :---   |
 | событие | <span style="color:#FF0000">inbox-packet</span> | 
-| &nbsp;  | <span style="color:#FF0000">contact_status.state</span> <span style="color:#C0C0C0">is</span> <span style="color:#00FF00">PING</state> |
-| &nbsp;  | <span style="color:#FF0000">timer-30sec</span> |
+|   | <span style="color:#FF0000">contact_status.state</span> <span style="color:#C0C0C0">is</span> <span style="color:#00FF00">PING</state> |
+|   | <span style="color:#FF0000">timer-30sec</span> |
 | условие | <span style="color:#00FF00">isDataPacket()</span> |
-| &nbsp;  | <span style="color:#00FF00">AckCounter>1</span> |
-| &nbsp;  | <span style="color:#C0C0C0">and</span> <span style="color:#00FF00">AckCounter==1</span> |
+|   | <span style="color:#00FF00">AckCounter>1</span> |
+|   | <span style="color:#C0C0C0">and</span> <span style="color:#00FF00">AckCounter==1</span> |
 | действие |   <span style="color:#00FFFF">doRepaint()</span> |
-| &nbsp;  | <span style="color:#00FFFF">AckCounter=0</span> |
-| &nbsp;  | <span style="color:#00FFFF">Attempts+=1</span> |
-| &nbsp;  | <span style="color:#FFFF00">contact_status(</span><span style="color:#FF0000">init</span><span style="color:#FFFF00">)</span> |
+|   | <span style="color:#00FFFF">AckCounter=0</span> |
+|   | <span style="color:#00FFFF">Attempts+=1</span> |
+|   | <span style="color:#FFFF00">contact_status(</span><span style="color:#FF0000">init</span><span style="color:#FFFF00">)</span> |
 
 </div>
 
