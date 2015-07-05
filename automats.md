@@ -60,9 +60,9 @@ which has four states.
 There are following elements:
 
 
-| states | events       | constraints        | moves         | variables |
+| states | events       | conditions        | actions         | variables |
 | ---       | ---           | ---            |   ---            | ---        |
-| **OFFLINE**  | <span style="color:#FF0000">outbox-packet</span> | <span style="color:#00FF00">isPingPacket()</span> | <span style="color:#00FFFF">doRepaint()</span> | AckCounter |
+| **OFFLINE**  | <font color=#FF0000>outbox-packet</font> | <span style="color:#00FF00">isPingPacket()</span> | <span style="color:#00FFFF">doRepaint()</span> | AckCounter |
 | **CONNECTED** | <span style="color:#FF0000">inbox-packet</span> | <span style="color:#00FF00">isDataPacket()</span> | <span style="color:#00FFFF">doRememberTime()</span> |  |
 | **PING**     | <span style="color:#FF0000">file-sent</span>    |  |  |  |
 | **ACK?**     | <span style="color:#FF0000">sent-done</span>     |  |  |  |
