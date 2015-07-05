@@ -154,7 +154,7 @@ of `ContactStatus` class makes a record of the current time moment – this is e
     def doRememberTime(self, arg):
         self.time_connected = time.time()
         
-This is very simple code, but it makes a useful action and calls an external code. Actions and conditions become separated from the state machine - this is depends from developer and his understanding of the whole process. 
+This is very simple code, but it makes a useful action and calls an external code - actions and conditions become separated from the state machine and target logic.
 
 For every new network connection a new single instance of this automat will be created, method
 [`A(idurl, event, arg)`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l229)
@@ -167,9 +167,13 @@ method of `Automat` class, for example after receiving new incoming packet from 
         A(newpacket.OwnerID, 'inbox-packet', (newpacket, info, status, message))
         ...
         
-In other words we can divide useful logic from the rest of the code within the development process and also structure the key interactions throughout the software. 
+In other words we can divide useful logic from the rest of the code within the development process and also structure the key interactions throughout the software. This is depends from developer and his understanding of the whole process. 
 
-This reduces the likelihood of logic errors in the program to zero, while troubleshooting in most cases is the most complex and high-runner process at the stage of development and tests. As a rule the functional of software is divided into multiple methods, which can be programmed and tweaked separately or in a specially created test environment with the use of different automatic test and tweak procedures. 
+In fact, there is no need to create the machines only for the machines themselves. In my understanding, the purpose of automata-based programming is to highlight the key abstractions and processes described in the program and make their logic more clearly understandable. 
+
+In the future, you can always go back and instantly remember how this piece of code works and very easily change the program behaviour. The majority of the Bitdust code is implemented a traditional programming methods and machines are used only for the construction of the top level classes. As usual, the best product is obtained when the balance was struck.
+
+This approach reduces the likelihood of logic errors in the program to zero, while troubleshooting in most cases is the most complex and high-runner process at the stage of development and tests. As a rule the functional of software is divided into multiple methods, which can be programmed and tweaked separately or in a specially created test environment with the use of different automatic test and tweak procedures. 
 
 
 ## Transition Graphs
