@@ -182,6 +182,4 @@ one of the stages of the algorithm, which were allocated logically reasonable an
 visual framework of the [finite state machine](#finite-state-machine) which displays: states, transitions, events, conditions, actions and text descriptions.
 
 
-<div style="text-align: center;" markdown="1"> <br>
-[\[table of contents\]](toc)
-</div>
+[table of contents](toc.md)
