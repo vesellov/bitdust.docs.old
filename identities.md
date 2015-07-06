@@ -1,11 +1,11 @@
 # User Indentification
 
 
-* [identity files](#Identity-files)
-* [id-servers](#ID-servers)
-* [IDURL address](#IDURL-address)
-* [e-signature](#Digital-signature)
-* [Private key](#Private-Key)
+* [Identity files](#identity-files)
+* [ID-servers](#id-servers)
+* [IDURL address](#idurl-address)
+* [Digital-signature](#digital-signature)
+* [Private key](#private-key)
 
 
 ## Identity files
@@ -105,8 +105,8 @@ In BitDust you cannot find any common schemes or methods of user authorization:
 * no calling support team
 * no centralized storages of member accounts
 
-#### ATTENTION
-    In case of losing private key the user completely loses access to all uploaded files. It is highly recommended to make two or three copies of secret key on reliable and compact media just after the program set up and hide them in secure places.
+#### ATTENTION!!!
+In case of losing private key the user completely loses access to all uploaded files. It is highly recommended to make two or three copies of secret key on reliable and compact media just after the program set up and hide them in secure places.
 
 The user is individually responsible for security of his private key. Secret key should NEVER leave the computer on which it was generated – this directly influences the security of your data.
 
