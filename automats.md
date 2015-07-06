@@ -1,4 +1,4 @@
-﻿# Finite State Machines
+# Finite State Machines
 * [Introduction](#introduction)
 * [Method](#method)
 * [Example](#example)

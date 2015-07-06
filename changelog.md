@@ -1,9 +1,9 @@
-﻿# BitDust Change Log
+# BitDust Change Log
 
 
 2015-07-05 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
 
-* a lot of changes in the code, many things were turned off
+* a lot of changes in the code, many things were turned off temporary
 * switched API to JSON interface finally at interface/jsonrpc_server.py
 * interface/cmd_line_json.py now uses lib.jsontemplate module to render content
 * added Django to the project - now GUI interface is using WEB Browser (I was thinking about that stuff in 2010!)
@@ -55,4 +55,6 @@
 
 * new tray icons for Microsoft Windows
 
+
+[table of contents](toc.md)
 
