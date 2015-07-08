@@ -53,7 +53,11 @@ Thus percentage of possible losses makes 50% for 2 suppliers and up to 15% for 6
 
 
 ### ATTENTION!
-    By exceeding the number of possible errors, expect complete loss of uploaded data. The mechanism of automatic recovery allows swiftly fixing encountered errors and enables new distribution of data on suppliers’ nodes. At the moment for this you need a BitDust program continuous running on the data owner machine and stable Internet connection.
+    By exceeding the number of possible errors, expect complete loss of uploaded data. 
+    The mechanism of automatic recovery allows swiftly fixing encountered errors and 
+    enables new distribution of data on suppliers’ nodes. At the moment for this you 
+    need a BitDust program continuous running on the data owner machine and stable 
+    Internet connection.
 
 
 ## Rebuilding
