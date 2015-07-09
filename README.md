@@ -18,7 +18,7 @@
 + [Glossary](glossary.md)
 + [User Identification](identities.md)
 + Distributed Storage
-+ Data Security
++ [Data Security](security.md)
 + [Automatic Rebuilding](rebuilding.md)
 + [Distributed Hash-Table](dht.md)
 + Transport Protocols

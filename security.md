@@ -32,12 +32,13 @@ On each start of BitDust program the key will be loaded into the operational mem
 
 #### ATTENTION!
     It is highly recommended to make several backup copies of the key, record it on different media
-    and hide in safe places just after secret key generation. These could be USB-flash card, CD-disk,
-    A4 list or encrypted file on another machine.
+    and hide in safe places just after secret key generation.
+    These could be USB-flash card, CD-disk, A4 list or encrypted file on another machine.
     Only this secret key gives an access to user data!
     By its loss all your information will be completely lost.!!!
     Never do copies of the key thru open or untrusted channels! 
-    The reliability of your personal information security is completely dependent on the private key safety.
+    The reliability of your personal information security is completely dependent
+    on the private key safety.
 
 
 ## Public Key
