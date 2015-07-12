@@ -58,7 +58,7 @@ In program settings the user can state the maximum and desired block size by dat
 
 ## Data Redundancy
 
-In the section [Automatic Data Rebuilding](rebuilding) the method of converting the input data before allocating them on suppliers’ nodes is explained more in detail. Uploaded in the network data are stored with double redundancy and organized in a RAID array for ensuring a possibility of their recovery in the case of loss. 
+In the section [Automatic Data Rebuilding](rebuilding.md) the method of converting the input data before allocating them on suppliers’ nodes is explained more in detail. Uploaded in the network data are stored with double redundancy and organized in a RAID array for ensuring a possibility of their recovery in the case of loss. 
 
 two parallel layers, Data and Parity, have the same size, but different content:
 
