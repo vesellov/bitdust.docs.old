@@ -29,14 +29,15 @@
 + Anonymous users can only count on the support of volunteers who give their free part RESOURCES your PC
 
 + Here are some parameters which forms the final rating of the user (this is a partial list, work in process):
-    * up-time of the node, the longer he continuously work in the network - the higher the rating he will have
-    * amount of donated space on his HDD
-    * the maximum bandwidth size of his network channel
-    * the average volume of the network traffic for the reporting period
-    * the amount of users which he supports - this is his clients
-    * the number of failures from clients
-    * the number of "likes" from customers
-    * ratio of paid/unpaid customers which he supports
+
+    + up-time of the node, the longer he continuously work in the network - the higher the rating he will have
+    + amount of donated space on his HDD
+    + the maximum bandwidth size of his network channel
+    + the average volume of the network traffic for the reporting period
+    + the amount of users which he supports - this is his clients
+    + the number of failures from clients
+    + the number of "likes" from customers
+    + ratio of paid/unpaid customers which he supports
 
 + Based cryptocurrency be implemented decentralized Exchange RESOURCES, where it will be possible to buy and sell computer RESOURCES
 
