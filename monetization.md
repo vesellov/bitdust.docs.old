@@ -45,14 +45,15 @@
 
 + Those who supports the BitDust network a lot, will be able to "sell" part of their ranking in exchange for cash
     
-+ Company BitDust can make profits in various ways:
++ BitDust company can make profits in various ways:
 
-    * A fully paid applications and services based on BitDust network
-    * A tax on each transaction
-    * In the form of resource users' PCs, which later can be sold to corporate and private clients
-    * In the form of advertising space for other companies
-    * Implementing additional functions to improve the software for private companies exclusively
-    * Accept donations
+1. A fully paid applications and services based on BitDust network
+2. A tax on each transaction
+3. In the form of resource users' PCs, which later can be sold to corporate and private clients
+4. In the form of advertising space for other companies
+5. Implementing additional functions to improve the software for private companies exclusively
+6. Accept donations
+
 
 + Employees of private and public companies, banks, etc. may use along with other network
 
