@@ -1,7 +1,7 @@
 # Monetization
 
 
-(This is only the general outline of the entire document, work in progress)
+## The idea
 
 
 * Each participant in the  network can receive direct or indirect benefits from the provision RESOURCES of his own computer for other users
@@ -54,17 +54,17 @@
         
 * BitDust company can make profits in various ways:
 
-    1. A fully paid applications and services based on BitDust network
+    * A fully paid applications and services based on BitDust network
     
-    2. A tax on each transaction
+    * A tax on each transaction
     
-    3. In the form of resource users' PCs, which later can be sold to corporate and private clients
+    * In the form of resource users' PCs, which later can be sold to corporate and private clients
     
-    4. In the form of advertising space for other companies
+    * In the form of advertising space for other companies
     
-    5. Implementing additional functions to improve the software for private companies exclusively
+    * Implementing additional functions to improve the software for private companies exclusively
     
-    6. Accept donations
+    * Accept donations
 
 
 * Employees of private and public companies, banks, etc. may use along with other network
@@ -76,5 +76,6 @@
 * Program always comes on the user's machine in open source codes
 
 
+---
 
-    [table of contents](toc.md)
+[table of contents](toc.md)
