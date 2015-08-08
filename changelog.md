@@ -56,5 +56,7 @@
 * new tray icons for Microsoft Windows
 
 
-[table of contents](toc.md)
+===
+
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)
 

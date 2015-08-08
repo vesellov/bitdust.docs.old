@@ -36,4 +36,6 @@ Thank You!
 
 
 
-[table of contents](toc.md)
+===
+
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

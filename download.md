@@ -14,5 +14,7 @@
   [http://gitlab.bitdust.io/devel/bitdust.git](http://gitlab.bitdust.io/devel/bitdust.git)
 
   
-[table of contents](toc.md)
+===
+
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)
 

@@ -115,4 +115,6 @@ The user is individually responsible for security of his private key. Secret key
 We recommend using modern anti-virus software, extra defence from network attacks and other methods of increasing security level of your personal computer. In addition to this, we advise you to look through useful information resources on this topic in order to raise your awareness. 
 
 
-[table of contents](toc.md)
+===
+
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

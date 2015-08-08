@@ -255,15 +255,7 @@ It can translate the transition graphs, created in Microsoft Visio into the code
 
 
 
-###
-
 ===
 
-[Table of contents](/)
-
-
-[Table of contents](README.md)
-
-
-[Table of contents](https://github.com/vesellov/bitdust.docs)
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)
 

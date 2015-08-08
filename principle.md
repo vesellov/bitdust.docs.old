@@ -61,4 +61,6 @@ some finite state machine.
 
 
 
-[table of contents](toc.md)
+===
+
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

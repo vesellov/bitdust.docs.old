@@ -128,4 +128,6 @@ BitDust network does not create and use centralized suppliers or clients ratings
 
 
 
-[table of contents](toc.md)
+===
+
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

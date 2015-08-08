@@ -13,4 +13,6 @@ The BitDust program constantly keeps a state, which enables you to download your
 BitDust program is written in [Python](http://python.org) using [Twisted](http://twistedmatrix.com/) Framework and is distributed in open source code under the [private license](http://bitdust.io/license.html) (we are still deciding about the license type... ).
 
 
-[table of contents](toc.md)
+===
+
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

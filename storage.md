@@ -107,4 +107,6 @@ At the moment BitDust program does not have a mechanism of praising the users an
 
 
 
-[table of contents](toc.md)
+===
+
+[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)
