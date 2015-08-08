@@ -1,7 +1,7 @@
 # Monetization
 
 
-## The idea
+## The Idea
 
 
 * Each participant in the  network can receive direct or indirect benefits from the provision RESOURCES of his own computer for other users
