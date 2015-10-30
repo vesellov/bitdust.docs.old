@@ -155,6 +155,3 @@ Restoring the source user data is possible only with the help of the private key
 This approach enables practically the same common mode of operations with data, which are usually stored at a cloud server, for example, but gives a significantly higher level of control over them. As data stored at cloud servers are under control of service suppliers. They can be encrypted by the user before they are put on the cloud server. Still the data are stored in data centers in an integrated form and can be read (if they are not encrypted), deleted or taken away without notice.
 
 
-===
-
-[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

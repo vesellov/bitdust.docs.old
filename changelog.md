@@ -56,7 +56,3 @@
 * new tray icons for Microsoft Windows
 
 
-===
-
-[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)
-

@@ -30,6 +30,3 @@ The following table has a list of command boxes, which can be written to the has
     list of nodes trying to connect to the user at the moment
 
 
-===
-
-[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

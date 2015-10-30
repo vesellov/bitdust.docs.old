@@ -30,41 +30,41 @@
 
 * Here are some parameters which forms the final rating of the user (this is a partial list, work in process):
 
-    * up-time of the node, the longer he continuously work in the network - the higher the rating he will have
+Â Â Â Â * up-time of the node, the longer he continuously work in the network - the higher the rating he will have
 
-    * amount of donated space on his HDD
+Â Â Â Â * amount of donated space on his HDD
 
-    * the maximum bandwidth size of his network channel
+Â Â Â Â * the maximum bandwidth size of his network channel
 
-    * the average volume of the network traffic for the reporting period
+Â Â Â Â * the average volume of the network traffic for the reporting period
 
-    * the amount of users which he supports - this is his clients
+Â Â Â Â * the amount of users which he supports - this is his clients
 
-    * the number of failures from clients
+Â Â Â Â * the number of failures from clients
 
-    * the number of "likes" from customers
+Â Â Â Â * the number of "likes" from customers
 
-    * ratio of paid/unpaid customers which he supports
+Â Â Â Â * ratio of paid/unpaid customers which he supports
 
 * Based cryptocurrency be implemented decentralized Exchange RESOURCES, where it will be possible to buy and sell computer RESOURCES
 
 * Those who consumes more than donates, can easily "invest money" to the whole community and "raise" its own rating to be able to stay connected
 
 * Those who supports the BitDust network a lot, will be able to "sell" part of their ranking in exchange for cash
-        
+    Â Â Â Â 
 * BitDust company can make profits in various ways:
 
-    * A fully paid applications and services based on BitDust network
+    *Â A fully paid applications and services based on BitDust network
     
-    * A tax on each transaction
+    *Â A tax on each transaction
     
-    * In the form of resource users' PCs, which later can be sold to corporate and private clients
+    *Â In the form of resource users' PCs, which later can be sold to corporate and private clients
     
-    * In the form of advertising space for other companies
+    *Â In the form of advertising space for other companies
     
-    * Implementing additional functions to improve the software for private companies exclusively
+    *Â Implementing additional functions to improve the software for private companies exclusively
     
-    * Accept donations
+    *Â Accept donations
 
 
 * Employees of private and public companies, banks, etc. may use along with other network
@@ -76,8 +76,5 @@
 * Program always comes on the user's machine in open source codes
 
 
----
+... to be continued
 
-===
-
-[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

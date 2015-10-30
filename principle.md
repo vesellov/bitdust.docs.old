@@ -61,6 +61,3 @@ some finite state machine.
 
 
 
-===
-
-[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

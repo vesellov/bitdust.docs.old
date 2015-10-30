@@ -65,7 +65,3 @@ We try to create an ultimate user-friendly environment which could have most of 
 
 
 
-===
-
-[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)
-

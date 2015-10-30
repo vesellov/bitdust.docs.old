@@ -36,6 +36,3 @@ Thank You!
 
 
 
-===
-
-[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)

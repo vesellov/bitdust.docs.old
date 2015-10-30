@@ -50,11 +50,13 @@ for agreeing on other methods of supporting BitDust project.
 
 ## Great Thanks to:
 
-    Karasev Petr
-    Kozlov Nikolay
-
++ Kozlov Nikolay
++ Vincent Cate
++ Karasev Petr
++ Kashin Albert
++ Daniel Petrarca
+    
+    
+    
     
 
-===
-
-[Table of contents](https://github.com/vesellov/bitdust.docs#bidust)
