@@ -1,6 +1,6 @@
 # BitDust
 
-Disintegration of your personal data in the digital __Dust__, gain full control over them, absolute privacy and independency.
+Disintegration of your personal data in the digital dust, gain full control over them, absolute privacy and independency.
 
 
 ## BitDust is ...
@@ -32,7 +32,7 @@ Disintegration of your personal data in the digital __Dust__, gain full control 
 
 | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | ---:   | :---   | :---   | :---   |
-| Download (will come soon)  | [Install](install.md)  | [Cpmmands](cmdline.md) | [Settings](settings.md) |
+| Download (come soon)  | [Install](install.md)  | [Commands](cmdline.md) | [Settings](settings.md) |
 
 <br>
 
@@ -75,12 +75,20 @@ div#table04 td:hover { background-color: #f2f2ff; }
 <div id=table05 markdown="1">
 <style>
 div#table05 td, th { padding: 0px 15px; white-space: nowrap; }
+div#table05 img { max-width: 100px; }
 </style>
 
 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | ---:   | :---   | :---   | :---   | :---   |
-| [Links](links.md) | [Road map](roadmap.md) | [Latest News](news.md) | [Project status](status.md) | [Change Log](changelog.md) |
+| [![img](screenshots/filemanager1.png)](screenshots/filemanager1.png) | [![img](screenshots/filemanager2.png)](screenshots/filemanager2.png)  | [![img](screenshots/filemanager3.png)](screenshots/filemanager3.png) | [![img](screenshots/myfiles2.png)](screenshots/myfiles2.png) | [![img](screenshots/udp2.png)](screenshots/udp2.png) | [![img](screenshots/commandline0.png)](screenshots/commandline0.png) |
+
+
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| :---   | :---   | :---   | :---   | :---   | :---   |
+| [![img](screenshots/BitDust.png)](screenshots/BitDust.png) | [![img](screenshots/backup.png)](screenshots/backup.png) | [![img](screenshots/udp_stream.png)](screenshots/udp_stream.png) | [![img](screenshots/packet_out.png)](screenshots/packet_out.png) | [![img](screenshots/stun_client.png)](screenshots/stun_client.png) | [![img](screenshots/id_registrator.png)](screenshots/id_registrator.png) |
+
 <br>
+
 <br>
 
 </div>
