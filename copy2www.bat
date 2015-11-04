@@ -1,10 +1,17 @@
 @echo off
 
+IF "%~1" == "" GOTO COPY_ALL
+
+cp -rfv %~1 ../bitdust.www.english
+GOTO END
+
+:COPY_ALL
+
+
 cp -rfv @build/*.html ../bitdust.www.english
+           
 
-            
-
-cp -rfv @build/automats         ../bitdust.www.english
+REM cp -rfv @build/automats         ../bitdust.www.english
 cp -rfv @build/chat             ../bitdust.www.english
 cp -rfv @build/customer         ../bitdust.www.english
 cp -rfv @build/main             ../bitdust.www.english
@@ -18,15 +25,6 @@ cp -rfv @build/transport        ../bitdust.www.english
 cp -rfv @build/userid           ../bitdust.www.english
 
 
-REM cp -rfv @build/p2p/*.html ../bitdust.www/p2p
-REM cp -rfv @build/p2p/*.png ../bitdust.www/p2p
-REM cp -rfv @build/p2p/*.pdf ../bitdust.www/p2p
+:END
 
-REM cp -rfv @build/services/*.html ../bitdust.www/services
-rem cp -rfv services/*.png ../bitdust.www/services
-rem cp -rfv services/*.pdf ../bitdust.www/services
-
-REM cp -rfv @build/customer/*.html ../bitdust.www/customer
-REM cp -rfv @build/customer/*.png ../bitdust.www/customer
-REM cp -rfv @build/customer/*.pdf ../bitdust.www/customer
-
+@echo [DONE!]

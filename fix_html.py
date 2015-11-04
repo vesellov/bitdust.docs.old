@@ -12,6 +12,7 @@ if len(sys.argv) > 3:
 if not os.path.isdir(os.path.dirname(dest)):
     print "create", os.path.dirname(dest)
     os.makedirs(os.path.dirname(dest))
+site_url = "http://bitdust.io"
 sbody = open(src).read()
 sbody = re.sub('a href="(.+?)\.md"', 'a href="%s\g<1>.html"' % md_base, sbody)
 sbody = re.sub('a href="(.+?)\.py"', 'a href="%s\g<1>.py"' % gitlab_base, sbody)
@@ -28,6 +29,14 @@ sbody = re.sub('\<h(\d)\>(.+?)\<\/h(\d)\>',
                                                     m.group(2),
                                                     m.group(3)), 
                sbody)
+# sbody = sbody.replace(
+    # '<div class=fbcomments markdown="1">', 
+    # '<div class="fb-comments" data-href="%s/%s" data-width="500" data-numposts="5">' % (
+        # site_url, os.path.basename(dest)))
+sbody = sbody.replace(
+    '<div class=fbcomments>', 
+    '<div class="fb-comments" data-href="%s/%s" data-numposts="5" data-width="100%%" data-colorscheme="light">' % (
+        site_url, os.path.basename(dest)))        
 try:
     title = re.search('<h1.*?>(.+?)</h1>', sbody).group(1)
 except:
@@ -35,5 +44,7 @@ except:
 newbody = template % {
     'title': title,
     'body': sbody, 
-    'basepath': basepath,}
+    'basepath': basepath,
+    'site_url': site_url,
+    'filepath': os.path.basename(dest)}
 open(dest, mode='w').write(newbody)

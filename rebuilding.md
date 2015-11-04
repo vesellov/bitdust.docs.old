@@ -1,4 +1,4 @@
-﻿# Automatic Rebuilding
+# Automatic Rebuilding
 
 * [Data Redundancy](#data-redundancy)
 * [RAID Transformation](#raid-transformation)
@@ -128,3 +128,6 @@ BitDust network does not create and use centralized suppliers or clients ratings
 
 
 
+
+<div class=fbcomments markdown="1">
+</div>

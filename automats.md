@@ -55,19 +55,28 @@ In this picture you can see an automat called
 [`contact_status()`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244),
 which has four states.
 
+<div class=automatpng markdown="1">
 [![contact_status()](p2p/contact_status.png)](p2p/contact_status.pdf)
+</div>
 
 There are following elements:
 
+<div id=table01 markdown="1">
+<style>
+div#table01 td, th { padding: 0px 15px; white-space: nowrap; }
+div#table01 img { max-width: 100px; }
+</style> 
 
 | states         | events          | conditions     | actions           | variables     |
-| ---            | ---             | ---            |   ---             | ---           |
+| :---           | :---            | :---           | :---              | :---          |
 | **OFFLINE**    | outbox-packet   | isPingPacket() | doRepaint()       | AckCounter    |
-| **CONNECTED**  | inbox-packet    | isDataPacket() | doRememberTime()  |               |
-| **PING**       | file-sent       |                |                   |               |
-| **ACK?**       | sent-done       |                |                   |               |
+| **CONNECTED**  | inbox-packet    | isDataPacket() | doRememberTime()  | &nbsp;        |
+| **PING**       | file-sent       | &nbsp;         | &nbsp;            | &nbsp;        |
+| **ACK?**       | sent-done       |                |                   | &nbsp;        |
 |                | sent-failed     |                |                   |               |
 |                | timer-20sec     |                |                   |               |
+
+</div>
 
 The automat `contact_status()` works as follows:
 
@@ -213,7 +222,8 @@ Microsoft Visio 2007 is used for creation of the vector schemes of transition gr
 A small tool called [`visio2python`](http://gitlab.bitdust.io/devel/visio2python/tree/master) was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
 It can translate the transition graphs, created in Microsoft Visio into the code in Python or JavaScript languages.
 
-[!(visio2python)[http://bitdust.io/visio2python/visio2python-screen1.png]](http://gitlab.bitdust.io/devel/visio2python/tree/master)
+[http://gitlab.bitdust.io/devel/visio2python](http://gitlab.bitdust.io/devel/visio2python/tree/master)
+
 
 ## BitDust Finite State Machines
 
@@ -255,3 +265,5 @@ It can translate the transition graphs, created in Microsoft Visio into the code
 
 
 
+<div class=fbcomments markdown="1">
+</div>

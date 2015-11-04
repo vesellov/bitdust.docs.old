@@ -1,4 +1,3 @@
-﻿
 # Donation / Your Contribution
 
 
@@ -60,3 +59,5 @@ for agreeing on other methods of supporting BitDust project.
     
     
 
+<div class=fbcomments markdown="1">
+</div>

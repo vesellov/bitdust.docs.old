@@ -107,3 +107,6 @@ At the moment BitDust program does not have a mechanism of praising the users an
 
 
 
+
+<div class=fbcomments markdown="1">
+</div>

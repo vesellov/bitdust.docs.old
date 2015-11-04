@@ -80,16 +80,18 @@ div#table05 img { max-width: 100px; }
 
 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | ---:   | :---   | :---   | :---   | :---   |
-| [![img](screenshots/filemanager1.png)](screenshots/filemanager1.png) | [![img](screenshots/filemanager2.png)](screenshots/filemanager2.png)  | [![img](screenshots/filemanager3.png)](screenshots/filemanager3.png) | [![img](screenshots/myfiles2.png)](screenshots/myfiles2.png) | [![img](screenshots/udp2.png)](screenshots/udp2.png) | [![img](screenshots/commandline0.png)](screenshots/commandline0.png) |
+| [![img](screenshots/filemanager1.png)](screenshots/filemanager1.png) | [![img](screenshots/filemanager2.png)](screenshots/filemanager2.png)  | [![img](screenshots/myfiles2.png)](screenshots/myfiles2.png) | [![img](screenshots/udp2.png)](screenshots/udp2.png) | [![img](screenshots/commandline0.png)](screenshots/commandline0.png) |
 
 
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| :---   | :---   | :---   | :---   | :---   | :---   |
-| [![img](screenshots/BitDust.png)](screenshots/BitDust.png) | [![img](screenshots/backup.png)](screenshots/backup.png) | [![img](screenshots/udp_stream.png)](screenshots/udp_stream.png) | [![img](screenshots/packet_out.png)](screenshots/packet_out.png) | [![img](screenshots/stun_client.png)](screenshots/stun_client.png) | [![img](screenshots/id_registrator.png)](screenshots/id_registrator.png) |
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| :---   | :---   | :---   | :---   | :---   |
+| [![img](screenshots/BitDust.png)](screenshots/BitDust.png) | [![img](screenshots/backup.png)](screenshots/backup.png) | [![img](screenshots/udp_stream.png)](screenshots/udp_stream.png) | [![img](screenshots/packet_out.png)](screenshots/packet_out.png) | [![img](screenshots/stun_client.png)](screenshots/stun_client.png) |
 
 <br>
 
 <br>
 
 </div>
+
+
 

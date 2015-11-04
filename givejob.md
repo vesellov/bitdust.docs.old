@@ -53,7 +53,7 @@ skype: [vesellov](skype:vesellov)
 + Successfully launched and tested the new solution for encryption and data protection
 
 ##### Software Engineer, «New Information Technology in Aviation», 2003 - 2007
-[http://www.en.nita.ru](http://www.en.nita.ru)
+[http://en.nita.ru](http://en.nita.ru)
 
 + Developed 3D visualization systems for a complex flight simulator
 + Participated in development of flying control training system which was successfully installed at the training center in Ankara, Turkey
