@@ -1,7 +1,7 @@
 # Data Storage
 
-* [Introduction](#Intro)
-* [Suppliers / Clients](#suppliers-and-clients)
+* [Introduction](#intro)
+* [Suppliers / Customers](#suppliers-and-customers)
 * [Upload in the Network](#upload-in-the-network)
 * [Data Redundancy](#data-redundancy)
 * [Download from the Network](#download-from-the-network)
@@ -11,13 +11,13 @@
 
 ## Intro
 
-BitDust network consists of multiple equal node, whose owners voluntarily give a part of hardware resources of their personal computers to each other. By sharing the resources the network users get more reliable, secured and fully independent storage for their own data.
+BitDust network consists of multiple equal nodes, whose owners voluntarily give a part of hardware resources of their personal computers to each other. By sharing own resources to the BitDust network, all users get access to more private, secure and fully independent storage to protect own data.
 
 
 
-## Suppliers and Clients 
+## Suppliers and Customers 
 
-User data allocation takes place on a fixed combination of nodes chosen beforehand, these nodes are called "suppliers". The user at the same time becomes a "client" for all these nodes – figuratively speaking he "rents" a portion of hard disk drive from each of his suppliers.
+User data allocation takes place on a fixed combination of nodes chosen beforehand, these nodes are called "suppliers". The user at the same time becomes a "customer" for all these nodes – figuratively speaking he "rents" a portion of hard disk drive from each of his suppliers.
 
 Before the user can start the first data upload the BitDust program should run a search and connection to his suppliers and provide available space for his data. By the first run and then in the program settings the user sets the two key parameters, which define the key parameters of the distributed storage:
 
@@ -29,7 +29,7 @@ Knowing this data you can easily count the value which should be provided from e
 The number of suppliers can become one of these values:
 `2`, `4`, `7`, `13`, `18`, `26`, `64`. Further you will find a detailed description how the data allocation is done and how the combinations of suppliers are formed.
 
-The number of clients whom each user can support theoretically is not limited. However by having too many of them the possible sessions number can be exceeded – this parameter depends on operation system, which runs the given BitDust node. Apart from this by simultaneous upload/download from user machine the network channel which each client receives will be severely restricted – only nodes with very wide data through-put will be able to support a great number of clients.
+The number of customers whom each user can support theoretically is not limited. However by supporting too many nodes the possible sessions number can be exceeded – this parameter depends on operation system, which runs the given BitDust node.  Apart from this by simultaneous upload/download from user machine the network channel which each customer receives will be severely restricted – only nodes with very high bandwidth will be able to support a great number of nodes.
 
 
 

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="canonical" href="http://bitdust.io">
-
+    
     <title>%(title)s</title>
 
     <meta property="fb:admins" content="1097958228"/>
@@ -34,27 +34,22 @@
     
     <link href="%(basepath)scss/bootstrap.css" rel="stylesheet">
     
+    <link href="%(basepath)scss/fonts.css"   rel="stylesheet" type="text/css">
     <link href="%(basepath)scss/bitdust.css" rel="stylesheet" type="text/css">
     <link href="%(basepath)scss/topmenu.css" rel="stylesheet" type="text/css">
-    <link href="%(basepath)scss/overlay.css" rel="stylesheet" type="text/css">
+    <link href="%(basepath)scss/navbar.css"  rel="stylesheet" type="text/css">
     <link href="%(basepath)scss/automat.css" rel="stylesheet" type="text/css">
     <link href="%(basepath)scss/table.css"   rel="stylesheet" type="text/css">
+    <link href="%(basepath)scss/feedback.css" rel="stylesheet" type="text/css">
 
     <script src="%(basepath)sjs/feedback.js"></script> 
 
 </head>
 
 <body>
-    
-<!-- Facebook Init -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=543329652498581";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>    
+
+<div class="wallpaper">
+</div>
 
 <div id=page_container class="Center-Container is-Inline">
 <div class="Center-Block">
@@ -70,9 +65,11 @@
 <div id="bottom_area">
 <div id=copyright>
 © Copyright 2015 BitDust LLC. 
+<!--
 Using web site, software and other products
 branded  <b>BitDust</b> means agree with the
 <a href="http://bitdust.io/license.html"> license agreement </a>.
+-->
 All rights reserved.
 </div>
 </div>
@@ -90,39 +87,49 @@ All rights reserved.
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-                <div id="top_search_panel">
-                    <input type="text" id="top_search_input" placeholder="have a question?">
-                    <button type="button" id="top_search_button">ask</button>
-                </div>
             </div>
             
             <div id="navbar" class="navbar-collapse collapse">
-                
+
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <div id="top_search_panel">
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                    <input type="text" id="top_search_input" class="form-control" placeholder="  have a question?">
+                                    <button type="button" class="btn btn-default" id="top_search_button">Ask</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            
                 <ul class="nav navbar-nav navbar-right">
                 
-                    <li>
+                    <!-- <li>
                         <a href="%(basepath)s" id="main_download" class="btn btn-primary btn-lg top_menu_button" >DOWNLOAD</a>
-                    </li>
+                    </li> -->
                 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                            Why Bitdust?
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
+                            Why BitDust?
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="%(basepath)s">NO PASSWORDS!</a></li>
-                            <li><a href="%(basepath)ssecurity.html">100%% Security</a></li>
-                            <li><a href="%(basepath)s">P2P Anonymous</a></li>
-                            <li><a href="%(basepath)s">Open Source</a></li>
-                            <li><a href="%(basepath)s">Good Team</a></li>
-                            <li><a href="%(basepath)sroadmap.html">Road Map</a></li>
+                            <li><a href="%(basepath)ssecurity.html">Security</a></li>
+                            <li><a href="%(basepath)sidentities.html">Independence</a></li>
+                            <li><a href="%(basepath)sstorage.html">Fairness</a></li>
+                            <li><a href="http://gitlab.bitdust.io/groups/devel">Open Source</a></li>
+                            <li><a href="https://www.facebook.com/bitdust">Good Team</a></li>
+                            <li><a href="%(basepath)sroadmap.html">Big Plans!</a></li>
                         </ul>
                     </li>
                     
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
                             Docs
                             <span class="caret"></span>
                         </a>
@@ -132,20 +139,21 @@ All rights reserved.
                             <li><a href="%(basepath)sconcept.html">Concept</a></li>
                             <li><a href="%(basepath)sprinciple.html">Principle</a></li>
                             <li><a href="%(basepath)sglossary.html">Glossary</a></li>
+                            <li><a href="%(basepath)sautomats.html">Finite states-machines</a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
                             Team
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="%(basepath)sdevelop.html">Get a Task!</a></li>
+                            <!-- <li><a href="%(basepath)s">Get a Task!</a></li> -->
                             <li><a href="%(basepath)sdonate.html">Donate $</a></li>
-                            <li><a href="%(basepath)sgivejob.html">Give me a Job?</a></li>
-                            <li><a href="%(basepath)s">Project Founders</a></li>
+                            <li><a href="%(basepath)sgivejob.html">Hire developer</a></li>
+                            <!-- <li><a href="%(basepath)s">Project Founders</a></li> -->
                         </ul>
                     </li>
                     
@@ -159,6 +167,36 @@ All rights reserved.
         </div>
     </nav>
 </div>
+
+<div class="overlay" title="окно"></div>
+<div class="popup">
+    <div class="close_order">x</div>
+    <div class="feedback_alert text-left"></div>
+    <div id="feedback_panel">
+        <form method="post" id="contactform">
+            <input type="text" placeholder="name" name="txtname">	
+            <input type="email" placeholder="email" name="txtemail">
+            <textarea id="feedback_message" name="message" required="" placeholder="message" rows="10" value=""></textarea>
+            <input type="hidden" name="valTrFal" class="valTrFal" value="valTrFal_disabled">
+            <div id="confirm">
+                <input type="checkbox" id="checkBoxId">
+                <label id="checkBoxLabel" for="checkBoxId">Confirm to send the message for developers?</label>
+            </div>
+            <input id="feedback_submit_button" type="submit" class="button" value="&nbsp;&nbsp;Submit&nbsp;&nbsp;" disabled="disabled" name="btnsend">
+        </form>
+    </div>
+</div>
+
+<!-- Facebook Init -->
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=543329652498581";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>    
 
 
 <!-- Yandex.Metrika counter -->
@@ -178,7 +216,6 @@ All rights reserved.
 </script>
 <noscript><div><img src="//mc.yandex.ru/watch/28171152" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
-
 <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -188,33 +225,6 @@ All rights reserved.
   ga('create', 'UA-59191888-1', 'auto');
   ga('send', 'pageview');
 </script>
-
-
-<div class="popup_overlay" id="message_overlay">
-    <div class="popup"> 
-        <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <center> 
-            <h4>Contact BitDust Team</h4> 
-        </center>
-		<div class="feedback_alert"></div>
-        <div id="feedback_panel">
-          <form id="feedback_form" action="" method="post">
-            <div class="form-group">
-                <label for="first">Your message:</label>
-                <textarea cols="30" rows="3" name="message" class="form-control" id="feedback_message" placeholder="Ask your question"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="first">Reply-to address:</label>
-                <input type="text" name="address" class="form-control" id="feedback_address" placeholder="E-mail, Skype, other contact" value="" >
-            </div>
-            <button id="feedback_submit_button" type="submit" class="btn btn-default">Submit</button>             
-          </form>
-        </div>
-    </div>
-</div>
-
 
 
 </body>

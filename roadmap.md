@@ -1,21 +1,21 @@
 # Development plans
 
 
-* [Graphical user interface](#Graphical-user-interface)
-* [Data share](#Data-share)
-* [Distributed data rebuilding](#Distributed-data-rebuilding)
-* [Global search](#Global-search)
-* [Chat/Video/Conferencing](#Chat/Video/Conferencing)
-* [Decentralized Mail](#Decentralized-Mail)
-* [Monetization through cryptocurrency](#Monetization-through-cryptocurrency)
-* [Anonymous logon](#Anonymous-logon)
-* [Decentralized social network](#Decentralized-social-network)
-* [Distributed WEB-hosting](#Distributed-WEB-hosting)
-* [Endless virtual worlds](#Endless-virtual-worlds)
+* [Graphical user interface](#graphical-user-interface)
+* [Data share](#data-share)
+* [Distributed data rebuilding](#distributed-data-rebuilding)
+* [Global search](#global-search)
+* [Chat/Video/Conferencing](#chat/video/conferencing)
+* [Decentralized Mail](#decentralized-mail)
+* [Monetization through cryptocurrency](#monetization-through-cryptocurrency)
+* [Anonymous logon](#anonymous-logon)
+* [Decentralized social network](#decentralized-social-network)
+* [Distributed WEB-hosting](#distributed-web-hosting)
+* [Endless virtual worlds](#endless-virtual-worlds)
 
 
 ## Graphical user interface
-Has already begun work on creating a visual user interface for BitPie.NET software.
+Has already begun work on creating a visual user interface for BitDust software.
 
 Interaction with the user will be implemented using a standard Internet browser,
 which is present in almost any operating system.
@@ -51,12 +51,12 @@ Imagine, if you posses appropriate permissions:
 
 
 ## Distributed data rebuilding
-At this point in the BitPie.NET software implemented a mechanism for automatic data rebuilding,
+At this point in the BitDust software implemented a mechanism for automatic data rebuilding,
 to be able to reconstruct a missing data segments when updating a lost supplier.
 The whole process is fully automatic and does not require any actions from user in order
-to maintain downloaded   data into the BitPie.NET network.
+to maintain downloaded   data into the BitDust network.
 
-Automatic rebuilding occurs on the data owner's node and requires constant work of BitPie.NET
+Automatic rebuilding occurs on the data owner's node and requires constant work of BitDust
 software on its machine and stable Internet connection.
 
 Possible to transfer this functionality on other nodes that will support the downloaded data
@@ -66,27 +66,27 @@ computers to rebuild user's data on new suppliers.
 
 An interesting feature of the proposed approach is that the scrubbers do not have access
 to user's data, since they always operate with encrypted data.
-This allows you to safely authorize to scrub your data to any nodes in the BitPie.NET network 
+This allows you to safely authorize to scrub your data to any nodes in the BitDust network 
 and repeatedly increase storage reliability and speed up of uploading and downloading data.
 The whole process of the remote automatic recovery will occur entirely without
 the participation of the user. After downloading the data to the network,
-you can shutdown your computer, or simply stop the BitPie.NET software.
+you can shutdown your computer, or simply stop the BitDust software.
 
 Together with the ability to share data, the implementation of this phase will make possible
 to completely anonymous transmission and dissemination of data on the Internet.
-Imagine, the owner of the data use a temporary IP address at first time he enters in the BitPie.NET network
+Imagine, the owner of the data use a temporary IP address at first time he enters in the BitDust network
 and made initial data uploading. Then he never use this identity file to enter the network again. 
 This way his supplies actually will have no real information about him - it's like make a call
 from a stolen SIM-card and throw it out.
 His scrubbers thus will continue to engage in automatic restoring and maintaining downloaded data 
-in the BitPie.NET network, so that data stay  available for everyone.
+in the BitDust network, so that data stay  available for everyone.
 Later, the owner of the data can go and download them using a different identity, this way
 he will not be recognized.
 
 
 ## Global search
 
-We would like to add a search engine in the BitPie.NET software.
+We would like to add a search engine in the BitDust software.
 This should let users find a data in the global space which is granted a full read access - just
 like a well-known torrents.
 To any folder or file can be created and text description, on its base will be formed
@@ -98,7 +98,7 @@ Special "crawlers" sooner or later will visit the newly created topic,
 validate it and make the appropriate changes in the global index.
 
 This functionality will provide a completely safe and independent data distribution over 
-the BitPie.NET network, uncensored and possibility to exert any pressure on users by third parties.
+the BitDust network, uncensored and possibility to exert any pressure on users by third parties.
 This is a significant advantage in comparison with classical torrent trackers.
 Their WEB sites are  under pressure from the copyright holders of content that is distributed there.
 
@@ -125,20 +125,20 @@ It is proposed to use a  mail SMTP / POP3 / IMAP client, which the user  usual u
 transmitting/receiving e-mails.
 This does not require to install anything else.
 
-In the BitPie.NET software has already been implemented a basic functionality for direct transfer 
+In the BitDust software has already been implemented a basic functionality for direct transfer 
 of protected messages from one node to another.
 Our plan is to use standard protocols SMTP, POP3 and IMAP for
-create a universal interfaces between user and other nodes in the BitPie.NET network.
+create a universal interfaces between user and other nodes in the BitDust network.
 
 At the begining of the client software, will be started a couple local mail servers for input and 
 output mails. This servers is pretty small and acts as
-intermediate scripts between the user's email client and program BitPie.NET.
+intermediate scripts between the user's email client and program BitDust.
 
-After switching on that functionality in the BitPie.NET software, 
+After switching on that functionality in the BitDust software, 
 the user will only needs to configure a mail client that is most convenient for him.
 
 At the moment there is not a final decision on the format of e-mailboxes
-within the network BitPie.NET. Probably they will be formed based on user's IDURL, for example example
+within the network BitDust. Probably they will be formed based on user's IDURL, for example example
 http://p2p-id.ru/veselin.xml will be translated to veselin@p2p-id.ru.
 
 
@@ -147,32 +147,32 @@ http://p2p-id.ru/veselin.xml will be translated to veselin@p2p-id.ru.
 To create the most equitable relations between users, we plan to introduce
 methods to encourage each other.
 Each user should have the ability to make profit
-from donating resources of its PC into the BitPie.NET network .
+from donating resources of its PC into the BitDust network .
 
 We plan to use well-known "Cryptocurrency" to create an electronic "coins".
 Such coins can be used to conduct transactions between users and "pay" for services 
 of suppliers and scrubbers.
-Like the well-known BitCoin, it will be possible to create a free conversion of BitPie.NET 
+Like the well-known BitCoin, it will be possible to create a free conversion of BitDust 
 coins into any material assets, including real money.
 
-The next step could release of our own electronic "shares" of the BitPie.NET company, 
+The next step could release of our own electronic "shares" of the BitDust company, 
 which will be fully protected by the same way.
-Anyone will be able to instantly invest in BitPie.NET company from home and gain profits
+Anyone will be able to instantly invest in BitDust company from home and gain profits
 from the growth of capitalization of the entire project.
 
-This will attract almost unlimited funding with a corresponding increase in the BitPie.NET network itself.
+This will attract almost unlimited funding with a corresponding increase in the BitDust network itself.
 
 
 ## Anonymous logon
 
-At the moment, user identification  in the BitPie.NET system let you hide your personal data 
+At the moment, user identification  in the BitDust system let you hide your personal data 
 and uses only short text identifiers.
 Not required any authorization, provide your email or phone number.
-BitPie.NET company do not know any info about the users and do not care about that.
+BitDust company do not know any info about the users and do not care about that.
 
 However, the user's IP address at this stage of the project development can not be hidden - it 
 is published in his identiy file in open or semi-open form.
-We can talk about pseudo-anonymity in the BitPie.NET network.
+We can talk about pseudo-anonymity in the BitDust network.
 
 The implementation of the algorithm of hiding the real IP address of the user will provide:
 
@@ -183,7 +183,7 @@ The implementation of the algorithm of hiding the real IP address of the user wi
 
 ## Decentralized social network
 
-Autonomy of each node in the network BitPie.NET allows you to create a fully distributed
+Autonomy of each node in the network BitDust allows you to create a fully distributed
 and free user community.
 The absence of authorization and central nodes will remove strict censorship and "spying" of users.
 
@@ -197,7 +197,7 @@ This can lead for interesting social experiments in the entire human society.
 
 In our long term plans is to create an environment for the development of fully-protected sites. 
 Any such site will have no single entry point and placed on many nodes 
-in the BitPie.NET network - they can not be closed by any authority.
+in the BitDust network - they can not be closed by any authority.
 
 User's suppliers can be used to maintain a distributed database for his WEB site. 
 All HTTP requests from visitors will fall on a random machine in the set of suppliers.
@@ -215,7 +215,7 @@ when adding new locations, quests, etc.
 However, there are software packages for generating pseudo-random landscapes
 according to set parameters. Can be automatically created and other terrestrial objects.
 
-On the basis of a fully distributed storage BitPie.NET possible to implement such storage of 
+On the basis of a fully distributed storage BitDust possible to implement such storage of 
 pseudo-random locations or entire 3D worlds, so that each location will be absolutely unique.
 
 Moving from one location to another can be done completely transparent to the player and will allow 

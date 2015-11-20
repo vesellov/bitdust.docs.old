@@ -1,97 +1,19 @@
 # BitDust
 
-Disintegration of your personal data in the digital dust, gain full control over them, absolute privacy and independency.
+### distributed on-line storage network
 
+BitDust is a distributed on-line storage, in which only data owner has an access to his data.
 
-## BitDust is ...
-+ distributed and safe p2p storage platform, which only the owner of the data has full access and control
-+ decentralized worldwide computer network for the secure storage and transmission of information - based on top of existing Internet connections
-+ complex ecosystem, the basic idea of which is to complete the decentralization of information flows and the stored data in order to protect personal freedom
-+ software suite that implements on top of existing Internet channels, a new global communications infrastructure more decentralized, safe and fair
-+ just another revolution ...
+Imagine a situation when two friends and you agree to help each other to store the data. On your computer you store the data that both of your friends uploaded to you via Internet, and you in turn can use the free space on their machines to save your files. This creates [redundancy](storage#data-redundancy), but allows storing important data in a safer way. It is also a fair deal, because all three are interested in the maximum safety and availability of stored information.
 
+BitDust network is a voluntary association of people [sharing resources](storage#suppliers-and-customers) of their personal computers. Their machines run the same copies of BitDust program, which enables device communication via Internet when data are transmitted directly from one user to another and stored on user hard disk drives. 
 
-## Read more
+Uploaded input data is divided into blocks and fragments, [encrypted](security) and uploaded on other users computers. The system is designed to perform continuous monitoring of each node, which stores your data.
 
-<div id=table01 markdown="1">
-<style>div#table01 td, th { padding: 0px 15px; white-space: nowrap; } div#table01 td:hover { background-color: #f2f2ff; }</style>
+The BitDust program constantly keeps a state, which enables you to download your data back to your machine at any moment. The mechanism of [automatic data restoring](rebuilding) allows dynamic reassembling of the data fragments uploaded into the network on the new nodes without any action from the user. 
 
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| ---:   | :---   | :---   | :---   | :---   |
-| [Docs](toc.md)    | [Glossary](glossary.md)  | [Intro](intro.md) | [How it works?](principle.md)  | [F.A.Q.](faq.md) |
+BitDust program is written in [Python](http://python.org) using [Twisted](http://twistedmatrix.com/) Framework and is distributed in open source code - we are still deciding about the license type. 
 
-<br>
+The project is in the stage of deep development, but the [demo version](screenshots) will be available in the near future. 
 
-</div>
-
-
-## Get Started!
-
-<div id=table02 markdown="1">
-<style>div#table02 td, th { padding: 0px 15px; white-space: nowrap; } div#table02 td:hover { background-color: #f2f2ff; }</style>
-
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| ---:   | :---   | :---   | :---   |
-| Download (come soon)  | [Install](install.md)  | [Commands](cmdline.md) | [Settings](settings.md) |
-
-<br>
-
-</div>
-
-## Foundation
-
-<div id=table03 markdown="1">
-<style>div#table03 td, th { padding: 0px 15px; white-space: nowrap; } div#table03 td:hover { background-color: #f2f2ff; }</style>
-
-| &nbsp; | &nbsp; | &nbsp; |
-| ---:   | :---   | :---   |
-| [Ask a question?](faq.md#ask-question) ? | [Message board](/forum) | [Re Post Please!](social.md) |
-| [Support](support.md) BitDust | [Join](join_team.md) BitDust Team | [Donate](donate.md) |
-
-<br>
-
-</div>
-
-
-## Development
-
-<div id=table04 markdown="1">
-<style>
-div#table04 td, th { padding: 0px 15px; white-space: nowrap; }
-div#table04 td:hover { background-color: #f2f2ff; }
-</style>
-
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| ---:   | :---   | :---   | :---   | :---   |
-| [Links](links.md) | [Road map](roadmap.md) | [Latest News](news.md) | [Project status](status.md) | [Change Log](changelog.md) |
-<br>
-<br>
-
-</div>
-
-
-## Screenshots
-
-<div id=table05 markdown="1">
-<style>
-div#table05 td, th { padding: 0px 15px; white-space: nowrap; }
-div#table05 img { max-width: 100px; }
-</style>
-
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| ---:   | :---   | :---   | :---   | :---   |
-| [![img](screenshots/filemanager1.png)](screenshots/filemanager1.png) | [![img](screenshots/filemanager2.png)](screenshots/filemanager2.png)  | [![img](screenshots/myfiles2.png)](screenshots/myfiles2.png) | [![img](screenshots/udp2.png)](screenshots/udp2.png) | [![img](screenshots/commandline0.png)](screenshots/commandline0.png) |
-
-
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| :---   | :---   | :---   | :---   | :---   |
-| [![img](screenshots/BitDust.png)](screenshots/BitDust.png) | [![img](screenshots/backup.png)](screenshots/backup.png) | [![img](screenshots/udp_stream.png)](screenshots/udp_stream.png) | [![img](screenshots/packet_out.png)](screenshots/packet_out.png) | [![img](screenshots/stun_client.png)](screenshots/stun_client.png) |
-
-<br>
-
-<br>
-
-</div>
-
-
-
+We invite all who are interested in this direction - primarily developers and enthusiasts. Join our team, or just [support us](donate). Together we will better realize our plans and create a fairer alternative to the existing global networks.

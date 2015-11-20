@@ -7,7 +7,7 @@
 + [Introduction](intro.md)
 + [Concept](concept.md)
 + [How Does It Work?](principle.md)
-+ [Download](download.md)
++ Download
 + Installation
 + Program Commands
 + User Settings

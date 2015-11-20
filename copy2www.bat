@@ -1,8 +1,14 @@
 @echo off
 
+SETLOCAL ENABLEDELAYEDEXPANSION
+
 IF "%~1" == "" GOTO COPY_ALL
 
-cp -rfv %~1 ../bitdust.www.english
+set fmd=%~1
+set fhtml=!fmd:~0,-3!.html
+@echo !fhtml! 
+
+cp -rfv @build\!fhtml! ../bitdust.www.english
 GOTO END
 
 :COPY_ALL

@@ -25,7 +25,7 @@ sbody = re.sub('\<p\>\<style', '<style', sbody)
 sbody = re.sub('\</style\>\</p\>', '</style>', sbody)
 sbody = re.sub('\<h(\d)\>(.+?)\<\/h(\d)\>', 
                lambda m: '<h%s id="%s">%s</h%s>' % (m.group(1),
-                                                    m.group(2).replace(' ','-'),
+                                                    m.group(2).replace(' ','-').lower(),
                                                     m.group(2),
                                                     m.group(3)), 
                sbody)

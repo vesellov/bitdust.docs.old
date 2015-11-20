@@ -1,9 +1,6 @@
-# Give me a Job?
-
-
 Curriculum Vitae
 
-<style type="text/css">div#veselin_penev img { float: right; border-radius: 480px; margin: 10px; }</style>
+<style type="text/css">div#veselin_penev img { float: right; border-radius: 370px; margin-top: 30px; width: 400px; height: 400px; }</style>
 <div id="veselin_penev" markdown="1">
 [![Veselin Petrov Penev](http://bitdust.io/pics/480x480.jpg)](http://bitdust.io/pics/800x1200.jpg)
 </div>
@@ -12,7 +9,8 @@ Curriculum Vitae
 
 ### Programmer / Software Engineer / Full-stack Developer 
 
-##### WEB / Desktop / Networking / Security / Distributed Systems / P2P software / Big Data
+##### WEB / Desktop / Networking / Frameworks / UNIX /
+##### Security / Distributed Systems / P2P software / Big Data
 
 Russia, Saint-Petersburg / Bulgaria, Varna
 
@@ -68,11 +66,12 @@ skype: [vesellov](skype:vesellov)
 + Attracting new clients and distributing the legal software
 
 
+
 ### QUALIFICATIONS AND SKILLS
 
 ##### Programming languages:
 
-Python (9+ years), C++ (4+ years), JavaScript(3+ years), PHP, Java, Perl, Pascal, Basic, Lisp, Assembler
+Python (9+ years), C++ (4+ years), JavaScript(3+ years), PHP (1+ years), Java, Perl, Pascal, Basic, Lisp, Assembler
 
 ##### Development Environment:
 
@@ -91,14 +90,21 @@ OpenGL, NVIDIA-Shaders, CgToolkit, OpenSceneGraph
 
 Experienced Windows & Unix user, 9+ years of experience with Ubuntu Server
 
-##### WEB development:
+##### Front-End development:
 
-Apache, Nginx, Twisted, Django, GitLab, WordPress, OpenCart, Joomla!, KB Parallels (Plesk), OpenStreetMap, OpenERP, BitCoins API, phpMyAdmin, XenForo, PHPBB, Angular, 
-Open ID, Facebook API, Google API, Twitter API, Vkontakte API, Odnoklassniki API
+HTML5, CSS3, Bootstrap, JQuery, AngularJS, Open ID, Facebook API, Google API, Twitter API, Vkontakte API, Odnoklassniki API
+
+##### Back-End development:
+
+Apache2, LAMP, Django, Twisted, Tornado, WAMP, Nginx, phpMyAdmin, NodeJS
+
+##### CMS experience:
+
+WordPress, OpenCart, Joomla!, KB Parallels (Plesk), OpenStreetMap, OpenERP, XenForo, PHPBB
 
 ##### DB related skills:
 
-MySQL, MongoDB, JSON, XML, PostgreSQL
+MySQL, JSON, XML, PostgreSQL, MongoDB
 
 ##### LinkedIn Skills:
 

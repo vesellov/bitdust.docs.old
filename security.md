@@ -1,7 +1,7 @@
 # Data Security
 
 * [Brief Summary](#brief-summary)
-* [Private Key](#privatdigital key)
+* [Private Key](#private-key)
 * [Public Key](#public-key)
 * [Digital signature](#digital-signature)
 * [Service Traffic](#service-traffic)
