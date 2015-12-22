@@ -128,11 +128,15 @@ When user requests his data back from supplier’s machine they are back in the 
 
 ## Data Integrity
 
+You can upload some data into BitDust network and immediately remove the source file from your computer - now only you can restore it again using your Private Key. Since that moment, exactly same file (or its copies) is no longer exists in our World!
+
 The information uploaded in the BitDust network loses its integrity, as each supplier allocates at his machines only encrypted blocks. Nodes storing user data cannot be identified and read in any way. 
 
-One may talk of uploaded in the network data going through the process of "disintegration" – become absolutely useless for everyone except for the data owner himself. Only he having the private key can reassemble them providing having the baseline minimum quantity of fragments in each block.
+One may talk of uploaded in the network data going through the process of "data disintegration" – become absolutely useless for everyone except for the data owner himself. Only he having the private key can reassemble them providing having the baseline minimum quantity of fragments in each block.
 
 The given fact allows storing data of any sensitivity level in the BitDust network, as only the owner of data has an access to them. 
+
+Upload an remove the source file from your computer.
 
 
 # Full Control

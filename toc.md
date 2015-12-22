@@ -1,6 +1,4 @@
-# BitDust
-[bitdust.io](http://bitdust.io)
-
+# Table of contents
 
 ## Beginning
 
@@ -37,3 +35,6 @@
 + [Roadmap](roadmap.md)
 + [Donation / Your Contribution](donate.md)
 
+
+
+[bitdust.io](http://bitdust.io)
