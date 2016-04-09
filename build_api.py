@@ -20,22 +20,25 @@ while True:
     comment = ''
     if method.startswith('_'):
         continue
+    if method in ['OK', 'RESULT', 'ERROR', 'on_api_result_prepared']:
+        continue
     line = fin.readline()
     if line == '':
         break
     if line and (line.strip().startswith('"""') or line.strip().startswith("'''")):
         if line.count('"""') == 2 or line.count("'''") == 2:
-            comment = line.strip('"""').strip("'''").replace('"""','').replace("'''",'')
+            comment = line.strip('"""').strip("'''").replace('"""','').replace("'''",'').replace('    ', '', 1)
         else:
-            comment = line
+            comment = line.replace('    ', '', 1)
             while True:
                 line = fin.readline()
                 if line == '':
                     break
-                comment += line
+                comment += line.replace('    ', '', 1)
                 if line.count('"""') or line.count("'''"):
                     break
             comment = comment.strip('"""').strip("'''").replace('"""','').replace("'''",'')
+    comment = comment.replace('Return:', '')
     print '%s(%s)' % (method, params)
     fout.write('### %s(%s)\n' % (method.replace('_','\_'), params.replace('_','\_')))
     fout.write(('\n'.join(comment.splitlines())) + '\n\n')
