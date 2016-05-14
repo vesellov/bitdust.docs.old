@@ -213,6 +213,7 @@ Any local files related to this path will be removed as well.
 
 Return a list of paths to be backed up as soon as
 currently running backups will be finished.
+
     {'status': 'OK',
       'result': [    
         {'created': 'Wed Apr 27 15:11:13 2016',
@@ -223,7 +224,8 @@ currently running backups will be finished.
 
 ### backups\_running()
 
-Return a list of currently running uploads:
+Return a list of currently running uploads.
+
     {'status': 'OK',
       'result': [    
         {'aborting': False,
@@ -349,6 +351,7 @@ The "ping" command performs following actions:
 2. Send my Identity to remote contact addresses, taken from identity,
 3. Wait first Ack packet from remote peer,
 4. Failed by timeout or identity fetching error.
+
 
     {'status': 'OK', 
       'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
