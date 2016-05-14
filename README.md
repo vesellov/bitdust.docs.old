@@ -22,10 +22,8 @@ We invite all who are interested in this direction - primarily developers and en
 + [Introduction](intro.md)
 + [Concept](concept.md)
 + [How Does It Work?](principle.md)
-+ Download
-+ Installation
-+ Program Commands
-+ User Settings
++ [Installation](install.md)
++ [Program Commands](commands.md)
 
 
 ## Working Principles
@@ -44,10 +42,8 @@ We invite all who are interested in this direction - primarily developers and en
 ## Development
 
 + [Finite State Machines](automats.md)
-+ Network Servers
-+ API Interface
-+ [News](news.md)
-+ [Change Log](changelog.md)
++ Network Servives
++ [API Interface](api.md)
 + [Roadmap](roadmap.md)
 + [Donation / Your Contribution](donate.md)
 

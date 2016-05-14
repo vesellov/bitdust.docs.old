@@ -5,10 +5,8 @@
 + [Introduction](intro.md)
 + [Concept](concept.md)
 + [How Does It Work?](principle.md)
-+ Download
-+ Installation
-+ Program Commands
-+ User Settings
++ [Installation](install.md)
++ [Program Commands](commands.md)
 
 
 ## Working Principles
@@ -28,10 +26,8 @@
 ## Development
 
 + [Finite State Machines](automats.md)
-+ Network Servers
-+ API Interface
-+ [News](news.md)
-+ [Change Log](changelog.md)
++ Network Services
++ [API Interface](api.md)
 + [Roadmap](roadmap.md)
 + [Donation / Your Contribution](donate.md)
 
