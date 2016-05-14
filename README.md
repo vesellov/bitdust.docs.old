@@ -42,7 +42,7 @@ We invite all who are interested in this direction - primarily developers and en
 ## Development
 
 + [Finite State Machines](automats.md)
-+ Network Servives
++ Network Services
 + [API Interface](api.md)
 + [Roadmap](roadmap.md)
 + [Donation / Your Contribution](donate.md)

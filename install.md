@@ -27,6 +27,6 @@
 
 5. Get started
 
-    Read more about [BitDust Commands](commands) to start with the software.
+    Read more about [BitDust Commands](commands.md) to start with the software.
 
 
