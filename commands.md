@@ -25,12 +25,12 @@ creates a `bitdust` alias in OS
 in /usr/local/bin/bitdust or in
 ~/bin/bitdust if no access to /usr/local/ 
 
-### identity create <nickname> [private key size]
+### identity create [nickname] [private key size]
 generate a new private key and 
 new identity file for you
 key size can be 1024, 2048 or 4096
 
-### identity restore <private key source file> [IDURL]
+### identity restore [private key source file] [IDURL]
 recover existing identity file
 with your private key file
 
@@ -41,7 +41,7 @@ delete local identity from this machine
 copy private key to clipboard,
 use Ctrl+V to paste it
 
-### key backup <a filename for copy of private key>
+### key backup [a filename for copy of private key]
 copy private key into file
 
 ### key print
@@ -56,21 +56,21 @@ files and folders
 show a list of items already uploaded
 on remote peers 
 
-### backup add <local path>
+### backup add [local path]
 add given path to the catalog
 
-### backup addtree <local folder path>
+### backup addtree [local folder path]
 add given folder (with all sub folders) to the catalog
 
-### backup start <local path or ID>
+### backup start [local path or ID]
 start a new backup of the local file or folder 
 or existing ID from catalog
 
-### backup delete <local path, ID or full backup ID>
+### backup delete [local path, ID or full backup ID]
 remove a file or folder (with all sub folders)
 from catalog or just delete a given backup
 
-### backup delete local <full backup ID>
+### backup delete local [full backup ID]
 remove only local copy of given backup,
 keep remote copy on suppliers HDD
 
@@ -87,14 +87,14 @@ show a list of currently running uploads
 ### restore list
 show a list of items already uploaded on remote peers
 
-### restore start <local path or ID> [destination path]
+### restore start [local path or ID] [destination path]
 download personal data back to local machine
 from remote peers, you can specify 
 the destination path on your local drive,
 WARNING! source path is default location,
 so it will overwrite existing files by default
 
-### restore abort <backup ID>
+### restore abort [backup ID]
 abort currently running restore process of given item
 
 ### restore progress 
@@ -104,11 +104,11 @@ show currently running downloads
 show list of your suppliers
 nodes who stores your data on own machines
 
-### supplier replace <IDURL or position>
+### supplier replace [IDURL or position]
 execute a fire/hire process for given supplier,
 another random node will replace him
 
-### supplier change <IDURL or position> <new IDURL>
+### supplier change [IDURL or position] [new IDURL]
 replace a supplier by given node
 
 ### supplier ping       
@@ -119,7 +119,7 @@ and wait Ack packets to check their statuses
 show list of your customers
 nodes who stores own data on your machine
 
-### customer remove <IDURL>
+### customer remove [IDURL]
 reject supporting given customer and
 remove all local files stored for him
 
@@ -130,17 +130,17 @@ and wait Ack packets to check their statuses
 ### storage
 show donated/needed storage statistic 
 
-### ping <IDURL>        
+### ping [IDURL]        
 send Identity packet to this node
 and wait Ack packet to check his status
 
-### set <option> [value]
+### set [option] [value]
 use this command to get/set program setting
 
 ### set list            
 print all available settings and its values
 
-### api <method> [params]
+### api [method] [params]
 execute API method and return JSON response
 
 ### version             
@@ -156,30 +156,30 @@ print a brief list of available commands
 ## Options:
 
 -h, --help        
-                show this help message and exit
+show this help message and exit
 
 -d DEBUG, --debug=DEBUG
-                set debug level
+set debug level
 
 -q, --quite     
-                quite mode, do not print any messages to stdout
+quite mode, do not print any messages to stdout
 
 -v, --verbose   
-                verbose mode, print more messages
+verbose mode, print more messages
 
 -n, --no-logs   
-                do not use logs
+do not use logs
 
 -o OUTPUT, --output=OUTPUT
-                print log messages to the file
+print log messages to the file
 
 -a APPDIR, --appdir=APPDIR
-                set alternative location 
-                for application data files,
-                default is ~/.bitdust/
+set alternative location 
+for application data files,
+default is ~/.bitdust/
 
 --twisted       
-                show twisted log messages too
+show twisted log messages too
 
 
 
