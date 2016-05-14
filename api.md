@@ -175,6 +175,7 @@ Add a single file to the catalog, skip uploading.
 
 Recursively reads the entire folder and put files and folders items into the catalog,
 but did not start any uploads.
+
 Results:
     {'status': 'OK',
       'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}
@@ -275,7 +276,7 @@ WARNING: Your existing local data will be overwritten.
 
 Return a list of currently running downloads:
 
-    { u'result': [ { 'aborted': False,
+    { 'result': [ { 'aborted': False,
                      'backup_id': '0/0/3/1/F20160427011209PM',
                      'block_number': 0,
                      'bytes_processed': 0,
@@ -285,7 +286,7 @@ Return a list of currently running downloads:
                      'eccmap': 'ecc/4x4',
                      'path_id': '0/0/3/1',
                      'version': 'F20160427011209PM'}],
-      u'status': u'OK'}    
+      'status': 'OK'}    
 
 
 ### restore\_abort(backup\_id)
@@ -347,14 +348,14 @@ Return some info about your current usage of BitDust resources.
 ### ping(idurl, timeout=10)
 
 The "ping" command performs following actions:
-1. Request remote identity source by idurl,
-2. Send my Identity to remote contact addresses, taken from identity,
-3. Wait first Ack packet from remote peer,
-4. Failed by timeout or identity fetching error.
+    1. Request remote identity source by idurl,
+    2. Send my Identity to remote contact addresses, taken from identity,
+    3. Wait first Ack packet from remote peer,
+    4. Failed by timeout or identity fetching error.
 
 
     {'status': 'OK', 
-      'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
+     'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 
 
 ### list\_messages()
