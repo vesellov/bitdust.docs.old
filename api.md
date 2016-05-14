@@ -209,6 +209,51 @@ Any local files related to this path will be removed as well.
       'result': 'item 0/1/2 was deleted from remote peers'}"
 
 
+### backups\_queue()
+
+Return a list of paths to be backed up as soon as
+currently running backups will be finished.
+    "{'status': 'OK',
+      'result': [    
+        {'created': 'Wed Apr 27 15:11:13 2016',
+         'id': 3,
+         'local_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+         'path_id': '0/0/3/1'}]}"
+
+
+### backups\_running()
+
+Return a list of currently running uploads:
+    "{'status': 'OK',
+      'result': [    
+        {'aborting': False,
+         'backup_id': '0/0/3/1/F20160424013912PM',
+         'block_number': 4,
+         'block_size': 16777216,
+         'bytes_processed': 67108864,
+         'closed': False,
+         'eccmap': 'ecc/4x4',
+         'eof_state': False,
+         'pipe': 0,
+         'progress': 75.0142815704418,
+         'reading': False,
+         'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+         'terminating': False,
+         'total_size': 89461450,
+         'work_blocks': 4}
+    ]}"    
+
+
+### backup\_cancel\_pending(path\_id)
+
+Cancel pending task to backup given item from catalog. 
+
+
+### backup\_abort\_running(backup\_id)
+
+Abort currently running backup.
+
+
 ### restore\_single(pathID\_or\_backupID\_or\_localPath, destinationPath=None)
 
 Download data from remote peers to you local machine.
@@ -222,6 +267,91 @@ WARNING: Your existing local data will be overwritten.
 
     "{'status': 'OK',
       'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}"
+
+
+### restores\_running()
+
+Return a list of currently running downloads:
+
+    { u'result': [ { 'aborted': False,
+                     'backup_id': '0/0/3/1/F20160427011209PM',
+                     'block_number': 0,
+                     'bytes_processed': 0,
+                     'creator_id': 'http://veselin-p2p.ru/veselin.xml',
+                     'done': False,
+                     'created': 'Wed Apr 27 15:11:13 2016',
+                     'eccmap': 'ecc/4x4',
+                     'path_id': '0/0/3/1',
+                     'version': 'F20160427011209PM'}],
+      u'status': u'OK'}    
+
+
+### restore\_abort(backup\_id)
+
+Abort currently running restore process.
+
+
+### suppliers\_list()
+
+List of suppliers - nodes who stores my data on own machines.
+
+
+### supplier\_replace(index\_or\_idurl)
+
+Execute a fire/hire process of one supplier,
+another random node will replace this supplier.
+As soon as new supplier will be found and connected,
+rebuilding of all uploaded data will be started and
+the new node will start getting a reconstructed fragments.
+
+
+### supplier\_change(index\_or\_idurl, new\_idurl)
+
+Doing same as supplier_replace() but new node is provided directly.
+
+
+### suppliers\_ping()
+
+Send short requests to all suppliers to get their current statuses.
+
+
+### customers\_list()
+
+List of customers - nodes who stores own data on your machine.
+
+
+### customer\_reject(idurl)
+
+Stop supporting given customer, remove all his files from local disc,
+close connections with that node.
+
+
+### customers\_ping()
+
+Send Identity packet to all customers to check their current statuses.
+Every node will reply with Ack packet on any valid incoming Identiy packet.  
+
+
+### space\_donated()
+
+Return detailed statistics about your donated space usage.
+
+
+### space\_consumed()
+
+Return some info about your current usage of BitDust resources.
+
+
+### ping(idurl, timeout=10)
+
+The "ping" command performs following actions:
+1. Request remote identity source by idurl,
+2. Send my Identity to remote contact addresses, taken from identity,
+3. Wait first Ack packet from remote peer,
+4. Failed by timeout or identity fetching error.
+
+    "{'status': 'OK', 
+      'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}"
 
 
 ### list\_messages()
@@ -256,18 +386,6 @@ Return a list of your friends.
 
 
 ### find\_peer\_by\_nickname(nickname)
-
-
-### ping(idurl, timeout=10)
-
-The "ping" command performs following actions:
-1. Request remote identity source by idurl,
-2. Send my Identity to remote contact addresses, taken from identity,
-3. Wait first Ack packet from remote peer,
-4. Failed by timeout or identity fetching error.
-
-    "{'status': 'OK', 
-      'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}"
 
 
 
