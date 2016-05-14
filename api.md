@@ -4,29 +4,29 @@
 
 Stop the main process immediately.
 
-    "{'status': 'OK', 'result': 'stopped'}"
+    {'status': 'OK', 'result': 'stopped'}
 
 
 ### restart(showgui=False)
 
 Restart the main process, if flag show=True the GUI will be opened after restart.
 
-    "{'status': 'OK', 'result': 'restarted'}"
+    {'status': 'OK', 'result': 'restarted'}
 
 
 ### show()
 
 Opens a default web browser to show the BitDust GUI.
 
-    "{'status': 'OK', 
-      'result': '`show` event has been sent to the main process'}"
+    {'status': 'OK', 
+      'result': '`show` event has been sent to the main process'}
 
 
 ### config\_get(key, default=None)
 
 Return current value for specific option.
  
-    "{'status': 'OK',
+    {'status': 'OK',
       'result': [
          {'type': 'positive integer',
           'value': '8', 
@@ -37,7 +37,7 @@ Return current value for specific option.
 
 Set a value for given option.
  
-    "{'status': 'OK',
+    {'status': 'OK',
       'result': [
          {'type': 'positive integer',
           'old_value': '8',
@@ -49,7 +49,7 @@ Set a value for given option.
 
 Monitor all options and values.
 
-    "{'status': 'OK',
+    {'status': 'OK',
       'result': [
          {'type': 'boolean',
           'value': 'true',
@@ -98,14 +98,14 @@ More info will be added soon.
 A method to restart backup_monitor() Automat and 
 fire "synchronize" process with remote nodes.
 
-    "{'status': 'OK', 'result': 'the main loop has been restarted'}"
+    {'status': 'OK', 'result': 'the main loop has been restarted'}
 
 
 ### backups\_list()
 
 Return a whole tree of files and folders in the catalog.
 
-    "{'status': 'OK', 
+    {'status': 'OK', 
       'result': [
          {'path': '/Users/veselin/Documents', 
           'versions': [], 
@@ -131,44 +131,44 @@ Return a whole tree of files and folders in the catalog.
 
 Return only list of items uploaded on remote machines.
 
-    "{'status': 'OK', 
+    {'status': 'OK', 
       'result': [{'backupid': '0/0/1/0/0/F20160313043757PM', 
                   'path': '/Users/veselin/Documents/python/python27.chm', 
                   'size': '11 MB'}, 
                  {'backupid': '0/0/0/0/0/0/F20160315052257PM', 
                   'path': '/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It On.mp3', 
-                  'size': '8.27 MB'}]}"        
+                  'size': '8.27 MB'}]}        
 
 
 ### backup\_start\_id(pathID)
 
 Start uploading a given item already existed in the catalog by its path ID.
 
-    "{'status': 'OK', 
-      'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}"
+    {'status': 'OK', 
+      'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
 
 
 ### backup\_start\_path(path)
 
 Start uploading file or folder to remote nodes, assign a new path ID and add it to the catalog.
 
-    "{'status': 'OK',
-      'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}"
+    {'status': 'OK',
+      'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
 
 
 ### backup\_dir\_add(dirpath)
 
 Add given folder to the catalog but do not start uploading process.
 
-    "{'status': 'OK',
-      'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/'}" 
+    {'status': 'OK',
+      'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/'} 
 
 
 ### backup\_file\_add(filepath)
   
 Add a single file to the catalog, skip uploading.
 
-    "{'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}"
+    {'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}
  
 
 ### backup\_tree\_add(dirpath)
@@ -176,8 +176,8 @@ Add a single file to the catalog, skip uploading.
 Recursively reads the entire folder and put files and folders items into the catalog,
 but did not start any uploads.
 Results:
-    "{'status': 'OK',
-      'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}"
+    {'status': 'OK',
+      'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}
 
 
 ### backup\_delete\_local(backupID)
@@ -185,8 +185,8 @@ Results:
 Remove only local files belongs to this particular backup.
 All remote data stored on suppliers machines remains unchanged.
 
-    "{'status': 'OK',
-      'result': '8 files were removed with total size of 16 Mb'}"
+    {'status': 'OK',
+      'result': '8 files were removed with total size of 16 Mb'}
 
 
 ### backup\_delete\_id(pathID\_or\_backupID)
@@ -195,8 +195,8 @@ Delete local and remote copies of given item in catalog.
 This will completely remove your data from BitDust network.
 You can specify either path ID of that location or specific version.
 
-    "{'status': 'OK',
-      'result': 'version 0/0/1/1/0/F20160313043419PM was deleted from remote peers'}"
+    {'status': 'OK',
+      'result': 'version 0/0/1/1/0/F20160313043419PM was deleted from remote peers'}
 
 
 ### backup\_delete\_path(localPath)
@@ -205,26 +205,26 @@ Completely remove any data stored for given location from BitDust network.
 All data for given item will be removed from remote peers.
 Any local files related to this path will be removed as well.
 
-    "{'status': 'OK',
-      'result': 'item 0/1/2 was deleted from remote peers'}"
+    {'status': 'OK',
+      'result': 'item 0/1/2 was deleted from remote peers'}
 
 
 ### backups\_queue()
 
 Return a list of paths to be backed up as soon as
 currently running backups will be finished.
-    "{'status': 'OK',
+    {'status': 'OK',
       'result': [    
         {'created': 'Wed Apr 27 15:11:13 2016',
          'id': 3,
          'local_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
-         'path_id': '0/0/3/1'}]}"
+         'path_id': '0/0/3/1'}]}
 
 
 ### backups\_running()
 
 Return a list of currently running uploads:
-    "{'status': 'OK',
+    {'status': 'OK',
       'result': [    
         {'aborting': False,
          'backup_id': '0/0/3/1/F20160424013912PM',
@@ -241,7 +241,7 @@ Return a list of currently running uploads:
          'terminating': False,
          'total_size': 89461450,
          'work_blocks': 4}
-    ]}"    
+    ]}
 
 
 ### backup\_cancel\_pending(path\_id)
@@ -265,8 +265,8 @@ It is possible to select the destination folder to extract requested files to.
 By default this method uses known location from catalog for given item.
 WARNING: Your existing local data will be overwritten.
 
-    "{'status': 'OK',
-      'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}"
+    {'status': 'OK',
+      'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}
 
 
 ### restores\_running()
@@ -350,8 +350,8 @@ The "ping" command performs following actions:
 3. Wait first Ack packet from remote peer,
 4. Failed by timeout or identity fetching error.
 
-    "{'status': 'OK', 
-      'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}"
+    {'status': 'OK', 
+      'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 
 
 ### list\_messages()
