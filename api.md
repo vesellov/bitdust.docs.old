@@ -14,6 +14,9 @@ Restart the main process, if flag show=True the GUI will be opened after restart
     {'status': 'OK', 'result': 'restarted'}
 
 
+### reconnect()
+
+
 ### show()
 
 Opens a default web browser to show the BitDust GUI.
@@ -184,7 +187,7 @@ Results:
 ### backup\_delete\_local(backupID)
 
 Remove only local files belongs to this particular backup.
-All remote data stored on suppliers machines remains unchanged.
+All remote data stored on suppliers' machines remain unchanged.
 
     {'status': 'OK',
       'result': '8 files were removed with total size of 16 Mb'}
@@ -202,7 +205,7 @@ You can specify either path ID of that location or specific version.
 
 ### backup\_delete\_path(localPath)
 
-Completely remove any data stored for given location from BitDust network.
+Completely remove any data stored on given location from BitDust network.
 All data for given item will be removed from remote peers.
 Any local files related to this path will be removed as well.
 
@@ -213,7 +216,7 @@ Any local files related to this path will be removed as well.
 ### backups\_queue()
 
 Return a list of paths to be backed up as soon as
-currently running backups will be finished.
+currently running backups finish.
 
     {'status': 'OK',
       'result': [    
@@ -259,7 +262,7 @@ Abort currently running backup.
 
 ### restore\_single(pathID\_or\_backupID\_or\_localPath, destinationPath=None)
 
-Download data from remote peers to you local machine.
+Download data from remote peers to your local machine.
 You can use different methods to select the target data:
     + item ID in the catalog
     + full version identifier
@@ -303,7 +306,7 @@ List of suppliers - nodes who stores my data on own machines.
 
 Execute a fire/hire process of one supplier,
 another random node will replace this supplier.
-As soon as new supplier will be found and connected,
+As soon as new supplier is found and connected,
 rebuilding of all uploaded data will be started and
 the new node will start getting a reconstructed fragments.
 
@@ -343,6 +346,26 @@ Return detailed statistics about your donated space usage.
 ### space\_consumed()
 
 Return some info about your current usage of BitDust resources.
+
+
+### space\_local()
+
+Return detailed statistics about current usage of your local disk.
+
+
+### automats\_list()
+
+Return a list of all currently running state machines.
+
+
+### services\_list()
+
+Return a list of all services.
+
+
+### service\_info(service\_name)
+
+Return detailed info for a single service.
 
 
 ### ping(idurl, timeout=10)

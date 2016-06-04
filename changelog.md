@@ -1,6 +1,18 @@
 # BitDust Change Log
 
 
+2016-05-04 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
+* built a new Web Site for BitDust project : http://bitdust.io
+* new project Logo!
+* lots methods added to API
+* updated/improved command line interface
+* made a stable port for MacOS
+* fixed several major bugs in p2p networking code
+* switched software updating to use "git" - distribute Python sources to end-users
+* created a new Windows installer archive
+* continue working on new GUI based on Django
+
+
 2015-07-05 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
 
 * a lot of changes in the code, many things were turned off temporary
