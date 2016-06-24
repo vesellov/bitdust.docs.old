@@ -16,7 +16,7 @@ Curriculum Vitae
 ##### Security / Distributed Systems 
 ##### P2P software / Big Data
 
-Russia, Saint-Petersburg / Bulgaria, Varna
+Russia, Saint-Petersburg / Bulgaria, Varna / Netherlands, Amsterdam
 
 10.11.1982, 32 years
 
@@ -29,6 +29,14 @@ skype: [vesellov](skype:vesellov)
 
 
 ### PROFESSIONAL EXPERIENCE
+
+#### Lead Architect, S&I CID DIG WeMake 2, KPN Digital (Amsterdam), February 2016  till now
+[https://www.kpn.com](https://www.kpn.com)
+
++ Developing of api.kpn.com in the context of different business projects 
++ Take part in Continuous Integration / Continuous Delivery pipelines of software releases
++ Developing online web services for complex MDM solutions
++ Delivering highly predictable and understandable solutions
 
 #### Lead Developer, __BitDist LLC__, 2012 till now
 [http://bitdust.io](http://bitdust.io)
@@ -113,7 +121,7 @@ MySQL, __JSON__, XML, PostgreSQL, MongoDB.
 
 #### _LinkedIn Skills_:
 
-__Python__, C++, JavaScript, JQuery, CSS, HTML, Git, Subversion, Software Development, Software Engineering,  Multithreading, __Peer-to-peer__, Distributed Systems, OOP, __Algorithms__, Templates, Eclipse, PyDev, Visual Studio, Networking, Network Design, Network Architecture, __Twisted__, Tornado, __Django__, XML, XML-RPC, JSON, JSONP, JSON-RPC, 3D, 3D Rendering, 3D Graphics, OpenGL, Big Data, Backup Solutions, Online Backup, Linux, Unix, __Ubuntu__, Debian, Apache2, SSH, Security, Access, Data Protection, Information Security, Data Privacy, Cryptography, __Public Key Cryptography__, Bitcoin.
+__SCRUM__, Agile, __Python__, C++, JavaScript, JQuery, CSS, HTML, Git, Subversion, Software Development, Software Engineering,  Multithreading, __Peer-to-peer__, Distributed Systems, OOP, __Algorithms__, Templates, Eclipse, PyDev, Visual Studio, Networking, Network Design, Network Architecture, __Twisted__, Tornado, __Django__, XML, XML-RPC, JSON, JSONP, JSON-RPC, 3D, 3D Rendering, 3D Graphics, OpenGL, Big Data, Backup Solutions, Online Backup, Linux, Unix, __Ubuntu__, Debian, Apache2, SSH, Security, Access, Data Protection, Information Security, Data Privacy, Cryptography, __Public Key Cryptography__, Bitcoin.
  
 
 ### EDUCATION
@@ -126,6 +134,11 @@ Saint-Petersburg National Research University of __Information Technologies__, M
 
 
 ### CURRENT STATUS
+
+I am a big fan of __Python__, finite state machines and distributed network technologies.
+Work on my [__start-up project__](http://bitdust.io) in my spare time. Concentrated on creating a successful IT company and a product with a worldwide audience, look to the future with optimism. 
+At the moment working full-time in Amsterdam, but still considering to take a new challenge in near future. Looking for an exciting work opportunity and ready to join your team within several months. 
+I am a citizen of the EU with Bulgarian passport and ready for work travels if needed.
 
 I am big __Python enthusiast__ - work on my startup project in a free time. 
 Very focused to build a success company, looking forward with optimism.

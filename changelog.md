@@ -1,8 +1,9 @@
 # BitDust Change Log
 
 
-2016-05-04 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
-* built a new Web Site for BitDust project : http://bitdust.io
+2016-05-04 Veselin Penev [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
+
+* built a new Web Site for BitDust project: http://bitdust.io
 * new project Logo!
 * lots methods added to API
 * updated/improved command line interface
@@ -13,7 +14,7 @@
 * continue working on new GUI based on Django
 
 
-2015-07-05 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
+2015-07-05 Veselin Penev [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
 
 * a lot of changes in the code, many things were turned off temporary
 * switched API to JSON interface finally at interface/jsonrpc_server.py
@@ -26,7 +27,7 @@
 * oh! by the way! The project was renamed from BitPie.NET to BitDust!
 
 
-2014-11-23 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
+2014-11-23 Veselin Penev [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
 
 * KEY FEATURE: software core is transformed into a system of interrelated services
 * made upgrade on stun client - multiple stun requests at same time to increase performance
@@ -36,14 +37,14 @@
 * added a small feature - can request a single random packet for given backup from GUI
 
 
-2014-10-21 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
+2014-10-21 Veselin Penev [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
 
 * fixed messages - p2p chat is working now! 
 * did small fixes in: GUI, DHT code, API
 * changed UDP PING timeout again, from 1 minute to 30 seconds
 
 
-2014-10-17 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
+2014-10-17 Veselin Penev [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
 
 * a bug fix in the backups, error when trying to add a network location under Windows
 * make developer reports working again, set up a script http://bitdust.io/cgi-bin/feedback.py
@@ -51,19 +52,19 @@
 * small fixes in the command line interface
 
 
-2014-10-15 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
+2014-10-15 Veselin Penev [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
 
 * fixed error in registration part
 
 
-2014-10-10 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
+2014-10-10 Veselin Penev [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
 
 * switched on a new improrved UDP transport - can use UDP to transfer packets now
 * upgrade messaging service - safe p2p encrypted chat
 * added command line support to send/list messages
 
 
-2014-08-20 Veselin Penev [veselin@bitdust.io](mailto:veselin@bitdust.io)
+2014-08-20 Veselin Penev [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
 
 * new tray icons for Microsoft Windows
 
