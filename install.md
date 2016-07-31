@@ -4,8 +4,8 @@
 
 1. Dependencies
 
-        sudo apt-get install python-twisted python-setuptools        
-        sudo easy_install Django==1.7, pycrypto, psutil 
+        sudo apt-get install python-twisted python-setuptools python-pip git miniupnpc       
+        pip install Django==1.7 pycrypto psutil 
 
 
 2. Get Sources
@@ -16,9 +16,9 @@
 3. Create an alias in OS
 
         cd bitdust
-        sudo python bitdust.py integrate
-        python bitdust.py integrate
-
+        python bitdust.py integrate > /usr/local/bin/bitdust
+        chmod +x /usr/local/bin/bitdust
+        
 
 4. Create an identity for you
        
