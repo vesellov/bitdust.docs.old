@@ -16,6 +16,8 @@ Restart the main process, if flag show=True the GUI will be opened after restart
 
 ### reconnect()
 
+Sends "reconnect" event to network_connector() Automat in order to refresh network connection.
+
 
 ### show()
 
@@ -27,7 +29,7 @@ Opens a default web browser to show the BitDust GUI.
 
 ### config\_get(key, default=None)
 
-Return current value for specific option.
+Returns current value for specific option from program settings.
  
     {'status': 'OK',
       'result': [
@@ -50,7 +52,7 @@ Set a value for given option.
 
 ### config\_list(sort=False)
 
-Monitor all options and values.
+Provide detailed info about all options and values from settings.
 
     {'status': 'OK',
      'result': [
@@ -67,9 +69,9 @@ Monitor all options and values.
 
 ### filemanager(json\_request)
 
-A method to execute calls from GUI front-end and interact with web browser.
-This is a special "gates" created only for Ajax calls from GUI - for 
-for specific file system io operations.
+A service method to execute calls from GUI front-end and interact with web browser.
+This is a special "gates" created only for Ajax calls from GUI. 
+It provides same methods as other functions here, but just in a different way.  
 
     request:
         {"params":{"mode":"stats"}}
@@ -92,21 +94,19 @@ for specific file system io operations.
          'value_used_total': '82.93 MB'}
 
 You can also access those methods with API alias:
-    filemanager_{method name}()
-More info will be added soon.
+    filemanager_{mode}()
 
 
 ### backups\_update()
 
-A method to restart backup_monitor() Automat and 
-fire "synchronize" process with remote nodes.
+Sends "restart" event to backup_monitor() Automat, this should start "data synchronization" process with remote nodes.
 
     {'status': 'OK', 'result': 'the main loop has been restarted'}
 
 
 ### backups\_list()
 
-Return a whole tree of files and folders in the catalog.
+Returns a whole tree of files and folders in the catalog.
 
     {'status': 'OK', 
       'result': [
@@ -132,7 +132,7 @@ Return a whole tree of files and folders in the catalog.
 
 ### backups\_id\_list()
 
-Return only list of items uploaded on remote machines.
+Returns only list of items uploaded on remote machines.
 
     {'status': 'OK', 
       'result': [{'backupid': '0/0/1/0/0/F20160313043757PM', 
@@ -153,8 +153,8 @@ Start uploading a given item already existed in the catalog by its path ID.
 
 ### backup\_start\_path(path, bind\_local\_path=True)
 
-Start uploading file or folder to remote nodes,
-assign a new path ID and add it to the catalog.
+Start uploading file or folder to remote nodes.
+It will assign a new path ID to that path and add it to the catalog.
 If bind_local_path is False all parent sub folders:
     
     ["Users", "veselin", "Documents", "python",]
@@ -210,8 +210,9 @@ of all parent IDs, separated with "/".
 
 ### backup\_tree\_add(dirpath)
 
-Recursively reads the entire folder and create items for all files and folders
-keeping the same structure. Do not start any uploads.
+Recursively reads the entire folder and create items in the catalog.
+For all files and folders it will keeping the same files/folders structure.
+This method will not start any uploads, just append items to the catalog.
 
     {'status': 'OK',
       'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}
@@ -248,8 +249,7 @@ Any local files related to this path will be removed as well.
 
 ### backups\_queue()
 
-Return a list of paths to be backed up as soon as
-currently running backups finish.
+Returns a list of paths to be backed up as soon as currently running backups finish.
 
     {'status': 'OK',
       'result': [    
@@ -261,7 +261,7 @@ currently running backups finish.
 
 ### backups\_running()
 
-Return a list of currently running uploads.
+Returns a list of currently running uploads.
 
     {'status': 'OK',
       'result': [    
@@ -318,7 +318,7 @@ WARNING: Your existing local data will be overwritten.
 
 ### restores\_running()
 
-Return a list of currently running downloads:
+Returns a list of currently running downloads.
 
     {'status': 'OK',
      'result':   [ { 'aborted': False,
@@ -343,8 +343,7 @@ Abort currently running restore process.
 
 ### suppliers\_list()
 
-This method returns a list of suppliers, 
-those nodes stores my data on own machines.
+This method returns a list of suppliers - nodes which stores your encrypted data on own machines.
 
     {'status': 'OK',
      'result':  [ {  'connected': '05-06-2016 13:06:05',
@@ -361,8 +360,7 @@ those nodes stores my data on own machines.
 
 ### supplier\_replace(index\_or\_idurl)
 
-Execute a fire/hire process for given supplier,
-another random node will replace this node.
+Execute a fire/hire process for given supplier, another random node will replace this supplier.
 As soon as new supplier is found and connected,
 rebuilding of all uploaded data will be started and
 the new node will start getting a reconstructed fragments.
@@ -373,7 +371,7 @@ the new node will start getting a reconstructed fragments.
 
 ### supplier\_change(index\_or\_idurl, new\_idurl)
 
-Doing same as supplier_replace() but new node must be provided by you.
+Doing same as supplier_replace() but new node must be provided by you - you can manually assign a supplier.
 
     {'status': 'OK',
      'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by http://p2p-id.ru/bob.xml',}
@@ -381,7 +379,7 @@ Doing same as supplier_replace() but new node must be provided by you.
 
 ### suppliers\_ping()
 
-Send short requests to all suppliers to get their current statuses.
+Sends short requests to all suppliers to get their current statuses.
 
     {'status': 'OK', 
      'result': 'requests to all suppliers was sent',}
@@ -399,8 +397,7 @@ List of customers - nodes who stores own data on your machine.
 
 ### customer\_reject(idurl)
 
-Stop supporting given customer, remove all his files from local disc,
-close connections with that node.
+Stop supporting given customer, remove all his files from local disc, close connections with that node.
 
     {'status': 'OK', 
      'result': ['customer http://p2p-id.ru/bob.xml rejected, 536870912 bytes were freed'],}
@@ -408,7 +405,7 @@ close connections with that node.
 
 ### customers\_ping()
 
-Send Identity packet to all customers to check their current statuses.
+Sends Identity packet to all customers to check their current statuses.
 Every node will reply with Ack packet on any valid incoming Identiy packet.  
 
     {'status': 'OK', 
@@ -417,7 +414,7 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.
 
 ### space\_donated()
 
-Return detailed statistics about your donated space usage.
+Returns detailed statistics about your donated space usage.
 
     {'status': 'OK', 
      'result':  [  { 'consumed': 0,
@@ -437,7 +434,7 @@ Return detailed statistics about your donated space usage.
 
 ### space\_consumed()
 
-Return some info about your current usage of BitDust resources.
+Returns some info about your current usage of BitDust resources.
 
     {'status': 'OK', 
      'result':  [  { 'available': 907163720,
@@ -458,7 +455,7 @@ Return some info about your current usage of BitDust resources.
 
 ### space\_local()
 
-Return detailed statistics about current usage of your local disk.
+Returns detailed statistics about current usage of your local disk.
 
     {'status': 'OK', 
      'result':  [  { 'backups': 0,
@@ -479,7 +476,7 @@ Return detailed statistics about current usage of your local disk.
 
 ### automats\_list()
 
-Return a list of all currently running state machines.
+Returns a list of all currently running state machines.
 
     {'status': 'OK', 
      'result':  [  { 'index': 1,
@@ -496,7 +493,7 @@ Return a list of all currently running state machines.
 
 ### services\_list()
 
-Return detailed info about all currently running network services.
+Returns detailed info about all currently running network services.
 
     {'status': 'OK', 
      'result':  [  { 'config_path': 'services/backup-db/enabled',
@@ -521,7 +518,7 @@ Return detailed info about all currently running network services.
 
 ### service\_info(service\_name)
 
-Return detailed info for single service.
+Returns detailed info for single service.
 
     {'status': 'OK', 
      'result':  [  { 'config_path': 'services/tcp-connections/enabled',
@@ -549,8 +546,8 @@ were already enabled, they will be started also.
 
 ### service\_stop(service\_name)
 
-Stop given service and set `False` for
-correspondent option in the settings:
+Stop given service immediately.
+It will also set `False` for correspondent option in the settings.
  
     .bitdust/config/services/[service name]/enabled
  
@@ -562,8 +559,8 @@ Dependent services will be stopped as well.
 
 ### packets\_stats()
 
-Return detailed info about
-    
+Returns detailed info about current network usage.
+
     {'status': 'OK',
      'result': [ {'in': { 'failed_packets': 0,
                           'total_bytes': 0,
@@ -581,13 +578,12 @@ Return detailed info about
 
 ### ping(idurl, timeout=10)
 
+Sends Identity packet to remote peer and wait for Ack packet to check connection status.
 The "ping" command performs following actions:
-
   1. Request remote identity source by idurl,
-  2. Send my Identity to remote contact addresses, taken from identity,
+  2. Sends my Identity to remote contact addresses, taken from identity,
   3. Wait first Ack packet from remote peer,
   4. Failed by timeout or identity fetching error.
-
 
     {'status': 'OK', 
      'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
@@ -595,15 +591,17 @@ The "ping" command performs following actions:
 
 ### set\_my\_nickname(nickname)
 
+Starts nickname_holder() machine to register and keep your nickname in DHT network.
 
 
 ### find\_peer\_by\_nickname(nickname)
 
+Starts nickname_observer() Automat to lookup existing nickname registered in DHT network.
 
 
 ### send\_message(recipient, message\_body)
 
-Send a text message to remote peer.
+Sends a text message to remote peer.
 
     {'status': 'OK', 
      'result': ['signed.Packet[Message(146681300413)]'],}
@@ -611,16 +609,21 @@ Send a text message to remote peer.
 
 ### receive\_one\_message()
 
-This method can be used to listen and process incoming chat messages:
-
+This method can be used to listen and process incoming chat messages.
   + creates a callback to receive all incoming messages,
   + wait until one incoming message get received,
   + remove the callback after receiving the message.
 
-
     {'status': 'OK', 
      'result': [ { 'from': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
                    'message': 'Hello my dear Friend!'}],}
+
+
+### broadcast\_send\_message(payload)
+
+Sends broadcast message to all peers in the network.
+Message must be provided in `payload` argument is a Json object.
+WARNING! Please, do not send too often and do not send more then several kilobytes per message.  
 
 
 
