@@ -1,4 +1,4 @@
-# јвтомат proxy_sender()
+# Automat proxy_sender()
 
 
 <div class=automatpng markdown="1">
