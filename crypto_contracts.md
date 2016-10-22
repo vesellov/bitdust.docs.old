@@ -110,7 +110,7 @@ In example bellow signature was generated based on all fields from "payload" plu
 
 ## Hash value
 
-The next step for provider will be to send this info to one of miners (can be picked randomly from the network) and let him work on this data to generate a special "hash value" matching this json-formatted data. Mining is based on fields inside "payload" structure, "signature", "creator" and "pubkey" fields are only needed to protect the coin during network transfer, they will not be included in the final contract-chain structure. 
+The next step for provider will be to send this info to one of miners (can be picked randomly from the network) and let him work on this data to generate a special "hash value" matching this json-formatted data. Mining is based on fields inside "payload" structure, "signature", "creator" and "pubkey" fields are only needed to protect the coin during network transfer, they will not be included in the final contract-chain structure. 
 
 Early or later miner will find the matching "hash" and prepare another json-formatted structure containing data received from provider and extra info added by "miner":
     
