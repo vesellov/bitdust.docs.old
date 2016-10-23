@@ -4,7 +4,7 @@
 
 ## Business requirements
 
-BitDust do not have (and do not need) own currency - we count hardware resources, not euros, bucks or BitCoins. However to be able to buy/sell PC resources, off course, necessary to implement some kind of exchange market. There are several important points needs to be considered in this topic:
+BitDust do not have (and do not need) own currency - we count hardware resources, not euros, bucks or BitCoins. However to be able to buy/sell PC resources, of course, necessary to implement some kind of exchange market. There are several important points needs to be considered in this topic:
 
 + Because of distributed design of whole BitDust eco-system all billings and payments must be fully decentralized. That means there should not exist one single point of interest - nobody should be able to control and manage all billing operations in the network.
 
@@ -288,7 +288,9 @@ As soon as contract was finished it is possible to calculate the total value fro
 
 ## Cashiers
 
-Every user can act as a trade agent (or cashier) and help other users to change real money (in local currency) for PC resources and vice versa. Any cashier able to take obligations for all contracts belongs to any particular supplier and pays him in local currency by his request. He can also take all obligations for any single customer and receive money from him in order to get paid for all resources was consumed by this customer...
+To inpit/output real money into/from the network we introduce another role: "cashier". Se every user can act as a trade agent (or cashier) and help other users to change real money (in local currency) for PC resources and vice versa. 
+
+Any cashier must be able to take obligations for all finished contracts belongs to any particular supplier and pays him in local currency by his request. From other side cashier also should be able to take all obligations for any single customer and receive money from him in order to get paid for all resources was consumed by this customer...
 
 ... later customer will have to pay to one of "cashiers" according to amount of mined coins belongs to him (for all his suppliers). From other side, supplier can go to one of "cashiers" and request for refund - accountant will check how much crypto coins belongs to this supplier and calculate total amount in US $, euro, rubles, etc…
 
