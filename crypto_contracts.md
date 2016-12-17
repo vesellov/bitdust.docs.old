@@ -286,11 +286,35 @@ Now we can look at how this value can be used to calculate service costs in real
 As soon as contract was finished it is possible to calculate the total value from it and finally the real price in some currency.
 
 
+## Payment of completed contracts
+
+Every customer consume storage from network and so he have to pay at some point. From other side suppliers, who donate a lot of PC resources would like to benefit from that.
+
+Because all operations are reported in publicly accessible contract chains every user able to calculate total amount of consumed/donated resources by any other user. In other words customer know how much PC resources supplier donated and supplirt know how much resources was consumed by customer.
+
+On this basis, any client can pay any supplier contract. It is not necessary to pay directly to the supplier, who provides you with services. You can transfer money to any supplier, with a preliminary analysis of how much the resources granted to other customers by him. The fact of payment will be recorded in the supplier contracts and thus all the other users on the network will know about it.
+
+The payment process starts from the supplier who wants to get paid for his contracts.
+
+
+
+Let's describe the whole process of funds moving from customer to supplier step by step:
+
+1. by request from customer A given cashier B calculates total value of all finished contracts by customer A needs to be paid
+2. customer A send money in local currency to cashier B - previously they decide about the price for PC resources
+
+
+
+
+
+
 ## Cashiers
 
-To inpit/output real money into/from the network we introduce another role: "cashier". Se every user can act as a trade agent (or cashier) and help other users to change real money (in local currency) for PC resources and vice versa. 
+To inpit/output real money into/from the network we introduce another role: "cashier". Se every user can act as a trade agent (or cashier) and help other users to change real money (in local currency) for PC resources and vice versa.
 
-Any cashier must be able to take obligations for all finished contracts belongs to any particular supplier and pays him in local currency by his request. From other side cashier also should be able to take all obligations for any single customer and receive money from him in order to get paid for all resources was consumed by this customer...
+Any cashier must be able to take obligations for all finished contracts belongs to any particular supplier and pays him in local currency by his request. From other side cashier also should be able to support any single customer and receive money from him in order to get paid for all resources was consumed by this customer.
+
+
 
 ... later customer will have to pay to one of "cashiers" according to amount of mined coins belongs to him (for all his suppliers). From other side, supplier can go to one of "cashiers" and request for refund - accountant will check how much crypto coins belongs to this supplier and calculate total amount in US $, euro, rubles, etc…
 

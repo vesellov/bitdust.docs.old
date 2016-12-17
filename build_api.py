@@ -39,9 +39,12 @@ while True:
                     break
             comment = comment.strip('"""').strip("'''").replace('"""','').replace("'''",'')
     comment = comment.replace('Return:', '')
-    print '%s(%s)' % (method, params)
+    # print '%s(%s)' % (method, params)
+    sys.stdout.write('.')
     fout.write('### %s(%s)\n' % (method.replace('_','\_'), params.replace('_','\_')))
     fout.write(('\n'.join(comment.splitlines())) + '\n\n')
+
+sys.stdout.write('\n')
 
 fout.write('\n\n')
 fout.close()

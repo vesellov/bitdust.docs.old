@@ -2,76 +2,67 @@
 
 ### stop()
 
-Stop the main process immediately.
+Stop the main process immediately. 
 
-    {'status': 'OK', 'result': 'stopped'}
+{'status': 'OK', 'result': 'stopped'}
 
 
 ### restart(showgui=False)
 
-Restart the main process, if flag show=True the GUI will be opened after restart.
+Restart the main process, if flag show=True the GUI will be opened after
+restart. 
 
-    {'status': 'OK', 'result': 'restarted'}
+{'status': 'OK', 'result': 'restarted'}
 
 
 ### reconnect()
 
-Sends "reconnect" event to network_connector() Automat in order to refresh network connection.
+Sends "reconnect" event to network_connector() Automat in order to refresh
+network connection.
 
 
 ### show()
 
-Opens a default web browser to show the BitDust GUI.
+Opens a default web browser to show the BitDust GUI. 
 
-    {'status': 'OK', 
-      'result': '`show` event has been sent to the main process'}
+{'status': 'OK',   'result': '`show` event has been sent to the main
+process'}
 
 
 ### config\_get(key, default=None)
 
-Returns current value for specific option from program settings.
- 
-    {'status': 'OK',
-      'result': [
-         {'type': 'positive integer',
-          'value': '8', 
-          'key': 'logs/debug-level'}]}"    
+Returns current value for specific option from program settings. 
+
+{'status': 'OK',   'result': [      {'type': 'positive integer',
+'value': '8',       'key': 'logs/debug-level'}]}"
 
 
-### config\_set(key, value, typ=None)
+### config\_set(key, value)
 
-Set a value for given option.
- 
-    {'status': 'OK',
-      'result': [
-         {'type': 'positive integer',
-          'old_value': '8',
-          'value': '10',
-          'key': 'logs/debug-level'}]}"
+Set a value for given option. 
+
+{'status': 'OK',   'result': [      {'type': 'positive integer',
+'old_value': '8',       'value': '10',       'key': 'logs/debug-
+level'}]}"
 
 
 ### config\_list(sort=False)
 
-Provide detailed info about all options and values from settings.
+Provide detailed info about all options and values from settings. 
 
-    {'status': 'OK',
-     'result': [
-         {'type': 'boolean',
-          'value': 'true',
-          'key': 'services/backups/enabled'}, 
-         {'type': 'boolean',
-          'value': 'false',
-          'key': 'services/backups/keep-local-copies-enabled'},
-         {'type': 'disk space',
-          'value': '128 MB',
-          'key': 'services/backups/max-block-size'}]}"
+{'status': 'OK',  'result': [      {'type': 'boolean',
+'value': 'true',       'key': 'services/backups/enabled'},
+{'type': 'boolean',       'value': 'false',       'key':
+'services/backups/keep-local-copies-enabled'},      {'type': 'disk
+space',       'value': '128 MB',       'key': 'services/backups/max-
+block-size'}]}"
 
 
 ### filemanager(json\_request)
 
-A service method to execute calls from GUI front-end and interact with web browser.
-This is a special "gates" created only for Ajax calls from GUI. 
-It provides same methods as other functions here, but just in a different way.  
+A service method to execute calls from GUI front-end and interact with web
+browser. This is a special "gates" created only for Ajax calls from GUI. It
+provides same methods as other functions here, but just in a different way.
 
     request:
         {"params":{"mode":"stats"}}
@@ -99,66 +90,57 @@ You can also access those methods with API alias:
 
 ### backups\_update()
 
-Sends "restart" event to backup_monitor() Automat, this should start "data synchronization" process with remote nodes.
+Sends "restart" event to backup_monitor() Automat, this should start "data
+synchronization" process with remote nodes. 
 
-    {'status': 'OK', 'result': 'the main loop has been restarted'}
+{'status': 'OK', 'result': 'the main loop has been restarted'}
 
 
 ### backups\_list()
 
-Returns a whole tree of files and folders in the catalog.
+Returns a whole tree of files and folders in the catalog. 
 
-    {'status': 'OK', 
-      'result': [
-         {'path': '/Users/veselin/Documents', 
-          'versions': [], 
-          'type': 'parent', 
-          'id': '0/0/1', 
-          'size': 38992196}, 
-         {'path': '/Users/veselin/Documents/python', 
-          'versions': [], 
-          'type': 'parent', 
-          'id': '0/0/1/0', 
-          'size': 5754439}, 
-         {'path': '/Users/veselin/Documents/python/python27.chm', 
-          'versions': [
-              {'version': 'F20160313043757PM', 
-               'blocks': 1, 
-               'size': '11 MB'}], 
-          'type': 'file', 
-          'id': '0/0/1/0/0', 
-          'size': 5754439}]}"    
+{'status': 'OK',   'result': [      {'path':
+'/Users/veselin/Documents',       'versions': [],       'type':
+'parent',       'id': '0/0/1',       'size': 38992196},
+{'path': '/Users/veselin/Documents/python',       'versions': [],
+'type': 'parent',       'id': '0/0/1/0',       'size': 5754439},
+{'path': '/Users/veselin/Documents/python/python27.chm',
+'versions': [           {'version': 'F20160313043757PM',
+'blocks': 1,            'size': '11 MB'}],       'type': 'file',
+'id': '0/0/1/0/0',       'size': 5754439}]}"
 
 
 ### backups\_id\_list()
 
-Returns only list of items uploaded on remote machines.
+Returns only list of items uploaded on remote machines. 
 
-    {'status': 'OK', 
-      'result': [{'backupid': '0/0/1/0/0/F20160313043757PM', 
-                  'path': '/Users/veselin/Documents/python/python27.chm', 
-                  'size': '11 MB'}, 
-                 {'backupid': '0/0/0/0/0/0/F20160315052257PM', 
-                  'path': '/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It On.mp3', 
-                  'size': '8.27 MB'}]}        
+{'status': 'OK',   'result': [{'backupid':
+'0/0/1/0/0/F20160313043757PM',               'path':
+'/Users/veselin/Documents/python/python27.chm',
+'size': '11 MB'},              {'backupid':
+'0/0/0/0/0/0/F20160315052257PM',               'path':
+'/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It
+On.mp3',               'size': '8.27 MB'}]}
 
 
 ### backup\_start\_id(pathID)
 
 Start uploading a given item already existed in the catalog by its path ID.
 
-    {'status': 'OK', 
-      'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
+
+{'status': 'OK',   'result': 'uploading 0/0/1/0/0 started, local
+path is: /Users/veselin/Documents/python/python27.chm'}
 
 
 ### backup\_start\_path(path, bind\_local\_path=True)
 
-Start uploading file or folder to remote nodes.
-It will assign a new path ID to that path and add it to the catalog.
-If bind_local_path is False all parent sub folders:
-    
+Start uploading file or folder to remote nodes. It will assign a new path
+ID to that path and add it to the catalog. If bind_local_path is False all
+parent sub folders:
+
     ["Users", "veselin", "Documents", "python",]
-    
+
 will be also added to catalog
 and so final ID will be combination of several IDs:
 
@@ -177,130 +159,120 @@ and start the backup process after that.
 
 ### backup\_map\_path(path)
 
-Create a new top level item in the catalog and point it to given local path.
-This is the simplest way to upload a file and get an ID for that remote copy.
+Create a new top level item in the catalog and point it to given local
+path. This is the simplest way to upload a file and get an ID for that
+remote copy. 
 
-    {'status': 'OK',
-     'result': [ 'new file was added: 1, local path is /Users/veselin/Pictures/bitdust.png'],
-     'id': '1',
-     'type': 'file'}
+{'status': 'OK',  'result': [ 'new file was added: 1, local path is
+/Users/veselin/Pictures/bitdust.png'],  'id': '1',  'type': 'file'}
 
 
 ### backup\_dir\_add(dirpath)
 
-Add given folder to the catalog but do not start uploading process.
-This method will create all sub folders in the catalog
-and keeps the same structure as your local folders structure.
-So the final ID will be combination of all parent IDs, separated with "/".
+Add given folder to the catalog but do not start uploading process. This
+method will create all sub folders in the catalog and keeps the same
+structure as your local folders structure. So the final ID will be
+combination of all parent IDs, separated with "/". 
 
-    {'status': 'OK',
-      'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/'} 
+{'status': 'OK',   'result': 'new folder was added: 0/0/2, local
+path is /Users/veselin/Movies/'}
 
 
 ### backup\_file\_add(filepath)
-  
-Add a single file to the catalog, skip uploading.
-This method will create all sub folders in the catalog
-and keeps the same structure as your local file path structure.
-So the final ID of that file in the catalog will be combination
-of all parent IDs, separated with "/".
 
-    {'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}
- 
+Add a single file to the catalog, skip uploading. This method will create
+all sub folders in the catalog and keeps the same structure as your local
+file path structure. So the final ID of that file in the catalog will be
+combination of all parent IDs, separated with "/". 
+
+{'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path
+is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}
+
 
 ### backup\_tree\_add(dirpath)
 
-Recursively reads the entire folder and create items in the catalog.
-For all files and folders it will keeping the same files/folders structure.
+Recursively reads the entire folder and create items in the catalog. For
+all files and folders it will keeping the same files/folders structure.
 This method will not start any uploads, just append items to the catalog.
 
-    {'status': 'OK',
-      'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}
+
+{'status': 'OK',   'result': '21 items were added to catalog, parent
+path ID is 0/0/1/2, root folder is
+/Users/veselin/Documents/reports'}
 
 
 ### backup\_delete\_local(backupID)
 
-Remove only local files belongs to this particular backup.
-All remote data stored on suppliers' machines remain unchanged.
+Remove only local files belongs to this particular backup. All remote data
+stored on suppliers' machines remain unchanged. 
 
-    {'status': 'OK',
-      'result': '8 files were removed with total size of 16 Mb'}
+{'status': 'OK',   'result': '8 files were removed with total size
+of 16 Mb'}
 
 
 ### backup\_delete\_id(pathID\_or\_backupID)
 
-Delete local and remote copies of given item in catalog.
-This will completely remove your data from BitDust network.
-You can specify either path ID of that location or specific version.
+Delete local and remote copies of given item in catalog. This will
+completely remove your data from BitDust network. You can specify either
+path ID of that location or specific version. 
 
-    {'status': 'OK',
-      'result': 'version 0/0/1/1/0/F20160313043419PM was deleted from remote peers'}
+{'status': 'OK',   'result': 'version 0/0/1/1/0/F20160313043419PM
+was deleted from remote peers'}
 
 
 ### backup\_delete\_path(localPath)
 
 Completely remove any data stored on given location from BitDust network.
-All data for given item will be removed from remote peers.
-Any local files related to this path will be removed as well.
+All data for given item will be removed from remote peers. Any local files
+related to this path will be removed as well. 
 
-    {'status': 'OK',
-      'result': 'item 0/1/2 was deleted from remote peers'}
+{'status': 'OK',   'result': 'item 0/1/2 was deleted from remote
+peers'}
 
 
 ### backups\_queue()
 
-Returns a list of paths to be backed up as soon as currently running backups finish.
+Returns a list of paths to be backed up as soon as currently running
+backups finish. 
 
-    {'status': 'OK',
-      'result': [    
-        {'created': 'Wed Apr 27 15:11:13 2016',
-         'id': 3,
-         'local_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
-         'path_id': '0/0/3/1'}]}
+{'status': 'OK',   'result': [     {'created': 'Wed Apr 27 15:11:13
+2016',      'id': 3,      'local_path': '/Users/veselin/Downloads
+/some-ZIP-file.zip',      'path_id': '0/0/3/1'}]}
 
 
 ### backups\_running()
 
-Returns a list of currently running uploads.
+Returns a list of currently running uploads. 
 
-    {'status': 'OK',
-      'result': [    
-        {'aborting': False,
-         'backup_id': '0/0/3/1/F20160424013912PM',
-         'block_number': 4,
-         'block_size': 16777216,
-         'bytes_processed': 67108864,
-         'closed': False,
-         'eccmap': 'ecc/4x4',
-         'eof_state': False,
-         'pipe': 0,
-         'progress': 75.0142815704418,
-         'reading': False,
-         'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
-         'terminating': False,
-         'total_size': 89461450,
-         'work_blocks': 4}
-    ]}
+{'status': 'OK',   'result': [     {'aborting': False,
+'backup_id': '0/0/3/1/F20160424013912PM',      'block_number': 4,
+'block_size': 16777216,      'bytes_processed': 67108864,
+'closed': False,      'eccmap': 'ecc/4x4',      'eof_state': False,
+'pipe': 0,      'progress': 75.0142815704418,      'reading': False,
+'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+'terminating': False,      'total_size': 89461450,
+'work_blocks': 4} ]}
 
 
 ### backup\_cancel\_pending(path\_id)
 
 Cancel pending task to run backup of given item. 
 
-    {'status': 'OK', 'result': 'item 123 cancelled', }
+{'status': 'OK', 'result': 'item 123 cancelled', }
 
 
 ### backup\_abort\_running(backup\_id)
 
-Abort currently running backup.
+Abort currently running backup. 
 
-    {'status': 'OK', 'result': 'backup 0/0/3/1/F20160424013912PM aborted', }
+{'status': 'OK', 'result': 'backup 0/0/3/1/F20160424013912PM
+aborted', }
 
 
 ### restore\_single(pathID\_or\_backupID\_or\_localPath, destinationPath=None)
 
-Download data from remote peers to your local machine.
-You can use different methods to select the target data:
+Download data from remote peers to your local machine. You can use
+different methods to select the target data:
 
   + item ID in the catalog
   + full version identifier
@@ -318,27 +290,23 @@ WARNING: Your existing local data will be overwritten.
 
 ### restores\_running()
 
-Returns a list of currently running downloads.
+Returns a list of currently running downloads. 
 
-    {'status': 'OK',
-     'result':   [ { 'aborted': False,
-                     'backup_id': '0/0/3/1/F20160427011209PM',
-                     'block_number': 0,
-                     'bytes_processed': 0,
-                     'creator_id': 'http://veselin-p2p.ru/veselin.xml',
-                     'done': False,
-                     'created': 'Wed Apr 27 15:11:13 2016',
-                     'eccmap': 'ecc/4x4',
-                     'path_id': '0/0/3/1',
-                     'version': 'F20160427011209PM'}],}
+{'status': 'OK',  'result':   [ { 'aborted': False,
+'backup_id': '0/0/3/1/F20160427011209PM',
+'block_number': 0,                  'bytes_processed': 0,
+'creator_id': 'http://veselin-p2p.ru/veselin.xml',
+'done': False,                  'created': 'Wed Apr 27 15:11:13
+2016',                  'eccmap': 'ecc/4x4',
+'path_id': '0/0/3/1',                  'version':
+'F20160427011209PM'}],}
 
 
 ### restore\_abort(backup\_id)
 
-Abort currently running restore process.
+Abort currently running restore process. 
 
-    {'status': 'OK',
-     'result': 'restoring of item 123 aborted', }
+{'status': 'OK',  'result': 'restoring of item 123 aborted', }
 
 
 ### suppliers\_list()
@@ -360,13 +328,13 @@ This method returns a list of suppliers - nodes which stores your encrypted data
 
 ### supplier\_replace(index\_or\_idurl)
 
-Execute a fire/hire process for given supplier, another random node will replace this supplier.
-As soon as new supplier is found and connected,
-rebuilding of all uploaded data will be started and
-the new node will start getting a reconstructed fragments.
+Execute a fire/hire process for given supplier, another random node will
+replace this supplier. As soon as new supplier is found and connected,
+rebuilding of all uploaded data will be started and the new node will start
+getting a reconstructed fragments. 
 
-    {'status': 'OK',
-     'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by new peer', }
+{'status': 'OK',  'result': 'supplier http://p2p-id.ru/alice.xml
+will be replaced by new peer', }
 
 
 ### supplier\_change(index\_or\_idurl, new\_idurl)
@@ -381,15 +349,15 @@ Doing same as supplier_replace() but new node must be provided by you - you can 
 
 Sends short requests to all suppliers to get their current statuses.
 
-    {'status': 'OK', 
-     'result': 'requests to all suppliers was sent',}
+
+{'status': 'OK',  'result': 'requests to all suppliers was sent',}
 
 
 ### customers\_list()
 
 List of customers - nodes who stores own data on your machine.
 
-    {'status': 'OK', 
+    {'status': 'OK',
      'result': [ {  'idurl': 'http://p2p-id.ru/bob.xml',
                     'position': 0,
                     'status': 'offline', }],
@@ -397,143 +365,113 @@ List of customers - nodes who stores own data on your machine.
 
 ### customer\_reject(idurl)
 
-Stop supporting given customer, remove all his files from local disc, close connections with that node.
+Stop supporting given customer, remove all his files from local disc, close
+connections with that node. 
 
-    {'status': 'OK', 
-     'result': ['customer http://p2p-id.ru/bob.xml rejected, 536870912 bytes were freed'],}
+{'status': 'OK',  'result': ['customer http://p2p-id.ru/bob.xml
+rejected, 536870912 bytes were freed'],}
 
 
 ### customers\_ping()
 
 Sends Identity packet to all customers to check their current statuses.
-Every node will reply with Ack packet on any valid incoming Identiy packet.  
+Every node will reply with Ack packet on any valid incoming Identiy packet.
 
-    {'status': 'OK', 
-     'result': 'requests to all customers was sent',}
+
+{'status': 'OK',  'result': 'requests to all customers was sent',}
 
 
 ### space\_donated()
 
-Returns detailed statistics about your donated space usage.
+Returns detailed statistics about your donated space usage. 
 
-    {'status': 'OK', 
-     'result':  [  { 'consumed': 0,
-                     'consumed_percent': '0%',
-                     'consumed_str': '0 bytes',
-                     'customers': [],
-                     'customers_num': 0,
-                     'donated': 1073741824,
-                     'donated_str': '1024 MB',
-                     'free': 1073741824,
-                     'old_customers': [],
-                     'real': 0,
-                     'used': 0,
-                     'used_percent': '0%',
-                     'used_str': '0 bytes'}],}
+{'status': 'OK',  'result':  [  { 'consumed': 0,
+'consumed_percent': '0%',                  'consumed_str': '0
+bytes',                  'customers': [],
+'customers_num': 0,                  'donated': 1073741824,
+'donated_str': '1024 MB',                  'free': 1073741824,
+'old_customers': [],                  'real': 0,
+'used': 0,                  'used_percent': '0%',
+'used_str': '0 bytes'}],}
 
 
 ### space\_consumed()
 
-Returns some info about your current usage of BitDust resources.
+Returns some info about your current usage of BitDust resources. 
 
-    {'status': 'OK', 
-     'result':  [  { 'available': 907163720,
-                     'available_per_supplier': 907163720,
-                     'available_per_supplier_str': '865.14 MB',
-                     'available_str': '865.14 MB',
-                     'needed': 1073741824,
-                     'needed_per_supplier': 1073741824,
-                     'needed_per_supplier_str': '1024 MB',
-                     'needed_str': '1024 MB',
-                     'suppliers_num': 2,
-                     'used': 166578104,
-                     'used_per_supplier': 166578104,
-                     'used_per_supplier_str': '158.86 MB',
-                     'used_percent': '0.155%',
-                     'used_str': '158.86 MB'}],}    
+{'status': 'OK',  'result':  [  { 'available': 907163720,
+'available_per_supplier': 907163720,
+'available_per_supplier_str': '865.14 MB',
+'available_str': '865.14 MB',                  'needed': 1073741824,
+'needed_per_supplier': 1073741824,
+'needed_per_supplier_str': '1024 MB',                  'needed_str':
+'1024 MB',                  'suppliers_num': 2,
+'used': 166578104,                  'used_per_supplier': 166578104,
+'used_per_supplier_str': '158.86 MB',
+'used_percent': '0.155%',                  'used_str': '158.86
+MB'}],}
 
 
 ### space\_local()
 
-Returns detailed statistics about current usage of your local disk.
+Returns detailed statistics about current usage of your local disk. 
 
-    {'status': 'OK', 
-     'result':  [  { 'backups': 0,
-                     'backups_str': '0 bytes',
-                     'customers': 0,
-                     'customers_str': '0 bytes',
-                     'diskfree': 103865696256,
-                     'diskfree_percent': '0.00162%',
-                     'diskfree_str': '96.73 GB',
-                     'disktotal': 63943473102848,
-                     'disktotal_str': '59552 GB',
-                     'temp': 48981,
-                     'temp_str': '47.83 KB',
-                     'total': 45238743,
-                     'total_percent': '0%',
-                     'total_str': '43.14 MB'}],}
+{'status': 'OK',  'result':  [  { 'backups': 0,
+'backups_str': '0 bytes',                  'customers': 0,
+'customers_str': '0 bytes',                  'diskfree':
+103865696256,                  'diskfree_percent': '0.00162%',
+'diskfree_str': '96.73 GB',                  'disktotal':
+63943473102848,                  'disktotal_str': '59552 GB',
+'temp': 48981,                  'temp_str': '47.83 KB',
+'total': 45238743,                  'total_percent': '0%',
+'total_str': '43.14 MB'}],}
 
 
 ### automats\_list()
 
-Returns a list of all currently running state machines.
+Returns a list of all currently running state machines. 
 
-    {'status': 'OK', 
-     'result':  [  { 'index': 1,
-                     'name': 'initializer',
-                     'state': 'READY',
-                     'timers': ''},
-                   { 'index': 2,
-                     'name': 'shutdowner',
-                     'state': 'READY',
-                     'timers': ''},
-                ...
-                ],}    
+{'status': 'OK',  'result':  [  { 'index': 1,
+'name': 'initializer',                  'state': 'READY',
+'timers': ''},                { 'index': 2,                  'name':
+'shutdowner',                  'state': 'READY',
+'timers': ''},             ...             ],}
 
 
 ### services\_list()
 
-Returns detailed info about all currently running network services.
+Returns detailed info about all currently running network services. 
 
-    {'status': 'OK', 
-     'result':  [  { 'config_path': 'services/backup-db/enabled',
-                     'depends': ['service_list_files', 'service_data_motion'],
-                     'enabled': True,
-                     'index': 3,
-                     'installed': True,
-                     'name': 'service_backup_db',
-                     'state': 'ON'},
-                   { 'config_path': 'services/backups/enabled',
-                     'depends': [  'service_list_files',
-                                   'service_employer',
-                                   'service_rebuilding'],
-                     'enabled': True,
-                     'index': 4,
-                     'installed': True,
-                     'name': 'service_backups',
-                     'state': 'ON'},
-                ...
-                ],}
+{'status': 'OK',  'result':  [  { 'config_path': 'services/backup-
+db/enabled',                  'depends': ['service_list_files',
+'service_data_motion'],                  'enabled': True,
+'index': 3,                  'installed': True,
+'name': 'service_backup_db',                  'state': 'ON'},
+{ 'config_path': 'services/backups/enabled',
+'depends': [  'service_list_files',
+'service_employer',
+'service_rebuilding'],                  'enabled': True,
+'index': 4,                  'installed': True,
+'name': 'service_backups',                  'state': 'ON'},
+...             ],}
 
 
 ### service\_info(service\_name)
 
-Returns detailed info for single service.
+Returns detailed info for single service. 
 
-    {'status': 'OK', 
-     'result':  [  { 'config_path': 'services/tcp-connections/enabled',
-                     'depends': ['service_network'],
-                     'enabled': True,
-                     'index': 24,
-                     'installed': True,
-                     'name': 'service_tcp_connections',
-                     'state': 'ON'}],}
+{'status': 'OK',  'result':  [  { 'config_path': 'services/tcp-
+connections/enabled',                  'depends':
+['service_network'],                  'enabled': True,
+'index': 24,                  'installed': True,
+'name': 'service_tcp_connections',                  'state':
+'ON'}],}
 
 
 ### service\_start(service\_name)
 
-Start given service immediately.
-This method also set `True` for correspondent option in the program settings:
+Start given service immediately. This method also set `True` for
+correspondent option in the program settings:
 
     .bitdust/config/services/[service name]/enabled
 
@@ -546,11 +484,11 @@ were already enabled, they will be started also.
 
 ### service\_stop(service\_name)
 
-Stop given service immediately.
-It will also set `False` for correspondent option in the settings.
- 
+Stop given service immediately. It will also set `False` for correspondent
+option in the settings.
+
     .bitdust/config/services/[service name]/enabled
- 
+
 Dependent services will be stopped as well.
 
 
@@ -559,21 +497,39 @@ Dependent services will be stopped as well.
 
 ### packets\_stats()
 
-Returns detailed info about current network usage.
+Returns detailed info about current network usage. 
 
-    {'status': 'OK',
-     'result': [ {'in': { 'failed_packets': 0,
-                          'total_bytes': 0,
-                          'total_packets': 0,
-                          'unknown_bytes': 0,
-                          'unknown_packets': 0},
-                 'out': { 'failed_packets': 8,
-                          'http://p2p-id.ru/bitdust_j_vps1014.xml': 0,
-                          'http://veselin-p2p.ru/bitdust_j_vps1001.xml': 0,
-                          'total_bytes': 0,
-                          'total_packets': 0,
-                          'unknown_bytes': 0,
-                          'unknown_packets': 0}}], }
+{'status': 'OK',  'result': [ {'in': { 'failed_packets': 0,
+'total_bytes': 0,                       'total_packets': 0,
+'unknown_bytes': 0,                       'unknown_packets': 0},
+'out': { 'failed_packets': 8,                       'http://p2p-
+id.ru/bitdust_j_vps1014.xml': 0,                       'http
+://veselin-p2p.ru/bitdust_j_vps1001.xml': 0,
+'total_bytes': 0,                       'total_packets': 0,
+'unknown_bytes': 0,                       'unknown_packets': 0}}], }
+
+
+### packets\_list()
+
+Return list of incoming and outgoing packets. 
+
+{}
+
+
+### connections\_list(wanted\_protos=None)
+
+Returns list of opened/active network connections. Argument `wanted_protos`
+can be used to select which protocols to list:
+connections_list(wanted_protos=['tcp', 'udp',]) 
+
+{}
+
+
+### streams\_list(wanted\_protos=None)
+
+Return list of active sending/receiveing files. 
+
+{}
 
 
 ### ping(idurl, timeout=10)
@@ -585,45 +541,48 @@ The "ping" command performs following actions:
   3. Wait first Ack packet from remote peer,
   4. Failed by timeout or identity fetching error.
 
-    {'status': 'OK', 
+    {'status': 'OK',
      'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 
 
 ### set\_my\_nickname(nickname)
 
-Starts nickname_holder() machine to register and keep your nickname in DHT network.
+Starts nickname_holder() machine to register and keep your nickname in DHT
+network.
 
 
 ### find\_peer\_by\_nickname(nickname)
 
-Starts nickname_observer() Automat to lookup existing nickname registered in DHT network.
+Starts nickname_observer() Automat to lookup existing nickname registered
+in DHT network.
 
 
 ### send\_message(recipient, message\_body)
 
-Sends a text message to remote peer.
+Sends a text message to remote peer. 
 
-    {'status': 'OK', 
-     'result': ['signed.Packet[Message(146681300413)]'],}
+{'status': 'OK',  'result':
+['signed.Packet[Message(146681300413)]'],}
 
 
 ### receive\_one\_message()
 
 This method can be used to listen and process incoming chat messages.
-  + creates a callback to receive all incoming messages,
-  + wait until one incoming message get received,
-  + remove the callback after receiving the message.
 
-    {'status': 'OK', 
-     'result': [ { 'from': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
-                   'message': 'Hello my dear Friend!'}],}
++ creates a callback to receive all incoming messages,   + wait
+until one incoming message get received,   + remove the callback
+after receiving the message.      {'status': 'OK',
+'result': [ { 'from': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
+'message': 'Hello my dear Friend!'}],}
 
 
 ### broadcast\_send\_message(payload)
 
 Sends broadcast message to all peers in the network.
+
 Message must be provided in `payload` argument is a Json object.
-WARNING! Please, do not send too often and do not send more then several kilobytes per message.  
+WARNING! Please, do not send too often and do not send more then
+several kilobytes per message.
 
 
 
