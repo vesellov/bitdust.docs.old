@@ -264,7 +264,7 @@ No problem, this confused situation can be solved by using "prepaid" contracts. 
 
 As you can see, contract was not "finished", but it was "paid" in advance and closed. Of course, this have much more value for provider than consumer. Because if quality of service will be not good enough consumer definitely would like to switch to another provider, but he still need to pay for whole contract duration. So consumer will have to trust so much to provider and agree on this situation.
 
-Luckily, all contracts was saved in global distributed publicly accessible storage and consumer able to check all past contracts for this given provider. Based on this info and some level-of-trust method he can decide to trust or not to this provider. For example he can check in how much "long and prepaid" contracts he was already involved.
+Luckily, all contracts was saved in global distributed publicly accessible storage and consumer able to check all past contracts for any given provider. Based on this historical info and some level-of-trust methods he can decide whether he can trust or not to this provider. For example he can check how much "long and prepaid" contracts he was already involved in and compare their status.
 
 
 ## Calculate costs
@@ -273,13 +273,19 @@ At some point supplier may decide to get some refund from customer because he di
 
 Instead of dealing with every single contract BitDust software will calculate total amount of resources consumed by given customer during some period of time and charge him only one time. Same method can be used to calculate amount of donated storage provided by given supplier and find how much he earned during given period.
 
-As described above, every contract have a fixed "price" - this coefficient ...
+As described above, every contract have a fixed "price" - this coefficient allows you to "personalize" your service when you donating storage to the network. You can configure this option in program settings and so every next contract you starting will use that value. Currently started contracts still be calculated based on the value you set in the past.
 
 Total cost of any single contract can be calculated with such simple expression:
 
-    value = amount * duration * price  ( in Megabytes * Seconds )
+    value = amount * duration * price
 
-Now we can look at how this value can be used to calculate service costs in real currency. For example let's take euros as current local currency. Also need to set a price for the storage: let's assume someone agreed to pay 10 euros for 10Gb storage space per one month, for example.
+Now we can look at how this value can be used to calculate service costs in real currency. For example let's take euros as current local currency, and so need to set a price for the storage. Let's assume consumer agreed to pay 10 euros for 10Gb storage space per one month. In that case he will need to find suppliers who agreed to donate storage 
+
+and he found 7 remote suppliers who also agreed to provide reliable storage service for that price. Say consumer did requested 35Gb total from the network - so we have a 7 contracts started at one moment, each for (30Gb * 2) / 7 = 10Gb. Let's imagine all those contracts has total duration of one month finally and was finished correctly.
+
+The expression above applied for every such finished contract will give us roughly:
+
+    value = 10Gb * (30 days * 24 hour * 60 seconds) * price
 
     
 
