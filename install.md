@@ -40,11 +40,25 @@ Type this command to read more info about BitDust commands:
         bitdust help
 
 
-Please read more about BitDust Commands at http://bitdust.io/commands.html to start playing with software.
+To run the software type:
+
+        bitdust
+        
+
+Start as background process:
+
+        nohup bitdust &  
+        
+or, simply:
+
+        bitdust detach
 
 
+To get some more insights or just to know how to start playing with software
+you can visit [BitDust Commands](http://bitdust.io/commands.html) page. 
 
-## Dependencies
+
+## Known dependencies
 
 python 2.6 or 2.7, python3 is not supported
     http://python.org/download/releases

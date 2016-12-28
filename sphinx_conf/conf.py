@@ -20,6 +20,9 @@ import shlex
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../../bitdust.devel/'))
+sys.path.insert(0, os.path.abspath('../bitdust.devel/'))
+
 
 # -- General configuration ------------------------------------------------
 
@@ -32,11 +35,11 @@ sys.path.insert(0, os.path.abspath('..'))
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
-    'sphinx.ext.intersphinx',
+    # 'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
-    'sphinx.ext.napoleon',
+    # 'sphinx.ext.napoleon',
     'sphinxcontrib.plantuml',
 ]
 
@@ -55,7 +58,7 @@ source_suffix = '.rst'
 # source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'rst_wiki'
+master_doc = 'bitdustdoc'
 
 # General information about the project.
 project = u'BitDust'
