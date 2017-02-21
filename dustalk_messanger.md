@@ -1,5 +1,3 @@
-Переводчик
-Отключить моментальный перевод
 # DusTalk - Distributed chat / messenger AV / conferencing
 
 
@@ -15,7 +13,7 @@
 * [Availability] (# Availability)
 
 
-<a class=hlnk id="Vvedenie"> </a>
+<a class=hlnk id="introduction"> </a>
 ## Introduction
 
 At the moment, there is a wide range of programs for instant messaging, live connection with streaming audio and video, as well as the entire organization of videoconferences, simultaneously for many participants. The vast majority of these solutions using classical methods of user authentication and dedicated servers for the organization of these services.
@@ -208,11 +206,3 @@ For example, consider the case where you need to combine access to personal data
 
 
 
-
-
-
-
-
-Переводчик Google для бизнеса –Инструменты переводчикаПереводчик сайтовСлужба "Анализ рынков"
-О Переводчике GoogleСообществаМобильная версия
-О GoogleПравила и принципыСправкаОтправить отзыв

@@ -275,21 +275,87 @@ Instead of dealing with every single contract BitDust software will calculate to
 
 As described above, every contract have a fixed "price" - this coefficient allows you to "personalize" your service when you donating storage to the network. You can configure this option in program settings and so every next contract you starting will use that value. Currently started contracts still be calculated based on the value you set in the past.
 
-Total cost of any single contract can be calculated with such simple expression:
+Total "value" of any single contract can be calculated with such simple expression:
 
     value = amount * duration * price
-
-Now we can look at how this value can be used to calculate service costs in real currency. For example let's take euros as current local currency, and so need to set a price for the storage. Let's assume consumer agreed to pay 10 euros for 10Gb storage space per one month. In that case he will need to find suppliers who agreed to donate storage 
-
-and he found 7 remote suppliers who also agreed to provide reliable storage service for that price. Say consumer did requested 35Gb total from the network - so we have a 7 contracts started at one moment, each for (30Gb * 2) / 7 = 10Gb. Let's imagine all those contracts has total duration of one month finally and was finished correctly.
-
-The expression above applied for every such finished contract will give us roughly:
-
-    value = 10Gb * (30 days * 24 hour * 60 seconds) * price
-
     
+Here, a "price" parameter is set by provider to declare additional charge which he was going to take. This is a price "factor" - every user decides independently, how much to ask for own services. For example a value of 1.0 means no extra charges, but value 1.12 will put 12% extra tax.
+
+But I must give you more clear info about a real meaning of "value" of the contract. Measurement unit for the "contract value" is Gb * Hours, or "GBH".
+
+    a contract of 1 GBH represents situation when 1 GB storage space was consumed during 1 hour
+
+Imagine you have one finished contract for 500 GBH to be paid, for example you were using 5 Gb storage space during 100 hours. However 25 Gb during 20 hours will give you a contract with same cost.
+
+Lets see now how those "value" and "price" can be used together to calculate service costs in real situation. Imagine supplier Bob constantly giving 30 Gb storage space of his HDD to customer Alice during one month. Also he asks 2% extra and they both agreed and did a handshake before sign the contract. All was good, both was happy and finished the contract successfully, the final value must be:
+
+    30 GB * 30 days * 24 hours * 1.02 = 22032 GBH
+
+But this is only expected value. To get the real value for the whole "contract-chain" we need more carefull calculations. First contract will be signed for 1 hour, second (after verification and confirmation from both sides) for 2 hours, third for 4 hours and so on ...  this is the sequence of powers of two. The contract have no total duration but extends every next period, so one month contract will be represented as a sequance of smaller contracts:
+
+    30 GB * 1.02 * 1 hour -> 30 GB * 1.02 * 2 hours -> 30GB * 1.02 * 4 hours -> ... 
+
+...
+
+
+## Supplier profits
+
+Every customer always have to find enough suppliers to feel good - those guys agree to provide enough space to you but you will have to pay. They will make a deal with you but will check your history and if things not go well after one hour then can simply stop (not continue) the contract with you and lost nothing. For such cases probably customer do not need to pay but his reputation will go down. But if you have a lot paid contracts every supplier will support you in a best way possible.
+
+For example customer Alice will use ecc/4x4 mode and will be connected with 4 suppliers: Bob, Carl, Dave and Edward. Every supplier will sign a contract with Alice - all for same value, price and duration: 
+
+    100 Gb * 30 days * 24 hours / 4 = 18000 GBH
+
+Because smallest iteration is one hour we can think of this value from different point of view: every hour Bob will "earn" (also you can think of words "mine" or "farm") that amount of "PC resources":
+
+    100 GB * 1 hour / 4 suppliers = 25 GBH
+
+
+
+
+
+
+
+## Link GBH to real currencies
+
+A real currency is always like a fluid - same coin can be exchanged for different price in different locations and different situations. Because of this issue every customer must be able to use best currencies suitable for him. But in all cases it must be according to the current market exchange rate - no matter of which currency he was going to use.
+
+Supplier is the guy who define the currency at the begining - he already did some job and gained some GBH on the "balance".
+Now supplier can "broadcast" to other nodes a short info about his offer: to sell some amount of GBH. He can do it very slowly and gently. The software will do it in a smart way so other customers always able to "subscribe" for such events and receive those "offers" in real-time. But other users will not be "polutted/spammed" too much.
+
+As customer found a good "offer" to buy a GBH from supplier he can just send a real money directly to him - in any way possible. But supplier wont be albe to accept all of the currencies and all of the payment methods but only several of them. So in the "offer" he will put an info about preferred methods.
+
+After receiving the money supplier will have to accept the payment and "mine/publish" a final coin the "chain" and so mark the contract as "paid".
+
+For example let's take euros as current local currency, and will try to set a price for the storage. 
+Consider a customer Alice who agreed to pay 15 euros for 100 GB storage space per one month, so she is fine to spend no more than:
+
+     15 Euros / (100 Gb * 30 days * 24 hours) = 1 Euro for 4800 GBH  or 
+
+She found a supplier Bob who already gained some GBH from Zlatan and willing to sell it for 12 Euros per 100 GB storage per month:
+
+     12 Euros / (100 Gb * 30 days * 24 hours) = 1 Euro for 6000 GBH
+
+But worth to say that nothing about real currencies needs to be defined in the contracts-chain - we only need the actual contract info and the value in GBH. BitDust project is not involved in money transfer at all and have no financial obligations.
+
+
+
+
+## Exchange GBH to real currency
+
 
 As soon as contract was finished it is possible to calculate the total value from it and finally the real price in some currency.
+
+## 
+
+We love and encourage a free market!. But please note, BitDust project not going to create a new financial system and implement an own currency. You will get more detailed info bellow, but in short: we do not want to accumulate "money" in the network (like BitCoin does), but only count current consumption of resources. When you earn some GBH you will have to spend them quickly (within same calendar "period") or withdraw into cash or another currency.
+
+The software will count resources constantly, but periodically it will do a "reset all counters" procedure. Older contracts will be erased automatically from the contracts chain database - so at any moment only your last finished contracts will have a "value" for other nodes. It is because other nodes have no profits of storing a huge amount of contracts on own PC.
+
+As soon as contract was finished and rewarded it must be cleaned from the database. If contract was not finished within critical period it will be also cleaned. If contract was finished but was not rewarded (paid) it will be still available for longer period (so other people will see it) and finally also will be cleaned. This is not comfort situation for customer because his reputation will go down, it will be explained bellow.
+
+
+
 
 
 ## Payment of completed contracts
