@@ -12,7 +12,7 @@ if len(sys.argv) > 3:
 if not os.path.isdir(os.path.dirname(dest)):
     print "create", os.path.dirname(dest)
     os.makedirs(os.path.dirname(dest))
-site_url = "http://bitdust.io"
+site_url = "https://bitdust.io"
 sbody = open(src).read()
 sbody = re.sub('a href="(.+?)\.md"', 'a href="%s\g<1>.html"' % md_base, sbody)
 sbody = re.sub('a href="(.+?)\.py"', 'a href="%s\g<1>.py"' % gitlab_base, sbody)

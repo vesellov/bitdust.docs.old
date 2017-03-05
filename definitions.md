@@ -1,17 +1,56 @@
-## What BitDust is?
+# What BitDust is?
 
-BitDust a worldwide distributed computer network for secure storage and transfer of information and operates over existing Internet connections.
+## +
 
-BitDust a holistic ecosystem, the basic idea of ​​which is to complete decentralization of all information flows and data storage.
+BitDust project is aimed to protect your own privacy.
 
-BitDust a set of software that implements over the Internet, the global higher level of communications infrastructure.
 
-BitDust this engine to create a distributed and secure p2p applications.
+## +
 
-BitDust an attempt to rectify the current situation in the world - this is what was supposed to be the internet.
+BitDust is a worldwide distributed computer network for secure storage and transfer of information and operates over existing Internet connections.
 
-BitDust this is just another revolution.
 
-BitDust network is a voluntary association of people sharing resources of their personal computers - it aims to protect the privacy of users and provides an alternative way of working and communicating in the network.
+## +
 
-BitDust is another way for collective security
+BitDust is a holistic ecosystem, the basic idea of which is complete decentralization of all information flows in society.
+
+
+## +
+
+BitDust is a computer software which gives you full control over your personal data.
+
+
+## +
+
+BitDust is new software framework to build distributed and secure peer-to-peer applications.
+
+
+## +
+
+BitDust is attempt to rectify the current situation in the world - this is what was supposed to become "Distributed Internet" in the past.
+
+
+## +
+
+BitDust network is a voluntary association of people sharing resources of their personal computers.
+
+
+## +
+
+BitDust aims to protect the privacy of users and provides an alternative way of working and communicating in the network.
+
+
+## +
+
+BitDust is another way for collective security.
+
+
+## +
+
+BitDust is just an idea.
+
+
+## +
+
+BitDust is just another revolution.
+

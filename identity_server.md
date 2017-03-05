@@ -4,7 +4,11 @@
 ## Install and configure apache2
 
 
-First install Apache server if you do not have it yet on your machine:
+Lets setup a hostname on your machine if you did not do it before:
+
+    sudo hostname -b my-own-identity-server.com
+
+And you will need to install Apache server if you do not have it yet on your machine:
 
     sudo apt-get install apache2
 
@@ -16,7 +20,7 @@ you need to add a line to set your domain name:
     
     ServerName my-own-identity-server.com
 
-Create a new .conf file in /etc/apache2/conf-available/ :
+Create a new my-own-identity-server_com.conf file in /etc/apache2/conf-available/ :
 
     <VirtualHost *:80>
       ServerName my-own-identity-server.com
@@ -32,24 +36,32 @@ Create a new .conf file in /etc/apache2/conf-available/ :
 
 Enable this configuration in apache2, run command:
 
-    sudo a2enconf id_server_apache2
+    sudo a2enconf my-own-identity-server_com
     
 Configure proxy_http and rewrite modes in apache2, run commands:
 
     sudo a2enmod proxy_http 
     sudo a2enmod rewrite
 
-Restart apache2 server:
+
+Now restart apache2 server:
 
     sudo service apache2 restart
 
 
 ## Configure BitDust software
 
-Now configure BitDust on your node to set domain name for your identity server, run commands:
+First you need to install [BitDust software](https://bitdust.io/install.html) on your machine. 
+
+Now configure BitDust on your node to set domain name for this new identity server, run commands:
 
     bitdust set services/id-server/host my-own-identity-server.com
     bitdust set services/id-server/enabled true
+    
+
+You can manually set a port number for incoming connections using such command:
+
+    bitdust set services/id-server/web-port 8084
 
 
 Restart BitDust software:
@@ -63,7 +75,14 @@ Be sure ID server is up and running:
     36: id_server(LISTEN)
 
 
-Open your browser and go to my-own-identity-server.com to check it end-to-end.
+Open your browser and go to http://my-own-identity-server.com or (http://localhost:8084) to check it end-to-end.
 
-Contact with BitDust team to notify about this new ID server was started and we will add your domain name in the list of "known id servers" at: http://gitlab.bitdust.io/stable/bitdust.latest/blob/master/userid/known_servers.py
+
+## Support BitDust network
+
+Contact with BitDust team to notify about this new ID server was started by you and we will add your domain name in the list of [known_servers.py](http://gitlab.bitdust.io/stable/bitdust.latest/blob/master/userid/known_servers.py).
+
+
+<div class=fbcomments markdown="1">
+</div>
 

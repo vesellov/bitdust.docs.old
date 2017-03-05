@@ -3,23 +3,25 @@
 
 Seems like in Ubuntu (probably most other distros) you just need to install all dependencies at first step:
 
-        sudo apt-get install git python-dev python-twisted python-setuptools python-pip python-django
-        pip instycrypto psutil 
-    
+        sudo apt-get install git python-dev python-setuptools python-pip
+        
+        sudo apt-get install python-twisted python-django python-crypto python-pyasn1 python-psutil
+
+
 Optionally, you can also install [miniupnpc](http://miniupnp.tuxfamily.org/) tool if you want BitDust automatically deal with UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:
 
         sudo apt-get install miniupnpc
 
 
-Get Sources:
+Get BitDust sources:
 
-        git clone http://gitlab.bitdust.io/devel/bitdust.git
+        git clone http://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
 
 
 Create an alias in OS so you can easily run the program from any location:
 
         cd bitdust
-        python bitdust.py alias > sudo tee /usr/bin/bitdust
+        python bitdust.py alias | sudo tee /usr/bin/bitdust
         sudo chmod +x /usr/bin/bitdust
         
 
@@ -51,28 +53,31 @@ Start as background process:
 
 
 To get some more insights or just to know how to start playing with software
-you can visit [BitDust Commands](http://bitdust.io/commands.html) page. 
+you can visit [BitDust Commands](https://bitdust.io/commands.html) page. 
 
 
-## Known dependencies
+## Windows binaries
 
-python 2.6 or 2.7, python3 is not supported
-    http://python.org/download/releases
+If you are installing BitDust on Windows platforms, you may require some binary packages already compiled and packaged for Microsoft Windows platforms, you can check following locations and download needed binaries and libraries:
+
+    + cygwin: [cygwin.com](https://cygwin.com/install.html)
     
-twisted 11.0 or higher: 
-    http://twistedmatrix.com
-    
-pyasn1: 
-    http://pyasn1.sourceforge.net
-    
-pyOpenSSL: 
-    https://launchpad.net/pyopenssl
-    
-pycrypto: 
-    https://www.dlitz.net/software/pycrypto/
+    + git: [git-scm.com](https://git-scm.com/download/win)
 
-wxgtk2.8: 
-    http://wiki.wxpython.org/InstallingOnUbuntuOrDebian
+    + python 2.7 (python3 is not supported yet): [python.org](http://python.org/download/releases)
+    
+    + twisted 11.0 or higher: [twistedmatrix.com](http://twistedmatrix.com)
+    
+    + pyasn1: [pyasn1.sourceforge.net](http://pyasn1.sourceforge.net)
+    
+    + pyOpenSSL: [launchpad.net/pyopenssl](https://launchpad.net/pyopenssl)
+    
+    + pycrypto: [dlitz.net/software/pycrypto](https://www.dlitz.net/software/pycrypto/)
 
-miniupnpc:
-    http://miniupnp.tuxfamily.org/
+    + wxgtk2.8: [wxpython.org](http://wiki.wxpython.org/InstallingOnUbuntuOrDebian)
+
+    + miniupnpc: [miniupnp.tuxfamily.org](http://miniupnp.tuxfamily.org/)
+
+
+<div class=fbcomments markdown="1">
+</div>

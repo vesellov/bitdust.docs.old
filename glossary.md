@@ -6,8 +6,8 @@ global network for distributed data storage, sharing, publishing, etc.
 
 
 ## BitDust Program
-software delivered and distributed by [BitDust Team](http://bitdust.io)
-under private [license](http://bitdust.io/license.html) with nominally-open source code – available for free download and review (we are still deciding about the license type ...)
+software delivered and distributed by [BitDust Team](https://bitdust.io)
+under private [license](https://bitdust.io/license.html) with nominally-open source code – available for free download and review (we are still deciding about the license type ...)
 
 
 ## Node

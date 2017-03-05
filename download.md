@@ -2,12 +2,12 @@
 
 ## Windows Installer
 
-[bitdust-setup.exe](http://bitdust.io/download/bitdust-setup.exe)
+[bitdust-setup.exe](https://bitdust.io/download/bitdust-setup.exe)
 
 
 ## Ubuntu / Debian package
 
-[bitdust-ubuntu-devel.deb](http://bitdust.io/download/bitdust-ubuntu-devel.deb)
+[bitdust-ubuntu-devel.deb](https://bitdust.io/download/bitdust-ubuntu-devel.deb)
 
 
 ## Explanation

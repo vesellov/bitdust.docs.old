@@ -19,6 +19,7 @@ After party was really nice, a lot of cool cypher punks!
 We have a new [Current status](status) page on the website – a brief summary on state of things of the project.
 
 
+
 ## project Website is Now Open 
 
 23:29 5 February 2015
@@ -26,7 +27,7 @@ We have a new [Current status](status) page on the website – a brief summary o
 All the best to You!
 Welcome to our website of BitDust project.
 
-Recently we have opened our domain www.bitdust.io](http://bitdust.io) and uploaded first files of our website in the network.
+Recently we have opened our domain www.bitdust.io](https://bitdust.io) and uploaded first files of our website in the network.
 
 Dear Friend, we would like to be helpful to you and many other people and create good and userfriendly software. Wish BitDust project good luck. 
 

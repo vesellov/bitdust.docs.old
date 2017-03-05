@@ -30,5 +30,12 @@ The following table has a list of command boxes, which can be written to the has
     list of nodes trying to connect to the user at the moment
 
 
+## Support BitDust network
+
+If you wish to support BitDust project, willing to support other nodes when they are connecting to the netowork and be sure your machine will work reliable - you can become a part of BitDust "proto-netowork". BitDust will be running constantly ony your device and re-route incoming DHT requests from other nodes.
+
+Contact with BitDust team to notify about this new DHT node was started by you and we will add your IP:port in the list of [known_servers.py](http://gitlab.bitdust.io/stable/bitdust.latest/blob/master/dht/known_nodes.py).
+
+
 <div class=fbcomments markdown="1">
 </div>

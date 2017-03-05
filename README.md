@@ -48,4 +48,4 @@ We invite all who are interested in this direction - primarily developers and en
 + [Donation / Your Contribution](donate.md)
 
 
-[bitdust.io](http://bitdust.io)
+[bitdust.io](https://bitdust.io)

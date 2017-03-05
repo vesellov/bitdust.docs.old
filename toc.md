@@ -4,6 +4,8 @@
 
 + [Introduction](intro.md)
 + [Concept](concept.md)
++ [Definitions](definitions.md)
++ [Philosophy](philosophy.md)
 + [How Does It Work?](principle.md)
 + [Installation](install.md)
 + [Commands](commands.md)
@@ -13,7 +15,6 @@
 
 ## Working Principles
 
-+ [Glossary](glossary.md)
 + [User Identification](identities.md)
 + [Distributed Storage](storage.md)
 + [Data Security](security.md)
@@ -33,4 +34,4 @@
 + [Known bugs](bugs.md)
 
 
-[bitdust.io](http://bitdust.io)
+[bitdust.io](https://bitdust.io)
