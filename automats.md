@@ -35,7 +35,7 @@ As compared to the classic method of Anatoliy Shalyto my approach has some small
 * you can write whole statements on Python on the arcs, which opens more possibilities to the developer
 
 Each automat is a descendant of the
-[`Automat`](http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l202) class,
+[Automat](http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l202) class,
 which establishes all key collaborations in the BitDust program:
 
 + initializes a conceptual machine increment by its production
@@ -52,7 +52,7 @@ which establishes all key collaborations in the BitDust program:
 As an example, consider a simple finite state machine which is designed for tracking the current status of user’s  connection to the given node in the BitDust network.
 
 In this picture you can see an automat called
-[`contact_status()`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244),
+[contact_status()](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244),
 which has four states.
 
 <div class=automatpng markdown="1">
@@ -91,7 +91,7 @@ For instance `self.state == 'CONNECTED'` means that user is on-line at the curre
 
 ## The Core
 
-All this logic is concentrated in the kernel of the finite state machine in the method [`A(event, arg)`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l264)
+All this logic is concentrated in the kernel of the finite state machine in the method [A(event, arg)](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l264)
 of `ContactStatus` class:
 
     def A(self, event, arg):
@@ -157,7 +157,7 @@ This allows to split software development process in at least two paths and sign
 ## Relation to the Code
 
 Let's see on example below, the given method
-[`doRememberTime()`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l321)
+[doRememberTime()](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l321)
 of `ContactStatus` class makes a record of the current time moment – this is exactly the part of the functional, which is managed by the finite automat:
 
     def doRememberTime(self, arg):
@@ -166,10 +166,10 @@ of `ContactStatus` class makes a record of the current time moment – this is e
 This is very simple code, but it makes a useful action and calls an external code - actions and conditions become separated from the state machine and target logic.
 
 For every new network connection a new single instance of this automat will be created, method
-[`A(idurl, event, arg)`](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l229)
+[A(idurl, event, arg)](http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l229)
 creates new instances and refers to existing instances of the automat.
 
-External reference to the automat is carried out through [`automat(event, args)`](http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l348) 
+External reference to the automat is carried out through [automat(event, args)](http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l348) 
 method of `Automat` class, for example after receiving new incoming packet from the target node an event `inbox-packet` will be passed to the state machine:
 
     def Inbox(newpacket, info, status, message):
@@ -219,7 +219,7 @@ Events, conditions and actions form the finite statement for the transition func
 
 Microsoft Visio 2007 is used for creation of the vector schemes of transition graphs. Transition graphs of finite state machines, which control the behavior of BitDust client software, reside in *.vsd files.
 
-A small tool called [`visio2python`](http://gitlab.bitdust.io/devel/visio2python/tree/master) was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
+A small tool called [visio2python](http://gitlab.bitdust.io/devel/visio2python/tree/master) was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
 It can translate the transition graphs, created in Microsoft Visio into the code in Python or JavaScript languages.
 
 [http://gitlab.bitdust.io/devel/visio2python](http://gitlab.bitdust.io/devel/visio2python/tree/master)

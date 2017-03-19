@@ -4,35 +4,32 @@
 
 ## Business requirements
 
-BitDust do not have (and do not need) own currency - we count hardware resources, not euros, bucks or BitCoins. However to be able to buy/sell PC resources, of course, necessary to implement some kind of exchange market. There are several important points needs to be considered in this topic:
+BitDust do not have (and do not need) own currency - we count hardware resources, not euros, bucks or BitCoins. However to be able to buy/sell PC resources, of course, necessary to implement some "coins". There are several important points needs to be considered in this topic:
 
-+ Because of distributed design of whole BitDust eco-system all billings and payments must be fully decentralized. That means there should not exist one single point of interest - nobody should be able to control and manage all billing operations in the network.
++ Because of distributed design of whole BitDust eco-system all billings and payments must be fully decentralized/distributed as well. That means there should not exist one single point of interest - nobody should be able to control and manage all billing operations in the network and be able to dictate some rules.
 
-+ Imagine a situation when one customer is located in country A and using storage provided from supplier living in country B. This customer able to pay in local currency for country A, but supplier would like to receive money in another currency, because he live in country B where currency A is not available.
++ Imagine a situation when one customer is located in country A and using storage provided from supplier living in country B. This customer able to pay in local currency for country A, but supplier would like to receive money in another currency, because he live in country B where currency A is not available. So the method must be independent and generic.
 
-+ In some cases it may be not possible at all to transfer money directly from one country to another.
-
-+ Transfer costs can be too high for international payments.
-
-+ One customer can have up to 64 suppliers and paying all of them one by one is not efficient - he will prefer to pay only once for all finished contracts.
++ Transfer costs for single small transaction can be too high, need to reduce amount of regular transactions as much as possible. One customer can have up to 64 suppliers and paying all of them one by one is not efficient - he will prefer to pay only once for all finished contracts.
 
 + It must be possible to use BitDust network without spending any real cash - if you donate more resources than you consume all services must be free for you.
 
-Based on these requirements, a distributed online payment system for BitDust was designed. It allows users to get a benefit from providing resources of their PC's for other people.
+Based on these requirements we started desiging and developing a distributed online payment system for BitDust project. The goal is to allow users to gain some "coins" and benefit from providing resources of own PC's to other people.
 
 
 ## The idea
 
-In order to buy/sell hardware resources, nodes in BitDust network must sign some kind of "contract" between each other. This contract will regulate how much resources was allocated, identity of both parties  (consumer and provider), when it was started and basic price for that contract.
+In order to buy/sell hardware resources, nodes in BitDust network must sign some kind of "contract" between each other. This contract will regulate how much resources was allocated, define time period, identity of both parties (consumer and provider), basic price for that service and other related info.
 
-All contracts are stored in global distributed storage network - pretty close to well-known blockchain technology introduced in BitCoin currency - this storage is called "contracts-chain".
+All contracts are stored in global distributed storage network - pretty close to well-known blockchain technology introduced in well-known BitCoin currency. But this storage is called "contracts-chain" and will store not "coins" and "transactions" but only "contracts".
 
+Basicaly the purpose of "Crypto-contract" is to support the deal between two nodes to provide and consume PC resources.
 Bellow you can find more information about that idea and some details about how it is going to be built. 
 
 
 ## Supplier-Customer contracts
 
-When some customer get connected to one of suppliers in the network - both must agree on that relations. In other words they will sign a contract and this contract declares several important points:
+When some customer get connected to one of suppliers in the network - both must agree to start those relations and make a deal. In other words they will sign a contract and this contract declares several important points:
 
 + who provide the storage (ID of supplier),
 + who consume the storage (ID of customer),
@@ -40,29 +37,53 @@ When some customer get connected to one of suppliers in the network - both must 
 + how much space was allocated from supplier to customer,
 + a basic price for one megabyte for that contract
 
-At first customer requests from supplier some amount of storage by communicating with him directly. Supplier can do some analysis of this customer and decide about this request based on some trust level. Let's assume that supplier accepts this request and able to provide that amount of storage. Immediately after that contract means to be started and customer should be able to use given amount of storage on provider's machine for own purposes.
+At first customer requests from supplier some amount of storage by communicating with him directly. Supplier can do some analysis of this customer and decide about this request based on some trust level. Let's assume supplier accepted this customer and decided to provide that amount of storage for requested period of time.
 
-Consumer will expect a "contract offer" from provider right after they did a handshake. Within one hour provider must do that by "generating" a first coin in this contract-chain. You can read more about coins mining process bellow on this page.
+Supplier will prepare a "contract offer" to customer and send back in response to initial request. If customer agree on those conditions he will sign the contract and it back to supplier to indicate that deal actually was started. It is very simillar to real life - when you need a service from some organization you typically sign a paper contract and give them back a signed copy, but also keep another signed copy with you. 
+
+Immediately after supplier received signed crypto-contract the deal means to be started and customer should be able to use given amount of storage on provider's machine for own purposes. 
+
+Consumer will now expect a publishing of the "crypto-contract" from supplier - right after they did a handshake. Within one hour provider must do that by "generating" a first coin in that given "contract-chain". You can read more about coins mining process bellow on this page.
 
 
 ## Contract-chain
 
-When a new coin will be mined and published consumer should receive it and recognize that provider is expecting a payment from him. But provider must follow his promises and keep doing his job well and provide good quality service in order to satisfy the customer. Now customer have some time to test quality of service and make a final decision.
+When a new coin will be mined and published consumer should receive it via global "contract-chains" database and recognize that provider is expecting a payment from him. But provider must follow his promises and keep doing his job well and provide good quality service in order to satisfy the customer, so first iteration of any contract always sponsored by provider.
+
+Now customer have one hour to test quality of the service and decide about further extension. The contract is just started and duration of the first iteration is only one hour. So if quality of service is not good enough, customer may decide to choose another provider, but he still need to pay for that hour because the deal was already signed by both parties.
 
 Every contract have a duration and starting point so expiration moment is known in advance. To be able to complete the contract, customer must generate a second coin to confirm this deal and this coin will be attached to same contract right after the coin previously mined by supplier. At any moment of time before contract became expired customer must add second matching coin to the contract-chain to confirm that he is willing to pay for this service.
 
-If everything went fine and second coin was mined and published by consumer - both parties should receive it and get notified about successful contract finalization. Now supplier and customer will communicate again and decide about contract extension. If they agree to continue - the process will repeat: 2 more coins will be mined and appended to this contract-chain, and so on.
+In the "contract-chain" every next contract must have twice or more longer "duration". This is needed to prevent polluting in the global contracts storage. First contract in chain starts with one hour duration, second should be at least two hours, third at least 4 hours and so on. Longer contracts costs more, but of course have more risk to be failed.
 
-Of course consumer may decide to not pay - this is correct if quality of service by provider was not good enough  during that testing period (after the moment when first coin was mined and published). In this case supplier of course will be disappointed but it was his personal decision and he accepted the risk. So if second coin was not mined before contract became expired, provider will just stop supporting this customer, erase uploaded files from own machine and close all network connections with consumer.
++ supplier offer (1 hour duration),
++ customer accept (1 hour),
++ supplier offer (2 hours),
++ customer accept (2 hours),
++ supplier offer (4 hours),
++ customer accept (4 hours),
++ ...
 
-Every next contract in the chain must have twice or more longer "duration". This is needed to prevent polluting the global contracts storage. First contract in chain starts with one hour duration, second should be at least two hours, third at least 4 hours and so on. Longer contracts costs more, but of course have more risk to be failed.
+If everything went fine and second coin was mined and published by consumer - both parties should receive it and get notified about successful contract finalization. Now supplier and customer will communicate again and decide about contract extension. If they agree to continue - the process will repeat: 2 more coins will be mined and appended to this contract-chain, and so on. So every contract is a repeating sequence of paired coins and every pair have twice longer duration (or more) than previous one.
+
+
+## Breach of contract
+
+Basically all such contracts are post-paid. At first step provider start providing a service and after some period of time consumer will pay for that service. Just like in real life - if contract was started customer must paid anyway.
+
+Of course consumer may decide to not pay for consumed servies and do not mine second coin in the chain.
+But in that case supplier will recognize that soon and will stop the relations. Also it will indicate that customer is not playing fair and his reputation will go down - every coin in "contract chain" is publicly available and everyone able to verify that.
+
+So if second coin was not mined before contract became expired, provider will just stop supporting this customer, erase uploaded files from own machine and close all network connections with that consumer. From other side supplier can not just start a random contract without approval from customer - contract requires digital signatures from both parties.
+
+Lets imagine quality of service by provider was not good enough during last period. Then customer simply decides to not extend the contract and it will be automatically finished. But customer still have to pay for it and offcourse he will be disappointed but it was his personal decision and he accepted the risk. Because every contract is started with shortest possible period, the cost of mistake is pretty low.
 
 Also "amount" of resources can be changed after every coin mined by customer (every second coin). So if customer at some point decides to increase/decrease amount of storage taken from supplier, he needs to finish current contract first (need to pay for whole duration) and then request next contract with new options.
 
 
 ## Contract details
 
-To mine a new coin provider first need to prepare a compact json-formatted data structure to describe the contract options:
+To mine a starting coin and begin a new "contract-chain", provider first must prepare a compact json-formatted data structure to describe the contract details:
 
     {
         'type': 'storage'
@@ -76,22 +97,19 @@ To mine a new coin provider first need to prepare a compact json-formatted data 
     
 This structure clearly describes the deal between customer and supplier on given amount of resources:
     
-+ type of resources is HDD space
++ type of resources: storage space
 + amount: 4 Gigabytes
 + deal started at 2016-10-01 16:09:47 in UTC time zone
 + provider is : http://another-server.com/bob_supplier.xml
 + consumer is : http://some.id-host.org/alice_customer.xml
-+ basic price will not be changed 
++ basic price will not be changed
     
-Combining such data for all coins in given contract-chain let us calculate a total amount of consumed resources and the final price of the contract.
-
 
 ## Digital signature
 
-Second step will be to protect this info during transmitting over the network. A common way to do that is to put digital signature on target data before sending it to remote node. So provider will have to use own private key to generate electronic signature and append some extra data to the output json-structure.
+Second step will be to protect this info during transmitting over the network and storing in the contracts-chain database. A common way to do that is to calculate digital signature from target data before sending it to remote node. So provider will have to use own private key to generate electronic signature and append some extra data to the output json-structure.
 
-In example bellow signature was generated based on all fields from "payload" plus "pubkey" and "creator" fields.
-
+In example bellow signature was generated based on all fields from "payload" part plus IDURL and Public Key of the "creator":
 
     {
         'payload': {
@@ -103,10 +121,38 @@ In example bellow signature was generated based on all fields from "payload" plu
             'started': 1475338187,
             'price': 1.0,
         },
-        'creator': 'http://another-server.com/bob_supplier.xml'
-        'pubkey': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPqJ1iCcC3KDeiOqIFkzdIOFgc6I7q0K66PBmleazi1i8McKBQtubzXJ1RLkS2GYhFbhTp4oGooJ89VXn+iiR4/MYDLfrdMSCCirnZRWk4dbIQfAz+YhVcnVEijpy3XUuLu3i1KVuhTAglVdiFKdQI69ymXGaoE3vXEDsDZxkYQkDw+aHP32gK+I1We9jFMIKbZ0ZG433YY3iU2OWvhg+0AlzGbTGql5LHPcaWYAAPrMMc0cb++WAAE4Wu9f/mj7GbRGN5EMyUkw9Rgqjhq6bfRAySOb2eoZ2R5iULMf7RK8dPE2BlDERpWu3O6HdzGiv6TjdJud41itH8MGQV4aoH',
-        'signature': '11509633152462210145810836897427076014256778993195432760466639226544332599947159471602019395002280090912255429461315119534924788851391594040931514489193023827369988510316421480811620239538176418433670156374564900842654384239855787294174050418690384225561009520395965736998243113590591582885594951775728633639051159558667514349109671715438742302865884551311338785699743757231628233258879865827026680699628244877542512697383773604285828378207896675157226028632277150843284951962345040687027752013552946115190188388379943783081109955913996415677750978438878761330089339854381391620990622541349315954552989042250508324415',
+        'creator': {
+            'idurl': 'http://another-server.com/bob_supplier.xml',
+            'pubkey': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPqJ1iCcC3KDeiOq...',
+            'signature': '115096331524622101458108368974270760142567789931954...'
+        },
     }
+
+Now consumer also must agree on those terms and sign the contract. He will do this by generating another signature using own Private Key based on all fields from "payload" and "creator" parts plus own IDURL and Public Key:
+
+    {
+        'payload': {
+            'type': 'storage'
+            'amount': 4096,
+            'duration': 3600,
+            'customer': 'http://some.id-host.org/alice_customer.xml',
+            'supplier': 'http://another-server.com/bob_supplier.xml',
+            'started': 1475338187,
+            'price': 1.0,
+        },
+        'creator': {
+            'idurl': 'http://another-server.com/bob_supplier.xml'
+            'pubkey': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPqJ1iCcC3KDeiOq...',
+            'signature': '115096331524622101458108368974270760142567789931954...'
+        },
+        'signer': {
+            'idurl': 'http://some.id-host.org/alice_customer.xml',
+            'pubkey': 'ssh-rsa AAAAUuLu3i1KVuhTAglVdiFKdQI69ymXGaoE3vXEDsDZxk...',
+            'signature': '111355294611519018838837994378308110995591399641567...'
+        }
+    }
+    
+This structure customer will send back to supplier in response. Now provider have a perfectly signed contr
 
 ## Hash value
 
@@ -275,13 +321,13 @@ Instead of dealing with every single contract BitDust software will calculate to
 
 As described above, every contract have a fixed "price" - this coefficient allows you to "personalize" your service when you donating storage to the network. You can configure this option in program settings and so every next contract you starting will use that value. Currently started contracts still be calculated based on the value you set in the past.
 
-Total "value" of any single contract can be calculated with such simple expression:
+Combining data for all coins in given contract-chain let us calculate a total amount of consumed resources and the final price of the contract. Total "value" of any single contract can be calculated with such simple expression:
 
     value = amount * duration * price
     
 Here, a "price" parameter is set by provider to declare additional charge which he was going to take. This is a price "factor" - every user decides independently, how much to ask for own services. For example a value of 1.0 means no extra charges, but value 1.12 will put 12% extra tax.
 
-But I must give you more clear info about a real meaning of "value" of the contract. Measurement unit for the "contract value" is Gb * Hours, or "GBH".
+We must provide more clear description about real meaning of "value" of the contract. Measurement unit for the "contract value" is Gb * Hours, or "GBH".
 
     a contract of 1 GBH represents situation when 1 GB storage space was consumed during 1 hour
 
