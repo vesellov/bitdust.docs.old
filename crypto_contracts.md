@@ -1,6 +1,21 @@
 # BitDust Crypto Contracts
 
 
+* [Business requirements](#business-requirements)
+* [The idea](#the-idea)
+* [Supplier-Customer contracts](#supplier-customer-contracts)
+* [Breach of contract](#breach-of-contract)
+* [Contract details](#contract-details)
+* [Digital signature](#digital-signature)
+* [Hash value](#hash-value)
+* [Coin verification](#coin-verification)
+* [Broadcasting](#broadcasting)
+* [Linked coins](#linked-coins)
+* [Prepaid/postpaid contracts](#prepaid/postpaid-contracts)
+* [Contracts trustee](#contracts-trustee)
+* [Calculate costs](#calculate-costs)
+* [Supplier profits](#supplier-profits)
+
 
 ## Business requirements
 
@@ -78,7 +93,7 @@ So if second coin was not mined before contract became expired, provider will ju
 
 Lets imagine quality of service by provider was not good enough during last period. Then customer simply decides to not extend the contract and it will be automatically finished. But customer still have to pay for it and offcourse he will be disappointed but it was his personal decision and he accepted the risk. Because every contract is started with shortest possible period, the cost of mistake is pretty low.
 
-Also "amount" of resources can be changed after every coin mined by customer (every second coin). So if customer at some point decides to increase/decrease amount of storage taken from supplier, he needs to finish current contract first (need to pay for whole duration) and then request next contract with new options.
+Also "amount" of resources provided/allocated can be changed after every coin mined by customer (every second coin). So if customer at some point decides to increase/decrease amount of storage taken from supplier, he needs to finish current contract first (need to pay for whole duration) and then request next contract with new options.
 
 
 ## Contract details
@@ -92,7 +107,7 @@ To mine a starting coin and begin a new "contract-chain", provider first must pr
         'customer': 'http://some.id-host.org/alice_customer.xml',
         'supplier': 'http://another-server.com/bob_supplier.xml',
         'started': 1475338187,
-        'price': 1.0,
+        'price': 1.0
     }
     
 This structure clearly describes the deal between customer and supplier on given amount of resources:
@@ -119,13 +134,13 @@ In example bellow signature was generated based on all fields from "payload" par
             'customer': 'http://some.id-host.org/alice_customer.xml',
             'supplier': 'http://another-server.com/bob_supplier.xml',
             'started': 1475338187,
-            'price': 1.0,
+            'price': 1.0
         },
         'creator': {
             'idurl': 'http://another-server.com/bob_supplier.xml',
             'pubkey': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPqJ1iCcC3KDeiOq...',
             'signature': '115096331524622101458108368974270760142567789931954...'
-        },
+        }
     }
 
 Now consumer also must agree on those terms and sign the contract. He will do this by generating another signature using own Private Key based on all fields from "payload" and "creator" parts plus own IDURL and Public Key:
@@ -138,7 +153,7 @@ Now consumer also must agree on those terms and sign the contract. He will do th
             'customer': 'http://some.id-host.org/alice_customer.xml',
             'supplier': 'http://another-server.com/bob_supplier.xml',
             'started': 1475338187,
-            'price': 1.0,
+            'price': 1.0
         },
         'creator': {
             'idurl': 'http://another-server.com/bob_supplier.xml'
@@ -152,20 +167,17 @@ Now consumer also must agree on those terms and sign the contract. He will do th
         }
     }
     
-This structure customer will send back to supplier in response. Now provider have a perfectly signed contr
+This structure customer will send back to supplier in response. Now provider and consumer have a perfectly signed contract by both parties.
 
 ## Hash value
 
-The next step for provider will be to send this info to one of "miners" (can be picked randomly from the network) and let him work on this data to generate a special "hash value" matching this json-formatted data. Mining is based on fields inside "payload" structure, "signature", "creator" and "pubkey" fields are only needed to protect the coin during network transfer, they will not be included in the final contract-chain structure. 
+The next step now is to write this contract in the global contracts database, so everyone will be able to check and verify this deal. Supplier will send this info to one of "miners" (can be picked randomly from the network) and let him work on this data to generate a matching "hash value" for this json-formatted data - this will be a new coin in the chain.
 
-Early or later miner will find the matching "hash" and prepare another json-formatted structure containing data received from provider and extra info added by "miner":
+Basicaly mining is always based only on fields inside "payload" structure, we do not want to duplicate info about supplier and customer every next coin. But for first coin in every chain we also need to store "signature", "idurl" and "pubkey" fields to protect the whole contract-chain. All other coins will be linked and protected by hash value.
+
+Early or later miner will find the matching "hash" and prepare another json-formatted structure containing data received from supplier and extra info added by "miner" to proof his work:
     
     {
-        'hash': '00011bd267c65d430a8c94837ffe5673adb29bf6',
-        'prev': '10111730b478d2657e903c82120da8b30b2f41ca',
-        'starter': 'CC1WnfhRX4_52790'
-        'miner': 'http://third-server.net/carl_miner.xml',
-        'mined': 1475339122,
         'payload': {
             'type': 'storage'
             'amount': 4096,
@@ -173,21 +185,35 @@ Early or later miner will find the matching "hash" and prepare another json-form
             'customer': 'http://some.id-host.org/alice_customer.xml',
             'supplier': 'http://another-server.com/bob_supplier.xml',
             'started': 1475338187,
-            'price': 1.0,
+            'price': 1.0
         },
-        'creator': 'http://another-server.com/bob_supplier.xml'
-        'pubkey': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPqJ1iCcC3KDeiOqIFkzdIOFgc6I7q0K66PBmleazi1i8McKBQtubzXJ1RLkS2GYhFbhTp4oGooJ89VXn+iiR4/MYDLfrdMSCCirnZRWk4dbIQfAz+YhVcnVEijpy3XUuLu3i1KVuhTAglVdiFKdQI69ymXGaoE3vXEDsDZxkYQkDw+aHP32gK+I1We9jFMIKbZ0ZG433YY3iU2OWvhg+0AlzGbTGql5LHPcaWYAAPrMMc0cb++WAAE4Wu9f/mj7GbRGN5EMyUkw9Rgqjhq6bfRAySOb2eoZ2R5iULMf7RK8dPE2BlDERpWu3O6HdzGiv6TjdJud41itH8MGQV4aoH',
-        'signature': '11509633152462210145810836897427076014256778993195432760466639226544332599947159471602019395002280090912255429461315119534924788851391594040931514489193023827369988510316421480811620239538176418433670156374564900842654384239855787294174050418690384225561009520395965736998243113590591582885594951775728633639051159558667514349109671715438742302865884551311338785699743757231628233258879865827026680699628244877542512697383773604285828378207896675157226028632277150843284951962345040687027752013552946115190188388379943783081109955913996415677750978438878761330089339854381391620990622541349315954552989042250508324415',
+        'creator': {
+            'idurl': 'http://another-server.com/bob_supplier.xml'
+            'pubkey': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPqJ1iCcC3KDeiOq...',
+            'signature': '115096331524622101458108368974270760142567789931954...',
+        },
+        'signer': {
+            'idurl': 'http://some.id-host.org/alice_customer.xml',
+            'pubkey': 'ssh-rsa AAAAUuLu3i1KVuhTAglVdiFKdQI69ymXGaoE3vXEDsDZxk...',
+            'signature': '111355294611519018838837994378308110995591399641567...'
+        },
+        'miner': {
+            'hash': '00011bd267c65d430a8c94837ffe5673adb29bf6',
+            'prev': '',
+            'starter': 'CC1WnfhRX4_52790',
+            'miner': 'http://third-server.net/carl_miner.xml',
+            'mined': 1475339122
+        }
     }
 
-Here, extra fields: "hash", "starter", "prev", "miner" and "mined" was added by "miner" and turn this structure into valid coin.
+Here, extra fields: "hash", "starter", "prev", "miner" and "mined" was added by "miner" and turn this structure into valid coin. The 'prev' field here is empty, because this is a first coin in the chain. Every next coin must have 'prev' field equal to 'hash' field of previous coin in the chain.
 
-Every "miner" will have to spent own CPU time to found matching "hash" and "starter" fields. The whole process was designed in a such way: difficulty (complexity) of the "mining" process will rise for every next coin generated in the contract-chain. More info about this you can find in next topic....
+Need to say that every "miner" will have to spent own CPU time to found matching "hash" and "starter" fields. The whole process was designed in a such way: difficulty (complexity) of the "mining" process will rise for every next coin generated in the contract-chain. More info about mining process will be added soon.
 
 
 ## Coin verification
 
-On fourth step "miner" will send a fresh json-formatted data to several "accountants", randomly picked from the network. Those guys actually store all such coins on own computers. They do several verification tests on every incoming coin before write to own local HDD:
+On fourth step "miner" will send a fresh json-formatted data to several "accountants", randomly picked from the network. Those guys actually store all such coins on own devices. All "accountants" always do several verification tests on every incoming coin before write it to own local HDD:
 
     + verify digital signature
     + verify creator ID
@@ -200,91 +226,83 @@ On fourth step "miner" will send a fresh json-formatted data to several "account
 
 Accountant may not accept the coin for some reason. In this case he will reply back to "miner" instead of remember and broadcast this coin to others.
 
-For example if hash of newly mined coin do not have enough "difficulty" this coin will be rejected, you can read more about that here ...  In that situation "miner" will have to work again on that coin to find another ("hash", "starter") combination which will have higher "difficulty".
+For example if hash of newly mined coin do not have enough "difficulty" this coin will be rejected. In that situation "miner" will have to work again on that coin to find another ("hash", "starter") combination which will have higher "difficulty".
 
-Other possible scenario when coin can be rejected is when given customer and supplier already have an opened contract which is not expired yet and mined coin did not match to this contract.
+Other possible scenario when coin can be rejected is when given customer and supplier already have an opened contract which is not expired yet and mined coin did not match to this contract. So only one contract may exist for every pair: (customer, supplier).
 
-It must be stated that "signature", "pubkey" and "creator" will not be stored in the contracts-chain. Those fields are needed to protect coin during transfer, storing them in the global database will produce huge overload on DB and this is not required. So final structure to be written into "accountant" local db will be like this: 
-
-    {
-        'hash': '00011bd267c65d430a8c94837ffe5673adb29bf6',
-        'prev': '10111730b478d2657e903c82120da8b30b2f41ca',
-        'starter': 'CC1WnfhRX4_52790'
-        'miner': 'http://third-server.net/carl_miner.xml',
-        'mined': 1475339122,
-        'payload': {
-            'type': 'storage'
-            'amount': 4096,
-            'duration': 3600,
-            'customer': 'http://some.id-host.org/alice_customer.xml',
-            'supplier': 'http://another-server.com/bob_supplier.xml',
-            'started': 1475338187,
-            'price': 1.0,
-        }
-    }
+Again, fields "signature", "pubkey" and "idurl" will not be stored in the contracts-chain every time. Those fields are needed to protect coins during transfer. Storing those fields in the global database will produce huge overload on DB and this is not required. Only first coin will be stored with full details, so final structure to be written into "accountant" local db for this new chain will include all 4 structures: 'payload', 'creator', 'signer', 'miner'. All other coins in the chain will only include 'payload' and 'miner' fields.
 
 
 ## Broadcasting
 
-Once "accountant" validate and verify incoming coin and decides to accept it he will first put this coin into own local storage database stored on his HDD. Further he sends a broadcast message to all other "accountants" in the network to propagate this coin to all nodes. So every "accountant" node finally should receive this coin, verify and remember.
+Once "accountant" validate and verify incoming coin and decides to accept it he will first put this coin into own local storage database stored on his HDD. Further he sends a broadcast message to all other "accountants" in the network to propagate this coin to all other nodes. So every "accountant" node finally should receive this coin, verify and remember.
 
-Broadcasting model designed in a such way so every new coin first gets delivered to "accountants" only and only after that may be translated further to some other nodes who really need it. All "accountants", in fact, forms some kind of "sub-network" specifically designed to hold the contracts-chain data. Other nodes do not receive coins directly from "miners" but can subscribe and listen for new coins from one of accountants. This way we prevent network overloading and optimize service data flows.
+In order to keep all parties identitfied and all relations clean, "accountant" will also add his own indentity to that record and sign this coin with own key. He will do it before write to the local db, so all other nodes in the network will know the entry point of that coin. Basically it must be only one "accountant" who published this coin first time. All other "accountants" will do signatures verification as well. 
 
-As you can see "accountant" nodes will store all existing coins in the network - this is sort of blockchain, but I would like to call that "contracts-chain". Finally, consumer should receive coin generated by provider (or vice versa) from one of accountants and able to proceed with current contract. 
+Broadcasting model designed in a such way so every new coin first gets delivered from "accountant" to "accountants" only, but not to "normal nodes" directly. It will be routed further to other nodes, but only to those who really need it. All "accountants", in fact, forms some kind of "sub-network" specifically designed to hold the contracts-chain data. Other nodes do not receive coins directly from "miners", but they must first "subscribe" and "listen" for new coins from one of connected "accountants". This way we prevent network overloading and optimize service data flows.
 
-Because process is the same for every node in the network and every new coin we expect to have a fully synchronized and distributed global contracts storage. So every user in the network should be able to declare how much he consume/donate from/to others. And every other user should be able to check and verify every existing contract (no mater of its current condition: started, finished or failed) - nodes able to send a "search queries" to "accountants" and they will reply with a list of coins found in contracts-chain. 
+As you can see "accountant" nodes will store all existing coins in the network - this is sort of blockchain sub-network. We wish to call that type of storage "contracts-chain". Finally, consumer should receive coin generated by provider from one of his connected "accountants" and able to proceed with current contract. 
+
+Because process is the same for every node in the network and every new coin we expect to have a fully synchronized and distributed global contracts storage. So every user in the network should be able to declare how much he consume/donate from/to others at the moment.
+
+Every other user should be able to check and verify every existing contract (no mater of its current condition: "started", "finished", "failed", etc.). Also nodes should be able to send a "search queries" to "accountants" and they will reply with a list of coins found in contracts-chain. Because of such design we do not require users to store all existing contracts on own devices, like blockchain does, but only those nodes, who is intended and willing to do that.
 
 
 ## Linked coins
 
-As we stated above, every coin is linked to previous one in the chain via "hash" and "prev" fields, only first coin have empty "prev" value. Every accountant must validate this rule before accept any new coin to contract-chain.
+As we stated above, every coin is linked to previous one in the chain via "hash" and "prev" fields, only first coin have empty "prev" value. Every accountant always must validate this rule before accept any new coin to the contract-chain.
 
 Here is an example of next linked coin in the contract-chain, generated by customer to continue with current contract options:
 
     {
-        'hash': '00011bd267c65d430a8c94837ffe5673adb29bf6',
-        'prev': '10111730b478d2657e903c82120da8b30b2f41ca',
-        'starter': 'ee24Xywona_4084'
-        'miner': 'http://some-another-host.net/dave_miner.xml',
-        'mined': 1475301212,
         'payload': {
             'extended': 1475301187,
-            'status': 'ok',
-            'customer': 'http://some.id-host.org/alice_customer.xml',
+            'status': 'ok'
+        },
+        'miner': {
+            'hash': '00011bd267c65d430a8c94837ffe5673adb29bf6',
+            'prev': '10111730b478d2657e903c82120da8b30b2f41ca',
+            'starter': 'ee24Xywona_4084',
+            'miner': 'http://some-another-host.net/dave_miner.xml',
+            'mined': 1475301212
         }
     }
 
-As you can see, "hash" value of previous coin equals to "prev" value of this coin and that defines its position in the chain. Because every accountant verify every incoming coin there is no way to put something in between, modify or append some "cheating" coins. 
+As you can see, "hash" value of previous coin equals to "prev" value of this coin and that defines its position in the chain. Because every accountant verify every incoming coin there is no way to put something in between, modify or append some coins - no place for cheating. The fact that second coin was mined and published indicates that "customer" actually paid for this contract.
 
-Let's see how those guys can proceed further with current contract. Right after the second coin was mined and published, supplier and customer will have to decide about contract extension. In general case customer suppose to check the quality of service he received from provider during last contract and make a final decision.
+Let's see how those guys can proceed further with current contract. Right after the second coin was mined and published, supplier and customer will have to decide about contract extension. In general case customer suppose to check the quality of service he received from provider during last contract period and make a final decision.
 
 Lets assume both sides agree to continue with current contract without any changes. That means next iteration of contract starts up and provider's turn begins now again. He must generate third coin and attach it to the contract-chain like this:
 
     {
-        'hash': '111014204e5849fd819d447bf7fe4a4571060539',
-        'prev': '00011bd267c65d430a8c94837ffe5673adb29bf6',
-        'starter': 'nGmlfoRoNV_9731'
-        'miner': 'http://third-server.net/carl_miner.xml',
-        'mined': 1475301212,
         'payload': {
             'started': 1475301187,
             'duration': 7200,
             'supplier': 'http://another-server.com/bob_supplier.xml',
+        },
+        'miner': {
+            'hash': '111014204e5849fd819d447bf7fe4a4571060539',
+            'prev': '00011bd267c65d430a8c94837ffe5673adb29bf6',
+            'starter': 'nGmlfoRoNV_9731',
+            'miner': 'http://third-server.net/carl_miner.xml',
+            'mined': 1475306119
         }
     }
 
-Every opened contract must be closed early or later so let's imagine those two guys decided to stop after second iteration of the contract. In this case fourth coin in the contract-chain should be generated again by customer to finish current contract:
+Every opened contract must be closed early or later so let's imagine those two guys decided to stop after second iteration of the contract. In this case fourth coin in the contract-chain must be generated again by customer to finish current contract and contains "finished" field:
 
     {
-        'hash': '101005ce203ff32694ca678c5de416ecb7d90636',
-        'prev': '111014204e5849fd819d447bf7fe4a4571060539',
-        'starter': 'nGmlfoRoNV_9731'
-        'miner': 'http://third-server.net/carl_miner.xml',
-        'mined': 1475301212,
         'payload': {
             'finished': 1475306305,
             'status': 'ok',
             'customer': 'http://some.id-host.org/alice_customer.xml',
+        },
+        'miner': {
+            'hash': '101005ce203ff32694ca678c5de416ecb7d90636',
+            'prev': '111014204e5849fd819d447bf7fe4a4571060539',
+            'starter': 'nGmlfoRoNV_9731',
+            'miner': 'http://third-server.net/carl_miner.xml',
+            'mined': 1475319542        
         }
     }
 
@@ -296,28 +314,55 @@ Imagine a very common case: you wish to use the storage space for own purposes, 
 No problem, this confused situation can be solved by using "prepaid" contracts. Based on solution described above it is possible to open a contract with longer duration. Right after the first coin, mined by provider, consumer will generate a final coin to pay for whole duration in advance:
 
     {
-        'hash': '00011bd267c65d430a8c94837ffe5673adb29bf6',
-        'prev': '10111730b478d2657e903c82120da8b30b2f41ca',
-        'starter': 'wOSNZbcsvP_1887'
-        'miner': 'http://some-another-host.net/dave_miner.xml',
-        'mined': 1475301212,
         'payload': {
             'paid': 1475301187,
             'status': 'ok',
             'customer': 'http://some.id-host.org/alice_customer.xml',
+        },
+        'miner': {
+            'hash': '00011bd267c65d430a8c94837ffe5673adb29bf6',
+            'prev': '10111730b478d2657e903c82120da8b30b2f41ca',
+            'starter': 'wOSNZbcsvP_1887',
+            'miner': 'http://some-another-host.net/dave_miner.xml',
+            'mined': 1475301212
         }
     }
 
-As you can see, contract was not "finished", but it was "paid" in advance and closed. Of course, this have much more value for provider than consumer. Because if quality of service will be not good enough consumer definitely would like to switch to another provider, but he still need to pay for whole contract duration. So consumer will have to trust so much to provider and agree on this situation.
+As you can see, contract was not "finished", but it was "paid" in advance and closed. Of course, this is a big advantage for provider and more risk for customer. If quality of service will be not good enough, consumer definitely would like to switch to another provider, but he still need to pay for whole contract duration. So consumer will have to trust a lot to provider and agree on this situation.
 
 Luckily, all contracts was saved in global distributed publicly accessible storage and consumer able to check all past contracts for any given provider. Based on this historical info and some level-of-trust methods he can decide whether he can trust or not to this provider. For example he can check how much "long and prepaid" contracts he was already involved in and compare their status.
 
 
+## Contracts trustee
+
+Another solution for offline customers would be to use other random nodes from network and trust them to do automatic contract renewals for you. So you publish one more field in "payload" part to declare a node who will be your "contracts guard":
+
+    {
+        'payload': {
+            'type': 'storage'
+            'amount': 4096,
+            'duration': 3600,
+            'customer': 'http://some.id-host.org/alice_customer.xml',
+            'supplier': 'http://another-server.com/bob_supplier.xml',
+            'trustee': 'http://super-trusted-server.com/mega_trusted.xml',
+            'started': 1475338187,
+            'price': 1.0
+        },
+        'creator': {
+            'idurl': 'http://another-server.com/bob_supplier.xml',
+            'pubkey': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPqJ1iCcC3KDeiOq...',
+            'signature': '115096331524622101458108368974270760142567789931954...'
+        }
+    }
+
+In fact "trustee" will not pay for your contracts, but only sign and publish your contracts while you are offline. More information about that role will be added later.
+
+
 ## Calculate costs
 
-At some point supplier may decide to get some refund from customer because he did a good job and provided customer with a good quality service. He also did a good work for other customers and would like to get refund from them. In BitDust every node can support a lot of connections and one single supplier can serve a lot of customers. So it is not feasible to process payments for every single contract.
+At some point supplier may decide to get some refund from customer because he did a good job and provided customer with a good quality service. He also did a good work for other customers and would like to get refund from them as well. In BitDust every node can support a lot of connections and one single supplier can serve a lot of customers. So it is not feasible to process payments for every single contract.
 
-Instead of dealing with every single contract BitDust software will calculate total amount of resources consumed by given customer during some period of time and charge him only one time. Same method can be used to calculate amount of donated storage provided by given supplier and find how much he earned during given period.
+Instead of dealing with every single contract BitDust software will calculate total amount of resources consumed by given customer during some period of time and charge him only one time. Same method can be used to calculate amount of donated storage provided by given supplier and find how much he earned during given period. The software will scan all existing contracts chains and summarize all your avctive contracts and calculate final value of consumed/donated resources for last period.
 
 As described above, every contract have a fixed "price" - this coefficient allows you to "personalize" your service when you donating storage to the network. You can configure this option in program settings and so every next contract you starting will use that value. Currently started contracts still be calculated based on the value you set in the past.
 
@@ -329,120 +374,37 @@ Here, a "price" parameter is set by provider to declare additional charge which 
 
 We must provide more clear description about real meaning of "value" of the contract. Measurement unit for the "contract value" is Gb * Hours, or "GBH".
 
-    a contract of 1 GBH represents situation when 1 GB storage space was consumed during 1 hour
+    a contract of 1 GBH represents situation when 1 GB storage space was consumed during 1 hour with price factor 1.0
 
 Imagine you have one finished contract for 500 GBH to be paid, for example you were using 5 Gb storage space during 100 hours. However 25 Gb during 20 hours will give you a contract with same cost.
 
-Lets see now how those "value" and "price" can be used together to calculate service costs in real situation. Imagine supplier Bob constantly giving 30 Gb storage space of his HDD to customer Alice during one month. Also he asks 2% extra and they both agreed and did a handshake before sign the contract. All was good, both was happy and finished the contract successfully, the final value must be:
+Lets see now how "value" and "price" can be used together to calculate service costs in real situation. Imagine supplier Bob constantly giving 30 Gb storage space of his HDD to customer Alice during one month. Also he asks 2% extra and they both agreed and did a handshake before sign the contract. All was good, both was happy and finished the contract successfully, the final value must be:
 
     30 GB * 30 days * 24 hours * 1.02 = 22032 GBH
 
-But this is only expected value. To get the real value for the whole "contract-chain" we need more carefull calculations. First contract will be signed for 1 hour, second (after verification and confirmation from both sides) for 2 hours, third for 4 hours and so on ...  this is the sequence of powers of two. The contract have no total duration but extends every next period, so one month contract will be represented as a sequance of smaller contracts:
+But this is only expected value. To get the real value for the whole "contract-chain" we need more carefull calculations. First contract will be signed for 1 hour, second (after verification and confirmation from both sides) for 2 hours, third for 4 hours and so on ...  this is the sequence of powers of two. The contract have no total duration but extends every next period, so one big contract will be represented as a sequance of many smaller contracts:
 
     30 GB * 1.02 * 1 hour -> 30 GB * 1.02 * 2 hours -> 30GB * 1.02 * 4 hours -> ... 
-
-...
 
 
 ## Supplier profits
 
-Every customer always have to find enough suppliers to feel good - those guys agree to provide enough space to you but you will have to pay. They will make a deal with you but will check your history and if things not go well after one hour then can simply stop (not continue) the contract with you and lost nothing. For such cases probably customer do not need to pay but his reputation will go down. But if you have a lot paid contracts every supplier will support you in a best way possible.
+Every customer always have to find enough suppliers to have reliable data storage - those guys agree to provide HDD space for you, but you will have to pay for the service. Supplier sign a deal with you but also checks your history. If you have many non-paid contracts, he can after one hour simply stop supporting you. All he need is to just refuse contract extension, and so the whole contract-chain will be closed - he lost nothing. But if you have a lot paid contracts every supplier will support you in a best way possible.
 
-For example customer Alice will use ecc/4x4 mode and will be connected with 4 suppliers: Bob, Carl, Dave and Edward. Every supplier will sign a contract with Alice - all for same value, price and duration: 
+For example customer Alice will use ecc/4x4 mode and will be connected with 4 suppliers: Bob, and three other guys. Every supplier will sign a contract with Alice - all for same value and duration, but price can be different for every supplier. Let's say for example that the price for service provided by Bob is 1.2.
 
-    100 Gb * 30 days * 24 hours / 4 = 18000 GBH
+Because smallest iteration is one hour we can think of this process from different point of view: every hour Bob will "earn" (also you can think of words "mine" or "farm") that amount of "PC resources":
 
-Because smallest iteration is one hour we can think of this value from different point of view: every hour Bob will "earn" (also you can think of words "mine" or "farm") that amount of "PC resources":
+    100 GB * 1 hour * 1.2 / 4 suppliers = 30 GBH
 
-    100 GB * 1 hour / 4 suppliers = 25 GBH
+After some period of time, Bob will have a several items in his contract-chain with Alice and total amount of donated resources can be easily calculated. For example, if he supported Alice during last 30 days he must be collected:
 
+    100 GB * 30 days * 24 hours * 1.2 / 4 suppliers = 21600 GBH
 
-
-
-
-
-
-## Link GBH to real currencies
-
-A real currency is always like a fluid - same coin can be exchanged for different price in different locations and different situations. Because of this issue every customer must be able to use best currencies suitable for him. But in all cases it must be according to the current market exchange rate - no matter of which currency he was going to use.
-
-Supplier is the guy who define the currency at the begining - he already did some job and gained some GBH on the "balance".
-Now supplier can "broadcast" to other nodes a short info about his offer: to sell some amount of GBH. He can do it very slowly and gently. The software will do it in a smart way so other customers always able to "subscribe" for such events and receive those "offers" in real-time. But other users will not be "polutted/spammed" too much.
-
-As customer found a good "offer" to buy a GBH from supplier he can just send a real money directly to him - in any way possible. But supplier wont be albe to accept all of the currencies and all of the payment methods but only several of them. So in the "offer" he will put an info about preferred methods.
-
-After receiving the money supplier will have to accept the payment and "mine/publish" a final coin the "chain" and so mark the contract as "paid".
-
-For example let's take euros as current local currency, and will try to set a price for the storage. 
-Consider a customer Alice who agreed to pay 15 euros for 100 GB storage space per one month, so she is fine to spend no more than:
-
-     15 Euros / (100 Gb * 30 days * 24 hours) = 1 Euro for 4800 GBH  or 
-
-She found a supplier Bob who already gained some GBH from Zlatan and willing to sell it for 12 Euros per 100 GB storage per month:
-
-     12 Euros / (100 Gb * 30 days * 24 hours) = 1 Euro for 6000 GBH
-
-But worth to say that nothing about real currencies needs to be defined in the contracts-chain - we only need the actual contract info and the value in GBH. BitDust project is not involved in money transfer at all and have no financial obligations.
+When Bob decides to get refund for his services, same process will be repeated for all other of his customers for given period. The final value will be used to generate a new "supplier-coin" in immutable blockchain databse storing all transactions history, more info about this will be added later.
 
 
-
-
-## Exchange GBH to real currency
-
-
-As soon as contract was finished it is possible to calculate the total value from it and finally the real price in some currency.
-
-## 
-
-We love and encourage a free market!. But please note, BitDust project not going to create a new financial system and implement an own currency. You will get more detailed info bellow, but in short: we do not want to accumulate "money" in the network (like BitCoin does), but only count current consumption of resources. When you earn some GBH you will have to spend them quickly (within same calendar "period") or withdraw into cash or another currency.
-
-The software will count resources constantly, but periodically it will do a "reset all counters" procedure. Older contracts will be erased automatically from the contracts chain database - so at any moment only your last finished contracts will have a "value" for other nodes. It is because other nodes have no profits of storing a huge amount of contracts on own PC.
-
-As soon as contract was finished and rewarded it must be cleaned from the database. If contract was not finished within critical period it will be also cleaned. If contract was finished but was not rewarded (paid) it will be still available for longer period (so other people will see it) and finally also will be cleaned. This is not comfort situation for customer because his reputation will go down, it will be explained bellow.
-
-
-
-
-
-## Payment of completed contracts
-
-Every customer consume storage from network and so he have to pay at some point. From other side suppliers, who donate a lot of PC resources would like to benefit from that.
-
-Because all operations are reported in publicly accessible contract chains every user able to calculate total amount of consumed/donated resources by any other user. In other words customer know how much PC resources supplier donated and supplirt know how much resources was consumed by customer.
-
-On this basis, any client can pay any supplier contract. It is not necessary to pay directly to the supplier, who provides you with services. You can transfer money to any supplier, with a preliminary analysis of how much the resources granted to other customers by him. The fact of payment will be recorded in the supplier contracts and thus all the other users on the network will know about it.
-
-The payment process starts from the supplier who wants to get paid for his contracts.
-
-
-
-Let's describe the whole process of funds moving from customer to supplier step by step:
-
-1. by request from customer A given cashier B calculates total value of all finished contracts by customer A needs to be paid
-2. customer A send money in local currency to cashier B - previously they decide about the price for PC resources
-
-
-
-
-
-
-## Cashiers
-
-To inpit/output real money into/from the network we introduce another role: "cashier". Se every user can act as a trade agent (or cashier) and help other users to change real money (in local currency) for PC resources and vice versa.
-
-Any cashier must be able to take obligations for all finished contracts belongs to any particular supplier and pays him in local currency by his request. From other side cashier also should be able to support any single customer and receive money from him in order to get paid for all resources was consumed by this customer.
-
-
-
-... later customer will have to pay to one of "cashiers" according to amount of mined coins belongs to him (for all his suppliers). From other side, supplier can go to one of "cashiers" and request for refund - accountant will check how much crypto coins belongs to this supplier and calculate total amount in US $, euro, rubles, etc…
-
-... to be continue
-
-
-
-
-
-
-
+<div class=fbcomments markdown="1">
+</div>
 
 

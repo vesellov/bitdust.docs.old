@@ -42,6 +42,11 @@ BitDust is an alternative way to operate and communicate in the network.
 
 ## +
 
+BitDust is an attempt to establish more control over our own digital life.
+
+
+## +
+
 BitDust aims to protect the privacy of users and provides an alternative way of working and communicating in the network.
 
 
@@ -59,3 +64,6 @@ BitDust is just an idea.
 
 BitDust is just another revolution.
 
+
+<div class=fbcomments markdown="1">
+</div>

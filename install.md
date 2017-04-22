@@ -3,7 +3,7 @@
 
 Seems like in Ubuntu (probably most other distros) you just need to install all dependencies at first step:
 
-        sudo apt-get install git python-dev python-setuptools python-pip
+        sudo apt-get install git python-dev python-setuptools
         
         sudo apt-get install python-twisted python-django python-crypto python-pyasn1 python-psutil
 
