@@ -66,3 +66,15 @@ We fully support the position of the GNU community, and Richard Stallman: every 
 
 We believe that single team of developers, or even big IT company is unable to create a single application that meets the needs of all users in the world. Only the community itself, as a number of independent developers, operating autonomously and independently, will create a wide variety of applications with a common core and are running on a generic "engine". The objective of BitDust project is not to keep software development under our full control, but rather to create such a new foundation and provide support for other people doing progressive development of the network.
 
+
+## Control over the source code
+
+Our plan is to redistribute the source code deployments as well as other aspects of the project.
+Imagine, you can share exactly the same source code version of the program you are running with other users.
+You know, just to notify about latest version. Or to help new users join the network and start quickly.
+Ideally you must be able to always fetch full sources from any of nodes, only question is trust.
+So we must build and support a global list of BitDust "remotes" - anyone can just create an own "sources mirror" and join the community.
+BitDust software will automate some git operations for your needs, but final decision will always be from your side.:
+who to trust when selecting a mirror location? ...
+We believe, it must be established a full-cycle Agile public review process for software releases in BitDust. 
+Finally pushing a commit to some well-trusted "master" brunch in that repo must pass a fully open public PR review process.

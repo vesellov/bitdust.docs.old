@@ -13,11 +13,12 @@ BitDust is a project of worldwide distributed computer network for secure and in
 ## +
 
 BitDust is a holistic ecosystem, the basic idea of which is complete decentralization of all information flows in society.
+(in order to build anonymous, freedom and independent applications.)
 
 
 ## +
 
-BitDust is a computer software which gives you full control over your personal data.
+BitDust is a computer software which gives you full control over your personal data and private communications.
 
 
 ## +
