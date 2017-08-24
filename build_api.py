@@ -38,10 +38,10 @@ while True:
                 if line.count('"""') or line.count("'''"):
                     break
             comment = comment.strip('"""').strip("'''").replace('"""','').replace("'''",'')
-    comment = comment.replace('Return:', '')
+    comment = comment.replace('Return:', '\n\n')
     # print '%s(%s)' % (method, params)
     sys.stdout.write('.')
-    fout.write('### %s(%s)\n' % (method.replace('_','\_'), params.replace('_','\_')))
+    fout.write('## %s(%s)\n' % (method.replace('_','\_'), params.replace('_','\_')))
     fout.write(('\n'.join(comment.splitlines())) + '\n\n')
 
 sys.stdout.write('\n')
