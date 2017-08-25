@@ -89,7 +89,7 @@ Provide detailed info about all options and values from settings.
         'type': 'diskspace',
         'value': '128 MB',
         'key': 'services/backups/max-block-size'
-    }]}"
+    }]}
 
 
 ## keys\_list(sort=False)
@@ -97,7 +97,11 @@ Provide detailed info about all options and values from settings.
 List details for known private keys.
 
 
-## key\_create(key\_id)
+## key\_create(key\_id, key\_size=4096)
+
+
+
+## key\_erase(key\_id)
 
 
 
@@ -175,7 +179,7 @@ Returns a whole tree of files and folders in the catalog.
         'type': 'file',
         'id': '0/0/1/0/0',
         'size': 5754439
-    }]}"
+    }]}
 
 
 ## backups\_id\_list()
