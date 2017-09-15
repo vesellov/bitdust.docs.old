@@ -32,8 +32,6 @@ This kind of storage is done with the use of multiple machines also called ID-se
 
 ID-server functional is the part of BitDust program, but by default is turned off in the program settings. If required each user can turn on this option himself and start such a server on his computer – it will be automatically initiated by BitDust program start. Server launch will influence the computer resources consumption insignificantly, but will allow you to support other nodes and increase total fault-tolerance of whole BitDust network. 
 
-It is preferably that machines running ID-servers had correctly adjusted domain names. Then users’ IDURL, whose identity files are stored there, will look attractive. Bellow you can read more about that.
- 
 
 ## IDURL address
 
@@ -41,18 +39,19 @@ Each BitDust user is identified by IDURL key – this is an address of his ident
 
 IDURL looks like this:
 
-    http://p2p-id.ru/alice.xml
+    http://first-machine.com/alice.xml
+
  
 And the identity file itself has the following look:
 
     <identity>
     <contacts>
       <contact>tcp://123.45.67.89:7771</contact>
-      <contact>udp://alice@p2p-id.ru</contact>
+      <contact>udp://alice@first-machine.com</contact>
     </contacts>
     <sources>
-      <source>http://p2p-id.ru/alice.xml</source>
-      <source>http://megafaq.ru/alice.xml</source>
+      <source>http://first-machine.com/alice.xml</source>
+      <source>http://server-two.net/alice.xml</source>
     </sources>
     <certificates/>
     <scrubbers/>
@@ -74,14 +73,95 @@ Each identity file can have several copies, stored on different servers – for 
 User has a chance to create an authentic identifier in the BitDust network – for example, starting an ID-server at the hosting of his site and allocating there his personal identity file. For instance: 
 
     http://veselin-penev.com/id.xml
+
+
+It is preferably that machines running ID-servers had correctly adjusted domain names. Then IDURL identifiers of the users, whose identity files are stored there, will look more attractive.
     
-It is not necessary to have a domain name to run an ID-server. In that case your id may looks like that:
+But it is not mandatory to buy a domain name to run your own ID-server. In that case ID files on your host may look like that:
    
     http://123.45.67.89/id.xml
+
     
 For some reasons this may be preferable - if you do not wish to depend on global DNS providers.
 
 The system is designed in such a way that even in case of failure of one or more servers that store your Identity file, other users can download it from other ID-servers and able to connect with you. The program continuously monitors your ID-servers and in case of failure triggers automatic distribution of your Identity file on another available ID-servers, and notifies your active nodes immediately.
+
+
+## Hosts rotation
+
+Periodically software will trigger a methods to check and propagate your identity file to other nodes. Before it starts it can switch your current "primary" ID-server to another one - another ID server will be found and your identity file will be sent to that host. Your main global IDURL address will be changed because new server will be placed on first position under `<sources>` tag, for example:
+
+    <identity>
+    <contacts>
+      <contact>tcp://123.45.67.89:7771</contact>
+      <contact>udp://alice@host3.org</contact>
+    </contacts>
+    <sources>
+      <source>http://host3.org/alice.xml</source>
+      <source>http://first-machine.com/alice.xml</source>
+      <source>http://server-two.net/alice.xml</source>
+    </sources>
+    <certificates/>
+    <scrubbers/>
+    <postage>1</postage>
+    <date>Sat Dec 13 14:08:36 2014</date>
+    <version>
+      sources Linux-3.11.0-15-generic-i686-with-Ubuntu-12.04-precise
+    </version>
+    <publickey>
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgGcYwhNipj6yJyEaD77qLNrJ ...
+    </publickey>
+    <signature>
+      1557824826897671730886854628410961132377100189021332866347553795 ...
+    </signature>
+    </identity>
+
+
+Final IDURL will be updated:
+
+    http://host3.org/alice.xml
+
+
+Both IDURLs are pointing to same device now, but we only switch the main location of your identiy file - to be used by all other nodes who is talking to you. To do that software will "propagate" your new identity file to all of your currently active contacts. Also it will update copies on ID-servers you are using already: "first-machine.com" and "server-two.net".
+
+Software will try to keep you "nickname" unchanged, for example if "host3.org" server already stores another "alice.xml" file signed with another public key it can not be used by you, because this name is already taken.
+
+We expect regular BitDust user to be able to spawn own ID-server easily - we need a lot of "hosters" in the network to be able to operate in the network in reliable, private and safe way.
+
+BitDust software running on your machine will automatically "migrate" or "anonymous" your identity in the network and so it will be almost imposible to "block" or "attack" your presence in the network.
+
+
+
+## Global unique entity ID
+
+In BitDust we support a global unique ID for any existing object (file, group, user, etc.).
+This is an example of full remote path to file "cat.png" in BitDust network:
+
+    alice@first-machine.com:group_abc:animals/cat.png#F20160313043757PM
+
+
+Full identifier here consists of several parts, here they are:
+
+* identity server host (DNS name or IP address): first-machine.com
+* user identity filename (without ".xml"): alice
+* key ID: group_abc
+* backup ID: animals/cat.png
+* version name: F20160313043757PM
+
+
+This approach have something similar with "remotes" and "branches" in Git. For example a full remote file path in Git can be like that:
+
+    https://github.com/vesellov/bitdust.devel/blob/master/automats/automat.py
+
+
+Looking more deeply we can split this URL by several parts:
+
+* server host: github.com
+* user account ID: vesellov
+* repository ID: bitdust.devel
+* branch ID: master
+* file path: automats/automat.py
+
 
 
 ## Digital signature
