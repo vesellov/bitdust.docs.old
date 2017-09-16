@@ -35,7 +35,8 @@ ID-server functional is the part of BitDust program, but by default is turned of
 
 ## IDURL address
 
-Each BitDust user is identified by IDURL key – this is an address of his identity file in the global Internet network. One can draw an analogy: identity file is kind of a regular passport and IDURL is his last, first and middle names.
+Each BitDust user is identified by IDURL key – this is an address of his identity file in the global Internet network. This identifier is related to device running BitDust software, but not to person who managing this device. Only by using Private Key stored on that device you can change your identity in the network.
+
 
 IDURL looks like this:
 
