@@ -17,35 +17,40 @@ The project is in the stage of deep development, but the demo version will be av
 We invite all who are interested in this direction - primarily developers and enthusiasts. Join our team, or just [support us](donate.md). Together we will better realize our plans and create a fairer alternative to the existing global networks.
 
 
+
 ## Beginning
 
 + [Introduction](intro.md)
 + [Concept](concept.md)
++ [Definitions](definitions.md)
++ [Philosophy](philosophy.md)
 + [How Does It Work?](principle.md)
 + [Installation](install.md)
-+ [Program Commands](commands.md)
++ [Commands](commands.md)
++ [Settings](settings.md)
++ [Glossary](glossary.md)
 
 
 ## Working Principles
 
-+ [Glossary](glossary.md)
 + [User Identification](identities.md)
 + [Distributed Storage](storage.md)
 + [Data Security](security.md)
 + [Automatic Rebuilding](rebuilding.md)
 + [Distributed Hash-Table](dht.md)
-+ Transport Protocols
-+ File System
-+ [Monetization](monetization.md)
++ [Network services](services.md)
++ [Transport protocols](transports.md)
++ [Crypto-contracts](crypto_contracts.md)
 
 
 ## Development
 
-+ [Finite State Machines](automats.md)
-+ Network Services
-+ [API Interface](api.md)
 + [Roadmap](roadmap.md)
-+ [Donation / Your Contribution](donate.md)
++ [Finite State Machines](automats.md)
++ [Technologies](technologies.md)
++ [API Interface](api.md)
++ [Known bugs](bugs.md)
 
 
 [bitdust.io](https://bitdust.io)
+

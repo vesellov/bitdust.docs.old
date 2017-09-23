@@ -21,6 +21,48 @@ List all available settings and its current values:
 
 
 ## List of options
+### .DS_Store (undefined)
+
+.DS_Store, default value: None
+
+
+
+### api/json-rpc-server/enabled (undefined)
+
+api/json-rpc-server/enabled, default value: None
+
+
+
+### api/json-rpc-server/port (undefined)
+
+api/json-rpc-server/port, default value: None
+
+
+
+### interface/api/json-rpc-enabled (boolean)
+
+interface/api/json-rpc-enabled, default value: true
+
+
+
+### interface/api/json-rpc-port (positive integer)
+
+interface/api/json-rpc-port, default value: 8083
+
+
+
+### interface/ftp/enabled (boolean)
+
+interface/ftp/enabled, default value: true
+
+
+
+### interface/ftp/port (positive integer)
+
+interface/ftp/port, default value: 8021
+
+
+
 ### debug level (positive integer)
 
 logs/debug-level, default value: 0
@@ -225,13 +267,25 @@ services/broadcasting/enabled, default value: true
 
 ### services/broadcasting/max-broadcast-connections (non zero positive integer)
 
-services/broadcasting/max-broadcast-connections, default value: 10
+services/broadcasting/max-broadcast-connections, default value: 3
 
 
 
 ### services/broadcasting/routing-enabled (boolean)
 
 services/broadcasting/routing-enabled, default value: false
+
+
+
+### services/contract-chain/enabled (boolean)
+
+services/contract-chain/enabled, default value: false
+
+
+
+### services/customer-contracts/enabled (boolean)
+
+services/customer-contracts/enabled, default value: false
 
 
 
@@ -334,6 +388,12 @@ services/identity-propagate/enabled, default value: true
 ### services/ip-port-responder/enabled (boolean)
 
 services/ip-port-responder/enabled, default value: true
+
+
+
+### services/keys-registry/enabled (boolean)
+
+services/keys-registry/enabled, default value: true
 
 
 
@@ -506,6 +566,12 @@ services/rebuilding/enabled, default value: true
 ### services/restores/enabled (boolean)
 
 services/restores/enabled, default value: true
+
+
+
+### services/supplier-contracts/enabled (boolean)
+
+services/supplier-contracts/enabled, default value: false
 
 
 

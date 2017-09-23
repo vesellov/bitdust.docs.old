@@ -67,7 +67,7 @@ you can visit [BitDust Commands](https://bitdust.io/commands.html) page.
 
 
 
-## Windows binaries
+## Dependencies
 
 If you are installing BitDust on Windows platforms, you may require some binary packages already compiled and packaged for Microsoft Windows platforms, you can check following locations and download needed binaries and libraries:
 

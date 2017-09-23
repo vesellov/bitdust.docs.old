@@ -92,16 +92,103 @@ Provide detailed info about all options and values from settings.
     }]}
 
 
-## keys\_list(sort=False)
+## key\_get(key\_id, include\_private=False)
 
-List details for known private keys.
+Returns details of known private key.
+Use `include_private=True` to get Private Key as openssh formated string.
 
 
-## key\_create(key\_id, key\_size=4096)
 
+
+
+    {'status': 'OK'.
+     'result': [{
+        'alias': 'cool',
+        'creator': 'http://p2p-id.ru/testveselin.xml',
+        'id': 'cool$testveselin@p2p-id.ru',
+        'fingerprint': '50:f9:f1:6d:e3:e4:25:61:0c:81:6f:79:24:4e:78:17',
+        'size': '4096',
+        'ssh_type': 'ssh-rsa',
+        'type': 'RSA',
+        'public': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCPy7AXI0HuQSdmMF...',
+        'private': '-----BEGIN RSA PRIVATE KEY-----\nMIIJKAIBAAKCAgEAj8uw...'
+    }]}
+
+
+## keys\_list(sort=False, include\_private=False)
+
+List details for known Private Keys.
+Use `include_private=True` to get Private Keys as openssh formated strings.
+
+
+
+
+    {'status': 'OK',
+     'result': [{
+         'alias': 'master',
+         'id': 'master$veselin@p2p-id.ru',
+         'creator': 'http://p2p-id.ru/veselin.xml',
+         'fingerprint': '60:ce:ea:98:bf:3d:aa:ba:29:1e:b9:0c:3e:5c:3e:32',
+         'size': '2048',
+         'ssh_type': 'ssh-rsa',
+         'type': 'RSA',
+         'public': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbpo3VYR5zvLe5...'
+         'private': '-----BEGIN RSA PRIVATE KEY-----\nMIIJKAIBAAKCAgEAj8uw...'
+     }, {
+         'alias': 'another_key01',
+         'id': 'another_key01$veselin@p2p-id.ru',
+         'creator': 'http://p2p-id.ru/veselin.xml',
+         'fingerprint': '43:c8:3b:b6:da:3e:8a:3c:48:6f:92:bb:74:b4:05:6b',
+         'size': '4096',
+         'ssh_type': 'ssh-rsa',
+         'type': 'RSA',
+         'public': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCmgX6j2MwEyY...'
+         'private': '-----BEGIN RSA PRIVATE KEY-----\nMIIJKsdAIBSjfAdfguw...'
+    }]}
+
+
+## key\_create(key\_alias, key\_size=4096, include\_private=False)
+
+Generate new Private Key and add it to the list of known keys with given `key_id`.
+
+
+
+
+
+    {'status': 'OK',
+     'message': 'new private key "abcd" was generated successfully',
+     'result': [{
+        'alias': 'abcd',
+        'id': 'abcd$veselin@p2p-id.ru',
+        'creator': 'http://p2p-id.ru/veselin.xml',
+        'fingerprint': 'bb:16:97:65:59:23:c2:5d:62:9d:ce:7d:36:73:c6:1f',
+        'size': '4096',
+        'ssh_type': 'ssh-rsa',
+        'type': 'RSA',
+        'public': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC8w2MhOPR/IoQ...'
+        'private': '-----BEGIN RSA PRIVATE KEY-----\nMIIJKsdAIBSjfAdfguw...'
+    }]}
 
 
 ## key\_erase(key\_id)
+
+Removes Private Key from the list of known keys and erase local file.
+
+
+
+
+
+    {'status': 'OK',
+     'message': 'private key "ccc2" was erased successfully',
+    }
+
+
+## key\_share(key\_id, idurl)
+
+Connect to remote node identified by `idurl` parameter and transfer private key `key_id` to that machine.
+This way remote user will be able to access those of your files which were encrypted with that private key.
+
+Returns:
 
 
 
@@ -134,6 +221,7 @@ provides same methods as other functions here, but just in a different way.
 
 You can also access those methods with another API "alias": `filemanager_{ mode }({ extra params })`
 
+WARNING: Those methods here will be deprecated and removed, use regular API methods instead.
 
 
 ## backups\_update()

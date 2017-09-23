@@ -4,6 +4,8 @@
 * [Identity files](#identity-files)
 * [ID-servers](#id-servers)
 * [IDURL address](#idurl-address)
+* [Hosts rotation](#hosts-rotation)
+* [Global unique entity ID](#global-unique-entity-id)
 * [Digital-signature](#digital-signature)
 * [Private key](#private-key)
 
@@ -38,7 +40,7 @@ ID-server functional is the part of BitDust program, but by default is turned of
 Each BitDust user is identified by IDURL key – this is an address of his identity file in the global Internet network. This identifier is related to device running BitDust software, but not to person who managing this device. Only by using Private Key stored on that device you can change your identity in the network.
 
 
-IDURL looks like this:
+Example IDURL might look like this:
 
     http://first-machine.com/alice.xml
 
@@ -138,7 +140,7 @@ BitDust software running on your machine will automatically "migrate" or "anonym
 In BitDust we support a global unique ID for any existing object (file, group, user, etc.).
 This is an example of full remote path to file "cat.png" in BitDust network:
 
-    alice@first-machine.com:group_abc:animals/cat.png#F20160313043757PM
+    group_abc$alice@first-machine.com:animals/cat.png#F20160313043757PM
 
 
 Full identifier here consists of several parts, here they are:
@@ -172,6 +174,7 @@ By creating or adjusting users identity the generation of digital-signature take
 The general principle of security of user identity from adjustment is based on the fact that all other nodes necessarily check the digital-signature and file content accordance each time they get a new copy of its identity – this is a standard method in cryptography called `VerifySignature`.
 
 This framework helps absolutely safely store and distribute user identity files through any sources, which include also ID-servers. Machine owner, who started an ID-server, does not have any possibility to substitute content of stored there files. But he can easily delete them or turn off the server – for loss prevention identity file of each user is stored on several servers all over the world. 
+
 
 
 ## Private Key
