@@ -5,7 +5,9 @@
 * [Automaton Kernel](#the-core)
 * [Relation to Code](#relation to the code)
 * [Transition Graphs](#transition-graphs)
-* [visio2python Tool](#visio2python)
+* [visio2python](#visio2python)
+* [Finite State Machines](#finite-state-machines)
+* [Microservices Tree](#microservices-tree)
 
 
 ## Introduction
@@ -225,7 +227,10 @@ It can translate the transition graphs, created in Microsoft Visio into the code
 [http://gitlab.bitdust.io/devel/visio2python](http://gitlab.bitdust.io/devel/visio2python/tree/master)
 
 
-## BitDust Finite State Machines
+## Finite State Machines
+
+Below is a list of state machines currently introduced in BitDust software.
+You can click on every item in the list to look at transition graph of the state.
 
 * [backup()](automat_backup.md)
 * [backup_db_keeper()](automat_backup_db_keeper.md)
@@ -262,6 +267,20 @@ It can translate the transition graphs, created in Microsoft Visio into the code
 * [udp_node()](automat_udp_node.md)
 * [udp_session()](automat_udp_session.md)
 * [udp_stream()](automat_udp_stream.md)
+
+
+## Microservices Tree
+
+BitDust software was developed using [service-oriented architecture](https://en.wikipedia.org/wiki/Microservices) and bellow you can see a dependencies tree of all [network services](services.md) currently exist in the software.
+
+Most network services were implemented using finite state machines, on the picture you can see corresponding automatas as a blue labels. 
+
+
+<div class=automatpng markdown="1">
+[![BitDust Microservices Tree](services/bitdust_services_tree.png)](services/bitdust_services_tree.pdf)
+</div>
+
+[bitdust_services_tree.vsd](services/bitdust_services_tree.vsd)
 
 
 
