@@ -1,12 +1,13 @@
-# Finite State Machines
+# Finite State-Machines
+
 * [Introduction](#introduction)
 * [Method](#method)
 * [Example](#example)
-* [Automaton Kernel](#the-core)
-* [Relation to Code](#relation to the code)
+* [The Core](#the-core)
+* [Relation to Code](#relation-to-the-code)
 * [Transition Graphs](#transition-graphs)
 * [visio2python](#visio2python)
-* [Finite State Machines](#finite-state-machines)
+* [BitDust automatas list](#bitdust-automatas-list)
 * [Microservices Tree](#microservices-tree)
 
 
@@ -227,7 +228,7 @@ It can translate the transition graphs, created in Microsoft Visio into the code
 [http://gitlab.bitdust.io/devel/visio2python](http://gitlab.bitdust.io/devel/visio2python/tree/master)
 
 
-## Finite State Machines
+## BitDust automatas list
 
 Below is a list of state machines currently introduced in BitDust software.
 You can click on every item in the list to look at transition graph of the state.
