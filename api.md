@@ -183,7 +183,7 @@ Removes Private Key from the list of known keys and erase local file.
     }
 
 
-## key\_share(key\_id, idurl)
+## key\_share(full\_key\_id, idurl)
 
 Connect to remote node identified by `idurl` parameter and transfer private key `key_id` to that machine.
 This way remote user will be able to access those of your files which were encrypted with that private key.
@@ -224,310 +224,82 @@ You can also access those methods with another API "alias": `filemanager_{ mode 
 WARNING: Those methods here will be deprecated and removed, use regular API methods instead.
 
 
-## backups\_update()
+## files\_sync()
 
 Sends "restart" event to backup_monitor() Automat, this should start "data
-synchronization" process with remote nodes.
+synchronization" process with remote nodes. Normally all situations
+should be handled automatically so you wont run this method manually,
+but just in case.
 
 
 
 
 
-    {'status': 'OK', 'result': 'the main loop has been restarted'}
+    {'status': 'OK', 'result': 'the main files sync loop has been restarted'}
 
 
-## backups\_list()
-
-Returns a whole tree of files and folders in the catalog.
-
+## files\_list(remote\_path=None)
 
 
 
+## file\_info(remote\_path, include\_uploads=True, include\_downloads=True)
 
-    {'status': 'OK',
-     'result': [{
-        'path': '/Users/veselin/Documents',
-        'versions': [],
-        'type': 'parent',
-        'id': '0/0/1',
-        'size': 38992196
-      }, {
-        'path': '/Users/veselin/Documents/python',
-        'versions': [],
-        'type': 'parent',
-        'id': '0/0/1/0',
-        'size': 5754439
-      }, {
-        'path': '/Users/veselin/Documents/python/python27.chm',
-        'versions': [{
-            'version': 'F20160313043757PM',
-            'blocks': 1,
-            'size': '11 MB'
+
+
+## file\_create(remote\_path, as\_folder=False)
+
+
+
+## file\_delete(remote\_path)
+
+
+
+## files\_uploads(include\_running=True, include\_pending=True)
+
+Returns a list of currently running uploads and
+list of pending items to be uploaded.
+
+
+
+
+
+    { 'status': 'OK',
+      'result': {
+        'running': [{
+            'aborting': False,
+            'version': '0/0/3/1/F20160424013912PM',
+            'block_number': 4,
+            'block_size': 16777216,
+            'bytes_processed': 67108864,
+            'closed': False,
+            'eccmap': 'ecc/4x4',
+            'eof_state': False,
+            'pipe': 0,
+            'progress': 75.0142815704418,
+            'reading': False,
+            'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+            'terminating': False,
+            'total_size': 89461450,
+            'work_blocks': 4
         }],
-        'type': 'file',
-        'id': '0/0/1/0/0',
-        'size': 5754439
-    }]}
+        'pending': [{
+            'created': 'Wed Apr 27 15:11:13 2016',
+            'id': 3,
+            'source_path': '/Users/veselin/Downloads/another-ZIP-file.zip',
+            'path_id': '0/0/3/2'
+        }]
+    }
 
 
-## backups\_id\_list()
+## file\_upload\_start(local\_path, remote\_path, wait\_result=True)
 
-Returns only list of items uploaded on remote machines.
 
 
+## file\_upload\_stop(remote\_path)
 
 
 
-    {'status': 'OK',
-     'result': [{
-        'backupid': '0/0/1/0/0/F20160313043757PM',
-        'path': '/Users/veselin/Documents/python/python27.chm',
-        'size': '11 MB'
-     }, {
-        'backupid': '0/0/0/0/0/0/F20160315052257PM',
-        'path': '/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It On.mp3',
-        'size': '8.27 MB'
-    }]}
-
-
-## backup\_start\_id(pathID)
-
-Start uploading a given item already existed in the catalog by its path ID.
-
-
-
-
-
-    {'status': 'OK', 'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
-
-
-## backup\_start\_path(path, mount\_path=None, key\_id=None)
-
-Start uploading file or folder to remote nodes. It will generate a new path
-ID for this file or folder and add it to the catalog.
-If `mount_path` is `None` method will create a new file (or folder) and
-all parent sub folders will be also added to the catalog:
-
-    ["Users", "Users/veselin", "Users/veselin/Documents", "Users/veselin/Documents/python",]
-
-Final ID of that item will be combined from parent IDs and target file or folder ID:
-
-    0/0/1/0/0
-
-In case `mount_path` is set it will act like backup_map_path()
-and start the backup process: item will be created in the `mount_path` location.
-
-
-
-
-
-    {'status': 'OK',
-     'result': 'uploading of item 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm',
-     'id': '0/0/1/0/0',
-     'type': 'file',
-     'key_id': 'abc'}
-
-
-## backup\_map\_path(path, mount\_path, key\_id=None)
-
-Create a new top level item in the catalog and point it to given local
-path. This is the simplest way to upload a file and get an ID for that
-remote copy. Given local `path` will be mapped to virtual `mount_path`,
-which must not exist in the catalog yet.
-
-
-
-
-
-    {'status': 'OK',
-     'result': [ 'new file was added: 1, local path is /Users/veselin/Pictures/bitdust.png'],
-     'id': '1',
-     'type': 'file',
-     'key_id': 'abc'}
-
-
-## backup\_dir\_make(dirpath, key\_id=None)
-
-Creates empty folder in catalog.
-
-
-
-
-
-    {'status': 'OK', 'result': 'new folder was added: 0/0/8, local path is /Users/veselin/Desktop/', 'key_id': 'abc'}
-
-
-## backup\_dir\_add(dirpath, key\_id=None)
-
-Add given folder to the catalog but do not start uploading process. This
-method will create all sub folders in the catalog and keeps the same
-structure as your local folders structure. So the final ID will be
-combination of all parent IDs, separated with "/".
-
-
-
-
-
-    {'status': 'OK', 'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/', 'key_id': 'abc'}
-
-
-## backup\_file\_add(filepath, key\_id=None)
-
-Add a single file to the catalog, skip uploading. This method will create
-all sub folders in the catalog and keeps the same structure as your local
-file path structure. So the final ID of that file in the catalog will be
-combination of all parent IDs, separated with "/".
-
-
-
-
-
-    {'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz', 'key_id': 'abc'}
-
-
-## backup\_tree\_add(dirpath, key\_id=None)
-
-Recursively reads the entire folder and create items in the catalog. For
-all files and folders it will keeping the same files/folders structure.
-This method will not start any uploads, just append items to the catalog.
-
-
-
-
-
-    {'status': 'OK',
-     'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports',
-     'key_id': 'abc'}
-
-
-## backup\_delete\_local(backupID)
-
-Remove only local files belongs to this particular backup. All remote data
-stored on suppliers' machines remain unchanged.
-
-
-
-
-
-    {'status': 'OK',   'result': '8 files were removed with total size of 16 Mb'}
-
-
-## backup\_delete\_id(pathID\_or\_backupID)
-
-Delete local and remote copies of given item in catalog. This will
-completely remove your data from BitDust network. You can specify either
-path ID of that location or specific version.
-
-
-
-
-
-    {'status': 'OK',   'result': 'version 0/0/1/1/0/F20160313043419PM was deleted from remote peers'}
-
-
-## backup\_delete\_path(localPath)
-
-Completely remove any data stored on given location from BitDust network.
-All data for given item will be removed from remote peers. Any local files
-related to this path will be removed as well.
-
-
-
-
-
-    {'status': 'OK',   'result': 'item 0/1/2 was deleted from remote peers'}
-
-
-## backups\_queue()
-
-Returns a list of paths to be backed up as soon as currently running
-backups finish.
-
-
-
-
-
-    {'status': 'OK',
-     'result': [{
-         'created': 'Wed Apr 27 15:11:13 2016',
-         'id': 3,
-         'local_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
-         'path_id': '0/0/3/1'
-    }]}
-
-
-## backups\_running()
-
-Returns a list of currently running uploads.
-
-
-
-
-
-    {'status': 'OK',
-     'result': [{
-         'aborting': False,
-         'backup_id': '0/0/3/1/F20160424013912PM',
-         'block_number': 4,
-         'block_size': 16777216,
-         'bytes_processed': 67108864,
-         'closed': False,
-         'eccmap': 'ecc/4x4',
-         'eof_state': False,
-         'pipe': 0,
-         'progress': 75.0142815704418,
-         'reading': False,
-         'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
-         'terminating': False,
-         'total_size': 89461450,
-         'work_blocks': 4
-    }]}
-
-
-## backup\_cancel\_pending(path\_id)
-
-Cancel pending task to run backup of given item.
-
-
-
-
-
-    {'status': 'OK', 'result': 'item 123 cancelled'}
-
-
-## backup\_abort\_running(backup\_id)
-
-Abort currently running backup.
-
-
-
-
-
-    {'status': 'OK', 'result': 'backup 0/0/3/1/F20160424013912PM aborted'}
-
-
-## restore\_single(pathID\_or\_backupID\_or\_localPath, destinationPath=None)
-
-Download data from remote peers to your local machine. You can use
-different methods to select the target data:
-
-  + item ID in the catalog
-  + full version identifier
-  + local path
-
-It is possible to select the destination folder to extract requested files to.
-By default this method uses known location from catalog for given item.
-
-WARNING: Your existing local data will be overwritten!
-
-
-
-
-
-    {'status': 'OK', 'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}
-
-
-## restores\_running()
+## files\_downloads()
 
 Returns a list of currently running downloads.
 
@@ -543,6 +315,7 @@ Returns a list of currently running downloads.
         'bytes_processed': 0,
         'creator_id': 'http://veselin-p2p.ru/veselin.xml',
         'done': False,
+        'key_id': 'abc',
         'created': 'Wed Apr 27 15:11:13 2016',
         'eccmap': 'ecc/4x4',
         'path_id': '0/0/3/1',
@@ -550,7 +323,28 @@ Returns a list of currently running downloads.
     }]}
 
 
-## restore\_abort(backup\_id)
+## file\_download\_start(remote\_path, destination\_path=None, wait\_result=False)
+
+Download data from remote peers to your local machine. You can use
+different methods to select the target data with `remote_path` input:
+
+  + "remote path" of the file
+  + item ID in the catalog
+  + full version identifier with item ID
+
+It is possible to select the destination folder to extract requested files to.
+By default this method uses specified value from local settings or user home folder
+
+WARNING: Your existing local data will be overwritten!
+
+
+
+
+
+    {'status': 'OK', 'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/'}
+
+
+## file\_download\_stop(remote\_path)
 
 Abort currently running restore process.
 
@@ -558,7 +352,7 @@ Abort currently running restore process.
 
 
 
-    {'status': 'OK',  'result': 'restoring of item 123 aborted'}
+    {'status': 'OK', 'result': 'restoring of "alice@p2p-host.com:0/1/2" aborted'}
 
 
 ## suppliers\_list()
@@ -922,7 +716,7 @@ in DHT network.
 
 ## send\_message(recipient, message\_body)
 
-Sends a text message to remote peer.
+Sends a text message to remote peer, `recipient` is a string with nickname or global_id.
 
 
 
@@ -961,6 +755,9 @@ Message must be provided in `payload` argument is a Json object.
 
 WARNING! Please, do not send too often and do not send more then
 several kilobytes per message.
+
+
+## event\_send(event\_id, json\_data=None)
 
 
 

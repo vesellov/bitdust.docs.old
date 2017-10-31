@@ -17,7 +17,7 @@ Optionally, you can also install [miniupnpc](http://miniupnp.tuxfamily.org/) too
 
 Second step is to get the BitDust sources:
 
-        git clone http://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
+        git clone https://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
 
 
 Then you need to build virtual environment with all required Python dependencies, BitDust software will run fully isolated.

@@ -32,7 +32,11 @@ In theory the location of user identity file can be of any kind, important about
 
 This kind of storage is done with the use of multiple machines also called ID-servers or Identity servers, where copies of all identity files are kept. These servers can be started on the machines belonging to BitDust LLC, as well as in those of the network users themselves or third parties of their own free will. 
 
-ID-server functional is the part of BitDust program, but by default is turned off in the program settings. If required each user can turn on this option himself and start such a server on his computer – it will be automatically initiated by BitDust program start. Server launch will influence the computer resources consumption insignificantly, but will allow you to support other nodes and increase total fault-tolerance of whole BitDust network. 
+ID-server functional is the part of BitDust program, but by default is turned off in the program settings. If required each user can turn on this option himself and start such a server on his computer – it will be automatically initiated by BitDust program start. Server launch will influence the computer resources consumption insignificantly, but will allow you to support other nodes and increase total fault-tolerance of whole BitDust network.
+
+If you feel enthusiastic now, read more about how to run your own identity server in BitDust network in 5 minutes on [Start new Identity Server](identity_server.md) page.
+
+Once you succeeded - contact us and we will include your machine address in official BitDust "seed nodes" list, published on [Git Hub](https://github.com/vesellov/bitdust.public/blob/master/userid/known_servers.py) and [gitlab.bitdust.io](https://gitlab.bitdust.io/devel/bitdust/blob/master/userid/known_servers.py).
 
 
 ## IDURL address
@@ -145,11 +149,16 @@ This is an example of full remote path to file "cat.png" in BitDust network:
 
 Full identifier here consists of several parts, here they are:
 
-* identity server host (DNS name or IP address): first-machine.com
+* identity server host (DNS name or IP:PORT address): first-machine.com
 * user identity filename (without ".xml"): alice
 * key ID: group_abc
 * backup ID: animals/cat.png
 * version name: F20160313043757PM
+
+
+If identity server was set using IP:PORT format the global ID might looks like this:
+
+    key_xyz$bob@123.45.67.89_8000:cars/citroen.png#F20160313052124PM
 
 
 This approach have something similar with "remotes" and "branches" in Git. For example a full remote file path in Git can be like that:

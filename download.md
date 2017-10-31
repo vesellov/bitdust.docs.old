@@ -45,14 +45,14 @@ In Ubuntu you can quickly get all dependencies in this way:
 
     
 ## Git Repositories:
-  + Development : [http://gitlab.bitdust.io/devel/bitdust.devel.git](http://gitlab.bitdust.io/devel/bitdust.devel.git)
-  + Public : [http://gitlab.bitdust.io/devel/bitdust.git](http://gitlab.bitdust.io/devel/bitdust.git)
-  + Most stable up-to-date : [http://gitlab.bitdust.io/stable/bitdust.latest.git](http://gitlab.bitdust.io/stable/bitdust.latest.git)
+  + Development : [https://gitlab.bitdust.io/devel/bitdust.devel.git](https://gitlab.bitdust.io/devel/bitdust.devel.git)
+  + Public : [https://gitlab.bitdust.io/devel/bitdust.git](https://gitlab.bitdust.io/devel/bitdust.git)
+  + Most stable up-to-date : [https://gitlab.bitdust.io/stable/bitdust.latest.git](https://gitlab.bitdust.io/stable/bitdust.latest.git)
 
 
 ## Run from Sources
 
-    git clone http://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
+    git clone https://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
     cd bitdust
     python bitdust.py
 

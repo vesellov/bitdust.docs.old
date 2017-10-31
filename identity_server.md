@@ -80,7 +80,7 @@ Open your browser and go to http://my-own-identity-server.com or (http://localho
 
 ## Support BitDust network
 
-Contact with BitDust team to notify about this new ID server was started by you and we will add your domain name in the list of [known_servers.py](http://gitlab.bitdust.io/stable/bitdust.latest/blob/master/userid/known_servers.py).
+Contact with BitDust team to notify about this new ID server was started by you and we will add your domain name in the list of [known_servers.py](https://gitlab.bitdust.io/devel/bitdust/blob/master/userid/known_servers.py).
 
 
 <div class=fbcomments markdown="1">
