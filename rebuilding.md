@@ -11,7 +11,7 @@
 
 ## Data Redundancy 
 
-In the section [Data Storage](storage) we described a mechanism of creating distributed user data copies in BitDust network. Here we will talk about a method of data partitioning into separate fragments, which enables dynamic recovery of lost data by their loss at one or several suppliers.
+In the section [Data Storage](storage) we described a mechanism of creating distributed user data copies in BitDust network. Here we will talk about a method of data partitioning into separate fragments, which enables dynamic recovery of lost data and further redistribution to more reliable nodes in the network.
 
 Data uploaded on user machines are stored there with double redundancy and are organized into RAID array for enabling a possibility of their recovery in case of loss.
 
@@ -23,11 +23,11 @@ The storage is organized in the following way:
 
 ## RAID Transformation 
 
-Different combinations of Parity fragments enable Data fragment recovery on the machine of a new supplier, which swiftly replaced the lost one. Parity fragment for each block is created by conducting a byte operation XOR between several Data fragments of this block designed for other suppliers. 
+Different combinations of Parity fragments enable Data fragment recovery on the machine of a new supplier, which swiftly replaced the lost one. Parity fragment for each block is created by conducting a XOR operation on each byte between several Data fragments of this block prepared for other suppliers. 
 
-By losing one or few suppliers this allows restoring Data fragments from the fragments downloaded from other suppliers. For doing this one should do byte operation XOR between on hand Parity fragments once again.
+When losing one or few suppliers we still can restore Data fragments from the fragments downloaded from other suppliers. For doing this one should do XOR operation on each byte between on hand Parity and Data fragments once again.
 
-The so-called iterative algorithm continues the work until it can restore at least one lost fragment in one cycle. For example, Data fragment recovery in one position on the first iteration allows restoring Parity parts in other positions in the next cycle, and then Data fragments will be restored in third positions etc. 
+The so-called iterative algorithm continues the work until it can restore at least one lost fragment in one cycle. For example, Data fragment recovery in one position on the first iteration allows restoring Parity parts in other positions in the next cycle, and then Data fragments will be restored in third positions etc.  
 
 
 ## ECC Codes
@@ -49,15 +49,19 @@ For each of the possible combinations of suppliers the optimal EEC code was calc
 | ecc2x2                    | 2                             | 1                         |
 
 
-Thus percentage of possible losses makes 50% for 2 suppliers and up to 15% for 64 suppliers. However the greater the number of possible errors is, the more time the user has to reassemble the lost fragments and the more stable the data storage is.
+Thus percentage of possible losses makes 50% for 2 suppliers and up to 15% for 64 suppliers. The greater the number of possible errors you can do, the more time you have to reassemble the lost fragments and the more stable the data storage is, and so more suppliers should theoretically give you more reliable storage space. But the greater number of suppliers you use, the more memory and network connections will be allocated from your local operating system.
 
 
 ### ATTENTION!
-    By exceeding the number of possible errors, expect complete loss of uploaded data. 
-    The mechanism of automatic recovery allows swiftly fixing encountered errors and 
-    enables new distribution of data on suppliers’ nodes. At the moment for this you 
-    need a BitDust program continuous running on the data owner machine and stable 
-    Internet connection.
+
+    By exceeding the number of possible errors, expect complete
+    loss of uploaded data. The mechanism of automatic recovery
+    allows swiftly fixing encountered errors and enables
+    new distribution of data on suppliers’ nodes.
+
+    At the moment you have to continuousky running  BitDust program 
+    on the data owner machine and stable Internet connection.
+
 
 
 ## Rebuilding
@@ -66,11 +70,19 @@ Algorithm of dynamic data recovery cyclically runs a sequence of actions aimed a
 
 In each algorithm iteration a decision making about change of this or that supplier based on the previously collected statistic data and current connection status takes place. The least "reliable" supplier can be fired and another node can be found in the BitDust network instead of him.
 
-After changing supplier, those fragments which were allocated on the old node are lost and the process of reassembly of these fragments on user computer and further sending them to the new node start. For this the fragments will be beforehand downloaded from other suppliers which are available at the moment. 
+After changing supplier, those fragments which were allocated on the old node are lost. Right away the "rebuilding" process will be started of reassembly of these fragments on local computer and further sending them to the new node.  Based on your ECC mode and number of suppliers a set of data fragments will be beforehand downloaded from other suppliers which are available at the moment.
 
-At each iteration of recovery algorithm there is a reassembly by blocks of each distributed in the BitDust network user data copy. The order of data assembly is organized by the time of creation of each copy – first will be restored the most recently uploaded data. 
+At each iteration of recovery algorithm there is a reassembly of one single block of your data on your local machine, software will put it in a temporary folder to arrange network delivery to remote supplier node and removes after all.
+
+To rebuild one losted fragment you need go combine Data and Parity fragments from reliable nodes together and run RAID process on that set. This takes some CPU time, because you doing huge amounts of XOR'ing in total - multiple times per each and every byte of your data. 
+
+The order of data assembly is organized by the time of creation of each copy – first will be restored the most recently uploaded data and sent to reliable suppliers.  BitDust software keeps track of all running uploads and downloads and also "remembers" a pending requests. 
+
+Rebuilding process can take a time depend on total size of your uploads.
+Currently implemented a very basic scenario when only one active upload/download process is running and all jobs are organized in a queue.
 
 Here is a short representation of the common sequence of actions at each iteration:
+
 
 1. decision on supplier change is made – the least "reliable" node in the current combination is found
 2. search for a new node which is ready to become a new supplier for the user is done in the global network

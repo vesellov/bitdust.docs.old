@@ -15,6 +15,12 @@ Vincent was a creator of DataHaven.NET project, he invented most core methods us
 ## Kashin Albert
 
 
+## Oleg Makarov
+
+
+## Jordi
+
+
 ## Donations
 
 Greath thanks to those persons for financial support:
