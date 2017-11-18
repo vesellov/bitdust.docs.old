@@ -8,21 +8,22 @@
 [network_connector.vsd](p2p/network_connector.vsd)
 
 
-## Описание
+## Description
 
-Automat `network_connector()` нужен для контроля состояния подключения к сети Интернет и запуска процедур переподключения к сети в различных частях программного обеспечения при последующем восстановлении сетевого соединения.
+Automat `network_connector ()` is needed to monitor the status of the connection to the Internet and start the redirection procedures on the network in various parts of the software when the network connection is subsequently restored.
 
-В состоянии __CONNECTED__ он будет периодически проверяет наличие входящего трафика и определять текущиее состояние соединения.
+In the __CONNECTED__ state, it will periodically check for the next traffic and determine the current state of the connection.
 
-Два основных метода управляют процессом переподключения:
+The two main methods control the switch-over:
 
-    * doSetUp()
-    * doSetDown()
+* doSetUp ()
+* doSetDown ()
 
-Если некоторые сетевые интерфейсы активны в данный момент, но программное обеспечение по-прежнему не может соединиться с другими узлами, Automat будет пытаться провести пинг сайта https://bitdust.io и решить имеется ли какое либо подключение к сети Интернет.
+If some network interfaces are active at the moment, but the software still can not connect to other nodes, Automat will try to ping the site https://bitdust.io (this part will be re-reworked soon) and decide whether there is any connection to the Internet.
 
 
-## События:
+## Events:
+
     * all-network-transports-disabled
     * all-network-transports-ready
     * connection-done
