@@ -2,7 +2,7 @@ Curriculum Vitae
 
 <style type="text/css">div#veselin_penev img { float: right; border-radius: 370px; margin-top: 30px; width: 400px; height: 400px; }</style>
 <div id="veselin_penev" markdown="1">
-[![Veselin Petrov Penev](http://bitdust.io/images/480x480.jpg)](http://bitdust.io/images/800x1200.jpg)
+[![Veselin Petrov Penev](https://bitdust.io/images/480x480.jpg)](https://bitdust.io/images/800x1200.jpg)
 </div>
 
 # Veselin Petrov Penev
@@ -40,7 +40,7 @@ skype: [vesellov](skype:vesellov)
 + Works as a part of Agile Scrum team, following Holacracy best practices, constantly improving the working cycle
 
 #### Lead Developer, __BitDist LLC__, 2012 till now
-[http://bitdust.io](http://bitdust.io)
+[https://bitdust.io](https://bitdust.io)
 
 + Introduced a new solution for complex software development using visualized state machines,
 + Researching and developing a project of safe peer-to-peer anonymous data storage communication network,
@@ -48,14 +48,12 @@ skype: [vesellov](skype:vesellov)
 + Participated in Conferences, Accelerators, Public Events, establish business relations, study of contemporary problems.
 
 #### Full-stack Developer, __CallFeed.NET__, March - August 2015
-[http://callfeed.net](http://callfeed.net)
 
 + Create graphic WEB-widget increases online sales - a mobile Call Back service for web-sites,
 + Developed a back-end server to manage users’ accounts and process traffic requests,
 + Integrates a third-party service thru remote API calls to manage mobile calls.
 
 #### Main Developer, __DataHaven.NET LTD__, 2008 – 2011
-[http://datahaven.net](http://datahaven.net)
 
 + Developed distributed on-line backup software written in Python,
 + Establish a data transfer directly between two nodes,
