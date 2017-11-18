@@ -2,12 +2,12 @@ Curriculum Vitae
 
 <style type="text/css">div#veselin_penev img { float: right; border-radius: 370px; margin-top: 30px; width: 400px; height: 400px; }</style>
 <div id="veselin_penev" markdown="1">
-[![Veselin Petrov Penev](http://bitdust.io/pics/480x480.jpg)](http://bitdust.io/pics/800x1200.jpg)
+[![Veselin Petrov Penev](http://bitdust.io/images/480x480.jpg)](http://bitdust.io/images/800x1200.jpg)
 </div>
 
 # Veselin Petrov Penev
 
-### Programmer 
+### Python Programmer 
 ### Software Engineer 
 ### Full-stack Developer 
 
@@ -18,11 +18,11 @@ Curriculum Vitae
 
 Russia, Saint-Petersburg / Bulgaria, Varna / Netherlands, Amsterdam
 
-10.11.1982, 32 years
+10.11.1982
 
 [penev.veselin@gmail.com](mailto:penev.veselin@gmail.com)
 
-8-918-219-42-88
++31612349710
 
 skype: [vesellov](skype:vesellov)
 
@@ -33,18 +33,19 @@ skype: [vesellov](skype:vesellov)
 #### Lead Architect, S&I CID DIG WeMake 2, KPN Digital (Amsterdam), February 2016  till now
 [https://www.kpn.com](https://www.kpn.com)
 
-+ Developing of api.kpn.com in the context of different business projects 
++ Developing of api.kpn.com in the context of different business projects
 + Take part in Continuous Integration / Continuous Delivery pipelines of software releases
-+ Developing online web services for complex MDM solutions
-+ Delivering highly predictable and understandable solutions
++ Build and maintain a high-loaded online web services for complex MDM solutions
++ Delivering highly reliable, predictable and understandable solutions
++ Works as a part of Agile Scrum team, following Holacracy best practices, constantly improving the working cycle
 
 #### Lead Developer, __BitDist LLC__, 2012 till now
 [http://bitdust.io](http://bitdust.io)
 
 + Introduced a new solution for complex software development using visualized state machines,
-+ Continue developing safe peer-to-peer anonymous data storage network,
-+ Developing a working documentation and development plan for the project,
-+ Participated in two BitCoin Conferences, establish business relations, study of contemporary problems.
++ Researching and developing a project of safe peer-to-peer anonymous data storage communication network,
++ Developing a working documentation and development plan for the project, building community,
++ Participated in Conferences, Accelerators, Public Events, establish business relations, study of contemporary problems.
 
 #### Full-stack Developer, __CallFeed.NET__, March - August 2015
 [http://callfeed.net](http://callfeed.net)
@@ -136,15 +137,9 @@ Saint-Petersburg National Research University of __Information Technologies__, M
 ### CURRENT STATUS
 
 I am a big fan of __Python__, finite state machines and distributed network technologies.
-Work on my [__start-up project__](http://bitdust.io) in my spare time. Concentrated on creating a successful IT company and a product with a worldwide audience, look to the future with optimism. 
-At the moment working full-time in Amsterdam, but still considering to take a new challenge in near future. Looking for an exciting work opportunity and ready to join your team within several months. 
-I am a citizen of the EU with Bulgarian passport and ready for work travels if needed.
-
-I am big __Python enthusiast__ - work on my startup project in a free time. 
-Very focused to build a success company, looking forward with optimism.
-Now I am working as freelancer on various projects and focused to find a good and stable job in office or take a contract for several months. 
-Ready to relocate at any time and join your team ASAP - I am __EU citizen__.
-I have lived in an English speaking environment for about a year - have no problems with communications.
+Work on my [__start-up project__](https://bitdust.io) in my spare time. Concentrated on creating a successful IT company and a product with a worldwide audience, look to the future with optimism. 
+At the moment working full-time in Amsterdam, but still considering to take a new challenge in near future. Looking for an exciting work opportunity and ready to join your team within 3-4 months. 
+I am a citizen of the EU with Bulgarian passport and ready for work travels if required.
 
  
 ### LANGUAGES
