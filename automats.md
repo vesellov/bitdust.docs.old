@@ -38,8 +38,7 @@ As compared to the classic method of Anatoliy Shalyto my approach has some small
 * you can write whole statements on Python on the arcs, which opens more possibilities to the developer
 
 Each automat is a descendant of the
-[Automat](https://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l202) class,
-which establishes all key collaborations in the BitDust program:
+[Automat](https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/automats/automat.py#L256) class, which establishes all key collaborations in the BitDust program:
 
 + initializes a conceptual machine increment by its production
 + does its clean termination
@@ -55,7 +54,7 @@ which establishes all key collaborations in the BitDust program:
 As an example, consider a simple finite state machine which is designed for tracking the current status of user’s  connection to the given node in the BitDust network.
 
 In this picture you can see an automat called
-[contact_status()](https://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244),
+[contact_status()](https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/p2p/contact_status.py#L308),
 which has four states.
 
 <div class=automatpng markdown="1">
@@ -94,57 +93,59 @@ For instance `self.state == 'CONNECTED'` means that user is on-line at the curre
 
 ## The Core
 
-All this logic is concentrated in the kernel of the finite state machine in the method [A(event, arg)](https://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l264)
+All this logic is concentrated in the kernel of the finite state machine in the method [A(event, arg)](https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/p2p/contact_status.py#L330)
 of `ContactStatus` class:
 
-    def A(self, event, arg):
+     def A(self, event, arg):
         #---CONNECTED---
         if self.state == 'CONNECTED':
-            if event == 'outbox-packet' and self.isPingPacket(arg) :
-                self.state = 'PING'
-                self.AckCounter=0
-                self.doRepaint(arg)
-            elif event == 'sent-failed' and self.isDataPacket(arg) :
+            if event == 'sent-failed' and self.Fails >= 3 and self.isDataPacket(arg):
                 self.state = 'OFFLINE'
                 self.doRepaint(arg)
+            elif event == 'sent-failed' and self.isDataPacket(arg) and self.Fails < 3:
+                self.Fails += 1
         #---OFFLINE---
         elif self.state == 'OFFLINE':
-            if event == 'outbox-packet' and self.isPingPacket(arg) :
+            if event == 'outbox-packet' and self.isPingPacket(arg):
                 self.state = 'PING'
-                self.AckCounter=0
+                self.AckCounter = 0
                 self.doRepaint(arg)
-            elif event == 'inbox-packet' :
+            elif event == 'inbox-packet':
                 self.state = 'CONNECTED'
+                self.Fails = 0
                 self.doRememberTime(arg)
                 self.doRepaint(arg)
         #---PING---
         elif self.state == 'PING':
-            if event == 'sent-done' :
+            if event == 'sent-done':
                 self.state = 'ACK?'
-                self.AckCounter=0
-            elif event == 'inbox-packet' :
+                self.AckCounter = 0
+            elif event == 'inbox-packet':
                 self.state = 'CONNECTED'
+                self.Fails = 0
                 self.doRememberTime(arg)
                 self.doRepaint(arg)
-            elif event == 'file-sent' :
-                self.AckCounter+=1
-            elif event == 'sent-failed' and self.AckCounter>1 :
-                self.AckCounter-=1
-            elif event == 'timer-20sec' or ( event == 'sent-failed' and self.AckCounter==1 ) :
+            elif event == 'file-sent':
+                self.AckCounter += 1
+            elif event == 'sent-failed' and self.AckCounter > 1:
+                self.AckCounter -= 1
+            elif event == 'timer-20sec' or (event == 'sent-failed' and self.AckCounter == 1):
                 self.state = 'OFFLINE'
                 self.doRepaint(arg)
         #---ACK?---
         elif self.state == 'ACK?':
-            if event == 'inbox-packet' :
+            if event == 'inbox-packet':
                 self.state = 'CONNECTED'
+                self.Fails = 0
                 self.doRememberTime(arg)
                 self.doRepaint(arg)
-            elif event == 'timer-20sec' :
+            elif event == 'timer-20sec':
                 self.state = 'OFFLINE'
-            elif event == 'outbox-packet' and self.isPingPacket(arg) :
+            elif event == 'outbox-packet' and self.isPingPacket(arg):
                 self.state = 'PING'
-                self.AckCounter=0
+                self.AckCounter = 0
                 self.doRepaint(arg)
+        return None
 
 This code is automatically generated from transition graph vector diagram of the finite state machine and you do not need to code all that lines and so have no chance to made the mistake.
 The source files of the project can be automatically updated after any modifications applied in the finite state machine, how it works is described below. 
@@ -160,7 +161,7 @@ This allows to split software development process in at least two paths and sign
 ## Relation to the Code
 
 Let's see on example below, the given method
-[doRememberTime()](https://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l321)
+[doRememberTime()](https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/p2p/contact_status.py#L395)
 of `ContactStatus` class makes a record of the current time moment – this is exactly the part of the functional, which is managed by the finite automat:
 
     def doRememberTime(self, arg):
@@ -169,10 +170,10 @@ of `ContactStatus` class makes a record of the current time moment – this is e
 This is very simple code, but it makes a useful action and calls an external code - actions and conditions become separated from the state machine and target logic.
 
 For every new network connection a new single instance of this automat will be created, method
-[A(idurl, event, arg)](https://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l229)
+[A(idurl, event, arg)](https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/p2p/contact_status.py#L292)
 creates new instances and refers to existing instances of the automat.
 
-External reference to the automat is carried out through [automat(event, args)](https://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l348) 
+External reference to the automat is carried out through [automat(event, args)](https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/automats/automat.py#L425) 
 method of `Automat` class, for example after receiving new incoming packet from the target node an event `inbox-packet` will be passed to the state machine:
 
     def Inbox(newpacket, info, status, message):
@@ -222,10 +223,10 @@ Events, conditions and actions form the finite statement for the transition func
 
 Microsoft Visio 2007 is used for creation of the vector schemes of transition graphs. Transition graphs of finite state machines, which control the behavior of BitDust client software, reside in *.vsd files.
 
-A small tool called [visio2python](https://gitlab.bitdust.io/devel/visio2python/tree/master) was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
+A small tool called [visio2python](https://github.com/vesellov/visio2python/blob/master/README.md) was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
 It can translate the transition graphs, created in Microsoft Visio into the code in Python or JavaScript languages.
 
-[https://gitlab.bitdust.io/devel/visio2python](https://gitlab.bitdust.io/devel/visio2python/tree/master)
+[https://github.com/vesellov/visio2python](https://github.com/vesellov/visio2python)
 
 
 ## BitDust automatas list
