@@ -48,6 +48,13 @@ BitDust is an attempt to establish more control over our own digital life.
 
 ## +
 
+BitDust is a holistic eco-system that protects your privacy in the network
+by establishing p2p communications of users and maximize distribution of
+information flows in the network.
+
+
+## +
+
 BitDust aims to protect the privacy of users and provides an alternative way of working and communicating in the network.
 
 
