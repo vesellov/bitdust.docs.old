@@ -23,18 +23,6 @@ restart.
     {'status': 'OK', 'result': 'restarted'}
 
 
-## reconnect()
-
-Sends "reconnect" event to network_connector() Automat in order to refresh
-network connection.
-
-
-
-
-
-    {'status': 'OK', 'result': 'reconnected'}
-
-
 ## show()
 
 Opens a default web browser to show the BitDust GUI.
@@ -46,7 +34,7 @@ Opens a default web browser to show the BitDust GUI.
     {'status': 'OK',   'result': '"show" event has been sent to the main process'}
 
 
-## config\_get(key, default=None)
+## config\_get(key)
 
 Returns current value for specific option from program settings.
 
@@ -105,7 +93,7 @@ Use `include_private=True` to get Private Key as openssh formated string.
      'result': [{
         'alias': 'cool',
         'creator': 'http://p2p-id.ru/testveselin.xml',
-        'id': 'cool$testveselin@p2p-id.ru',
+        'key_id': 'cool$testveselin@p2p-id.ru',
         'fingerprint': '50:f9:f1:6d:e3:e4:25:61:0c:81:6f:79:24:4e:78:17',
         'size': '4096',
         'ssh_type': 'ssh-rsa',
@@ -183,7 +171,7 @@ Removes Private Key from the list of known keys and erase local file.
     }
 
 
-## key\_share(full\_key\_id, idurl)
+## key\_share(key\_id, trusted\_global\_id\_or\_idurl, timeout=10)
 
 Connect to remote node identified by `idurl` parameter and transfer private key `key_id` to that machine.
 This way remote user will be able to access those of your files which were encrypted with that private key.
@@ -240,6 +228,42 @@ but just in case.
 
 ## files\_list(remote\_path=None)
 
+Returns list of known files registered in the catalog under given `remote_path` folder.
+By default returns items from root of the catalog.
+
+
+
+
+    { u'execution': u'0.001040',
+      u'result': [
+                   { u'childs': False,
+                     u'customer': u'veselin@veselin-p2p.ru',
+                     u'glob_id': u'master$veselin@veselin-p2p.ru:1',
+                     u'idurl': u'http://veselin-p2p.ru/veselin.xml',
+                     u'key_id': u'master$veselin@veselin-p2p.ru',
+                     u'latest': u'',
+                     u'local_size': -1,
+                     u'name': u'cats.png',
+                     u'path': u'cats.png',
+                     u'path_id': u'1',
+                     u'size': 0,
+                     u'type': u'file',
+                     u'versions': []},
+                   { u'childs': False,
+                     u'customer': u'veselin@veselin-p2p.ru',
+                     u'glob_id': u'master$veselin@veselin-p2p.ru:2',
+                     u'idurl': u'http://veselin-p2p.ru/veselin.xml',
+                     u'key_id': u'master$veselin@veselin-p2p.ru',
+                     u'latest': u'',
+                     u'local_size': 345418,
+                     u'name': u'dogs.jpg',
+                     u'path': u'dogs.jpg',
+                     u'path_id': u'2',
+                     u'size': 0,
+                     u'type': u'file',
+                     u'versions': []},
+                  ],
+      u'status': u'OK'}
 
 
 ## file\_info(remote\_path, include\_uploads=True, include\_downloads=True)
@@ -315,7 +339,7 @@ Returns a list of currently running downloads.
         'bytes_processed': 0,
         'creator_id': 'http://veselin-p2p.ru/veselin.xml',
         'done': False,
-        'key_id': 'abc',
+        'key_id': 'abc$veselin@veselin-p2p.ru',
         'created': 'Wed Apr 27 15:11:13 2016',
         'eccmap': 'ecc/4x4',
         'path_id': '0/0/3/1',
@@ -325,7 +349,7 @@ Returns a list of currently running downloads.
 
 ## file\_download\_start(remote\_path, destination\_path=None, wait\_result=False)
 
-Download data from remote peers to your local machine. You can use
+Download data from remote suppliers to your local machine. You can use
 different methods to select the target data with `remote_path` input:
 
   + "remote path" of the file
@@ -702,6 +726,31 @@ You can use this method to check and be sure that remote node is alive at the mo
     {'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 
 
+## user\_ping(idurl, timeout=10)
+
+Sends Identity packet to remote peer and wait for Ack packet to check connection status.
+The "ping" command performs following actions:
+
+  1. Request remote identity source by idurl,
+  2. Sends my Identity to remote contact addresses, taken from identity,
+  3. Wait first Ack packet from remote peer,
+  4. Failed by timeout or identity fetching error.
+
+You can use this method to check and be sure that remote node is alive at the moment.
+
+
+
+
+
+    {'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
+
+
+## user\_search(nickname)
+
+Starts nickname_observer() Automat to lookup existing nickname registered
+in DHT network.
+
+
 ## set\_my\_nickname(nickname)
 
 Starts nickname_holder() machine to register and keep your nickname in DHT
@@ -747,6 +796,43 @@ this is very simillar to message queue polling interface.
     }]}
 
 
+## message\_send(recipient, message\_body)
+
+Sends a text message to remote peer, `recipient` is a string with nickname or global_id.
+
+
+
+
+
+    {'status': 'OK', 'result': ['signed.Packet[Message(146681300413)]']}
+
+
+## message\_receive(consumer\_id)
+
+This method can be used to listen and process incoming chat messages by specific consumer.
+If there are no messages received yet, this method will be waiting for any incomings.
+If some messages was already received, but not "consumed" yet method will return them imediately.
+After you got response and processed the messages you should call this method again to listen
+for more incomings again. This is simillar to message queue polling interface.
+If you do not "consume" messages, after 100 un-collected messages "consumer" will be dropped.
+Both, incoming and outgoing, messages will be populated here.
+
+
+
+
+
+    {'status': 'OK',
+     'result': [{
+        'type': 'private_message',
+        'dir': 'incoming',
+        'id': '123456788',
+        'sender': 'abc$alice@first-host.com',
+        'recipient': 'abc$bob@second-host.net',
+        'message': 'Hello World!',
+        'time': 123456789
+    }]}
+
+
 ## broadcast\_send\_message(payload)
 
 Sends broadcast message to all peers in the network.
@@ -758,6 +844,22 @@ several kilobytes per message.
 
 
 ## event\_send(event\_id, json\_data=None)
+
+
+## network\_stun(udp\_port=None, dht\_port=None)
+
+
+
+## network\_reconnect()
+
+Sends "reconnect" event to network_connector() Automat in order to refresh
+network connection.
+
+
+
+
+
+    {'status': 'OK', 'result': 'reconnected'}
 
 
 

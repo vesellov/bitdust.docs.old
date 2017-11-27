@@ -21,24 +21,6 @@ List all available settings and its current values:
 
 
 ## List of options
-### .DS_Store (undefined)
-
-.DS_Store, default value: None
-
-
-
-### api/json-rpc-server/enabled (undefined)
-
-api/json-rpc-server/enabled, default value: None
-
-
-
-### api/json-rpc-server/port (undefined)
-
-api/json-rpc-server/port, default value: None
-
-
-
 ### interface/api/json-rpc-enabled (boolean)
 
 interface/api/json-rpc-enabled, default value: true
@@ -48,6 +30,18 @@ interface/api/json-rpc-enabled, default value: true
 ### interface/api/json-rpc-port (positive integer)
 
 interface/api/json-rpc-port, default value: 8083
+
+
+
+### interface/api/rest-http-enabled (boolean)
+
+interface/api/rest-http-enabled, default value: true
+
+
+
+### interface/api/rest-http-port (positive integer)
+
+interface/api/rest-http-port, default value: 8180
 
 
 
@@ -65,7 +59,7 @@ interface/ftp/port, default value: 8021
 
 ### debug level (positive integer)
 
-logs/debug-level, default value: 0
+logs/debug-level, default value: 10
 
 Higher values will produce more log messages.
 
@@ -94,7 +88,7 @@ This feature is disabled at the moment.
 
 ### enable web logs (boolean)
 
-logs/stream-enabled, default value: false
+logs/stream-enabled, default value: true
 
 Enabled this and go to http://127.0.0.1:[logs port number] to browse the program log.
 Need to restart the program.
@@ -108,7 +102,7 @@ logs/stream-port, default value: 9999
 
 ### logs/traffic-enabled (boolean)
 
-logs/traffic-enabled, default value: false
+logs/traffic-enabled, default value: true
 
 
 
@@ -253,7 +247,7 @@ A "0" value means unlimited number of copies, be sure you have enough amount of 
 
 ### wait suppliers 24 hours (boolean)
 
-services/backups/wait-suppliers-enabled, default value: true
+services/backups/wait-suppliers-enabled, default value: false
 
 If you disabled storing of local data of your backups but one day a critical amount of your suppliers become unreliable - your data may be lost completely.
 Enable this option to wait for 24 hours after finishing any backup and perform a check all of your suppliers before removing the locally backed up data for this copy.
@@ -261,7 +255,7 @@ Enable this option to wait for 24 hours after finishing any backup and perform a
 
 ### services/broadcasting/enabled (boolean)
 
-services/broadcasting/enabled, default value: true
+services/broadcasting/enabled, default value: false
 
 
 
@@ -348,16 +342,46 @@ services/gateway/enabled, default value: true
 
 
 
+### services/identity-propagate/enabled (boolean)
+
+services/identity-propagate/enabled, default value: true
+
+
+
+### services/identity-propagate/known-servers (string)
+
+services/identity-propagate/known-servers, default value: 
+
+
+
+### services/identity-propagate/max-servers (non zero positive integer)
+
+services/identity-propagate/max-servers, default value: 5
+
+
+
+### services/identity-propagate/min-servers (non zero positive integer)
+
+services/identity-propagate/min-servers, default value: 2
+
+
+
+### services/identity-propagate/preferred-servers (string)
+
+services/identity-propagate/preferred-servers, default value: 
+
+
+
 ### ebable identity server (boolean)
 
-services/id-server/enabled, default value: false
+services/identity-server/enabled, default value: false
 
-Enable this to start "id-server" service.
+Enable this to start "identity-server" service.
 
 
 ### identity server hostname (string)
 
-services/id-server/host, default value: 
+services/identity-server/host, default value: 
 
 Set a domain name of your machine if you have it.
 Otherwise your external IP will be used as a host name.
@@ -367,22 +391,16 @@ User ID looking more pretty and safe without IP address.
 
 ### TCP port number (positive integer)
 
-services/id-server/tcp-port, default value: 6661
+services/identity-server/tcp-port, default value: 6661
 
 A TCP port number to receive user's identity files.
 
 
 ### WEB port number (positive integer)
 
-services/id-server/web-port, default value: 8084
+services/identity-server/web-port, default value: 8084
 
 If port 80 is already taken you can start identity server on a different port.
-
-
-### services/identity-propagate/enabled (boolean)
-
-services/identity-propagate/enabled, default value: true
-
 
 
 ### services/ip-port-responder/enabled (boolean)
@@ -487,7 +505,7 @@ services/p2p-hookups/enabled, default value: true
 
 ### services/private-messages/enabled (boolean)
 
-services/private-messages/enabled, default value: false
+services/private-messages/enabled, default value: true
 
 
 
@@ -517,7 +535,7 @@ services/proxy-transport/current-router, default value:
 
 ### services/proxy-transport/enabled (boolean)
 
-services/proxy-transport/enabled, default value: false
+services/proxy-transport/enabled, default value: true
 
 
 
@@ -541,7 +559,7 @@ services/proxy-transport/priority, default value: 30
 
 ### services/proxy-transport/receiving-enabled (boolean)
 
-services/proxy-transport/receiving-enabled, default value: false
+services/proxy-transport/receiving-enabled, default value: true
 
 
 
@@ -572,6 +590,12 @@ services/restores/enabled, default value: true
 ### services/supplier-contracts/enabled (boolean)
 
 services/supplier-contracts/enabled, default value: false
+
+
+
+### services/supplier-relations/enabled (boolean)
+
+services/supplier-relations/enabled, default value: true
 
 
 
