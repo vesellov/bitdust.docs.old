@@ -2,7 +2,7 @@ import os
 import sys
 import re
 md_base = '' # '../'
-gitlab_base = 'http://gitlab.bitdust.io/devel/bitdust/blob/master/'
+gitlab_base = 'https://github.com/bitdust-io/public/blob/master/'
 template = open('template.html').read()
 src = sys.argv[1]
 dest = sys.argv[2]
