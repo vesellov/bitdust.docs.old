@@ -34,48 +34,48 @@ skype: [vesellov](skype:vesellov)
 [https://www.kpn.com](https://www.kpn.com)
 
 + Developing of api.kpn.com in the context of different business projects
-• Take part in Continuous Integration / Continuous Delivery pipelines of software releases
-• Build and maintain a high-loaded online web services for complex MDM solutions
-• Supporting on-line services for accessing sensitive data for 10M+ of Dutch customers
-• Works as a part of Agile Scrum team with best practices, constantly improving working cycle
++ Take part in Continuous Integration / Continuous Delivery pipelines of software releases
++ Build and maintain a high-loaded online web services for complex MDM solutions
++ Supporting on-line services for accessing sensitive data for 10M+ of Dutch customers
++ Works as a part of Agile Scrum team with best practices, constantly improving working cycle
 
 #### Lead Developer, BitDust LLC, 2012 till now
 [https://bitdust.io](https://bitdust.io)
 
-+ Continue developing safe peer-to-peer anonymous data storage network,
-• Developing a working documentation and development plan for the project,
-• Participated in Blockchain-related conferences/meet-ups, establish business relations, study of
-contemporary problems,
-• Introduced a new solution for complex software development using visualised state machines.
++ Continue developing safe peer-to-peer anonymous data storage network
++ Developing a working documentation and development plan for the project
++ Participated in Blockchain-related conferences/meet-ups, establish business relations, study of
+contemporary problems
++ Introduced a new solution for complex software development using visualised state machines
 
 #### Full-stack Developer, CallFeed.NET, March - August 2015
 
-+ Create graphic WEB-widget increases online sales - a mobile Call Back service for web-sites,
-+ Developed a back-end server to manage users’ accounts and process traffic requests,
-+ Integrates a third-party service thru remote API calls to manage mobile calls.
++ Create graphic WEB-widget increases online sales - a mobile Call Back service for web-sites
++ Developed a back-end server to manage users’ accounts and process traffic requests
++ Integrates a third-party service thru remote API calls to manage mobile calls
 
 #### Main Developer, DataHaven.NET LTD, 2008 – 2011
 
-+ Developed distributed on-line backup software written in Python,
-+ Establish a data transfer directly between two nodes,
-+ Create a graphic application for user interaction,
-+ Set up distribution processes and data recovery on unlimited set of nodes,
-+ Successfully launched and tested the new solution for encryption and data protection.
++ Developed distributed on-line backup software written in Python
++ Establish a data transfer directly between two nodes
++ Create a graphic application for user interaction
++ Set up distribution processes and data recovery on unlimited set of nodes
++ Successfully launched and tested the new solution for encryption and data protection
 
 #### Software Engineer, «New Information Technology in Aviation», 2003 - 2007
 [http://en.nita.ru](http://en.nita.ru)
 
-+ Developed 3D visualization systems for a complex flight simulator,
-+ Participated in development of flying control training system which was successfully installed at the training center in Ankara, Turkey,
-+ Responsible for development of airport ground marking zone generator and support database,
-+ Developed a GEO-information software for map creation and management,
-+ Take part in hardware installation process in several Airports in Russia.
++ Developed 3D visualization systems for a complex flight simulator
++ Participated in development of flying control training system which was successfully installed at the training center in Ankara, Turkey
++ Responsible for development of airport ground marking zone generator and support database
++ Developed a GEO-information software for map creation and management
++ Take part in hardware installation process in several Airports in Russia
 
 #### Software Manager, Legal Center «Nevskiy», Konsultant Plus, 2000 - 2001
 
-+ Responsible for supporting and updating normative documents database on clients machines,
-+ Provide support and access to normative documents,
-+ Attracting new clients and distributing the legal software.
++ Responsible for supporting and updating normative documents database on clients machines
++ Provide support and access to normative documents
++ Attracting new clients and distributing the legal software
 
 
 
@@ -150,8 +150,8 @@ I am a citizen of the EU with Bulgarian passport and ready for work travels if r
 
 ### ABOUT ME
 
-+ Driver's license.
-+ Very responsible, honest, and friendly.
-+ The father of two children and happy husband.
-+ Hobbies: BitDust, a healthy lifestyle, soccer, music, nice talking, living on the Earth.
++ Driver's license
++ Very responsible, honest, and friendly
++ The father of two children and happy husband
++ Hobbies: BitDust, a healthy lifestyle, soccer, music, nice talking, living on the Earth
 
