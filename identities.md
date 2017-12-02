@@ -36,7 +36,7 @@ ID-server functional is the part of BitDust program, but by default is turned of
 
 If you feel enthusiastic now, read more about how to run your own identity server in BitDust network in 5 minutes on [Start new Identity Server](identity_server.md) page.
 
-Once you succeeded - contact us and we will include your machine address in official BitDust "seed nodes" list, published on [Git Hub](https://github.com/vesellov/bitdust.public/blob/master/userid/known_servers.py) and [gitlab.bitdust.io](https://gitlab.bitdust.io/devel/bitdust/blob/master/userid/known_servers.py).
+Once you succeeded - contact us and we will include your machine address in official BitDust "seed nodes" list, published on [Git Hub](https://github.com/bitdust-io/public/blob/master/userid/known_servers.py) and [dev.bitdust.io](https://dev.bitdust.io/code/public/blob/master/userid/known_servers.py).
 
 
 ## IDURL address
