@@ -14,18 +14,27 @@ We decided to publish those earlier works to verify/test/share our ideas and exp
 
 
 
-## Get the software
+## Install software dependencies
 
 Seems like in Ubuntu (probably most other distros) you can install all dependencies in that way:
 
-        sudo apt-get install git python-dev python-setuptools python-pip python-virtualenv
-        
-        sudo apt-get install python-twisted python-django python-crypto python-pyasn1 python-psutil libffi-dev
+        sudo apt-get install git python-dev python-virtualenv
 
 
 Optionally, you can also install [miniupnpc](http://miniupnp.tuxfamily.org/) tool if you want BitDust automatically deal with UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:
 
         sudo apt-get install miniupnpc
+
+
+On MacOSX platform you can install requirements in that way:
+
+        brew install git python2
+
+And use pip to get all required packages:
+
+        pip install --upgrade --user
+        pip install --upgrade pip --user
+        pip install virtualenv --user
 
 
 Second step is to get the BitDust sources:
@@ -42,7 +51,7 @@ Single command should make it for you, all required files will be generated in `
 
 Last step to make BitDust software ready is to make a short alias in your OS, then you can just type `bitdust` in command line to fast access the program:
         
-        sudo ln -s /home/<user>/.bitdust/bitdust /usr/local/bin/bitdust
+        sudo ln -s -f /home/<user>/.bitdust/bitdust /usr/local/bin/bitdust
         
 
 
