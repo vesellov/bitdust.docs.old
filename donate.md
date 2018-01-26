@@ -14,7 +14,8 @@ wallet:
 account: 
     
     41001886462038
-    
+
+
     
 ## PayPal
 
@@ -24,20 +25,12 @@ account:
     
 
 
-
 ## Sberbank On-Line
 
 account:
     
     4276 8550 1191 2975 
 
-
-    
-## QiWi
-
-phone number:
-
-    +79118108450 
 
     
 ## Personally
@@ -54,6 +47,9 @@ for agreeing on other methods of supporting BitDust project.
 + Karasev Petr
 + Kashin Albert
 + Daniel Petrarca
++ Niek Dikhuis
++ Oleg Mackarov
++ Jordi
     
     
     

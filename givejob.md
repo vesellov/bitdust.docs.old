@@ -94,7 +94,7 @@ Qt 3/4, Bash, MS Shell, Cygwin/MinGW (3+ years), PHPStorm, Notapad++, Sublime.
 
 __Git__, GitLab, GitHub, SVN, Jira, TeamLab, Toggl, Trello, Slack, Bitbucket, Jenkins, DevOps.
 
-#### _3D development_:
+#### 3D development:
 
 __OpenGL__, NVIDIA-Shaders, CgToolkit, OpenSceneGraph.
 

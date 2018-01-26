@@ -34,7 +34,7 @@ BitDust is attempt to rectify the current situation in the world - this is what 
 ## +
 
 BitDust network is a voluntary association of people sharing resources of their personal computers.
-
+( in order to build independent, private, autonomous and safe on-line services available for everyone.)
 
 ## +
 
