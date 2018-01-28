@@ -12,14 +12,6 @@ After party was really nice, a lot of cool cypher punks!
 
 
 
-## A New Topic is Open on the Website
-
-09:14 14 February 2015
-
-We have a new [Current status](status) page on the website – a brief summary on state of things of the project.
-
-
-
 ## project Website is Now Open 
 
 23:29 5 February 2015
