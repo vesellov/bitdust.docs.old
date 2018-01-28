@@ -1,6 +1,13 @@
 # Install BitDust software
 
 
+* [Intro](#intro)
+* [Install software dependencies](#install-software-dependencies)
+* [Get BitDust to your local machine](#get-bitdust-to-your-local-machine)
+* [Building virtual environment](#building-virtual-environment)
+* [Run BitDust](#run-bitdust)
+* [Binary Dependencies](#binary-dependencies)
+
 
 ## Intro
 
@@ -37,12 +44,26 @@ And use pip to get all required packages:
         pip install virtualenv --user
 
 
-Second step is to get the BitDust sources:
+
+## Get BitDust to your local machine
+
+Second step is to get the BitDust sources. To have a full control over BitDust process running on your local machine you better make a fork of the Public BitDist repository on GitHub at https://github.com/bitdust-io/public and clone it on your local machine:
+
+        git clone https://github.com/<your GitHub username>/<name of BitDust fork>.git bitdust
+
+
+The software will periodically run `git fetch` and `git rebase` to check for recent commits in the repo. This way we make sure that everyone is running the latest version of the program. Once you made a fork, you will have to update your Fork manually and pull commits from Public BitDust repository if you trust them.
+
+However if you just trust BitDust contributors you can simply clone the Public repository directly and software will be up to date with the "official" public code base:
 
         git clone https://github.com/bitdust-io/public.git bitdust
 
 
+
+## Building virtual environment
+
 Then you need to build virtual environment with all required Python dependencies, BitDust software will run fully isolated.
+
 Single command should make it for you, all required files will be generated in `~/.bitdust/venv/` sub-folder:
 
         cd bitdust
@@ -87,6 +108,8 @@ Start as background process:
 To get some more insights or just to know how to start playing with software
 you can visit [BitDust Commands](https://bitdust.io/commands.html) page. 
 
+To get more info about API methods available go to [BitDust API](https://bitdust.io/api.html) page.
+
 
 
 ## Binary Dependencies
@@ -100,8 +123,8 @@ If you are installing BitDust on Windows platforms, you may require some binary 
 * pyasn1: [pyasn1.sourceforge.net](http://pyasn1.sourceforge.net)
 * pyOpenSSL: [launchpad.net/pyopenssl](https://launchpad.net/pyopenssl)
 * pycrypto: [dlitz.net/software/pycrypto](https://www.dlitz.net/software/pycrypto/)
-* wxgtk2.8: [wxpython.org](http://wiki.wxpython.org/InstallingOnUbuntuOrDebian)
 * miniupnpc: [miniupnp.tuxfamily.org](http://miniupnp.tuxfamily.org/)
+
 
 
 <div class=fbcomments markdown="1">
