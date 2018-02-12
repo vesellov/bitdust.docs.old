@@ -80,6 +80,16 @@ Provide detailed info about all options and values from settings.
     }]}
 
 
+## identity\_get(include\_xml\_source=False)
+
+
+
+## identity\_create(username)
+
+
+## identity\_recover(private\_key\_source, known\_idurl=None)
+
+
 ## key\_get(key\_id, include\_private=False)
 
 Returns details of known private key.
@@ -661,6 +671,18 @@ Dependent services will be stopped as well.
     {'status': 'OK', 'result': 'service_tcp_connections was switched off'}
 
 
+## service\_restart(service\_name)
+
+Stop given service and start it again, but only if it is already enabled.
+Do not change corresponding `.bitdust/config/services/[service name]/enabled` option.
+Dependent services will be "restarted" as well.
+
+
+
+
+    {'status': 'OK', 'result': 'service_tcp_connections was restarted'}
+
+
 ## packets\_stats()
 
 Returns detailed info about current network usage.
@@ -844,6 +866,9 @@ several kilobytes per message.
 
 
 ## event\_send(event\_id, json\_data=None)
+
+
+## events\_listen(consumer\_id)
 
 
 ## network\_stun(udp\_port=None, dht\_port=None)
