@@ -10,9 +10,10 @@ Uploaded input data is divided into blocks and fragments, [encrypted](security) 
 
 The BitDust program constantly keeps a state, which enables you to download your data back to your machine at any moment. The mechanism of [automatic data restoring](rebuilding) allows dynamic reassembling of the data fragments uploaded into the network on the new nodes without any action from the user. 
 
-BitDust program is written in [Python](http://python.org) using [Twisted](http://twistedmatrix.com/) Framework and is distributed in open source code - we are still deciding about the license type. 
+BitDust program is written in [Python](http://python.org) using [Twisted](http://twistedmatrix.com/) Framework and is distributed in open source code under AGPLv3. 
 
-The project is in the stage of deep development, but the [demo version](screenshots) will be available in the near future. 
+Current project stage is about to only research opportunities of building a holistic eco-system that protects your privacy in the network by establishing p2p communications of users and maximize distribution of information flows in the network.
 
-We invite all who are interested in this direction - primarily developers and enthusiasts. Join our team, or just [support us](donate). Together we will better realize our plans and create a fairer alternative to the existing global networks. 
+At the moment exists a very limited alpha version of the BitDust software. We decided to publish those earlier works to verify/test/share our ideas and experiments with other people.
 
+We invite all who are interested in this direction - primarily developers and enthusiasts. [Join our team](https://github.com/bitdust-io), [support / donate](donate), organize/invite for meetups or conferences.

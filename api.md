@@ -80,6 +80,16 @@ Provide detailed info about all options and values from settings.
     }]}
 
 
+## identity\_get(include\_xml\_source=False)
+
+
+
+## identity\_create(username)
+
+
+## identity\_recover(private\_key\_source, known\_idurl=None)
+
+
 ## key\_get(key\_id, include\_private=False)
 
 Returns details of known private key.
@@ -171,13 +181,25 @@ Removes Private Key from the list of known keys and erase local file.
     }
 
 
-## key\_share(key\_id, trusted\_global\_id\_or\_idurl, timeout=10)
+## key\_share(key\_id, trusted\_global\_id\_or\_idurl, include\_private=False, timeout=10)
 
-Connect to remote node identified by `idurl` parameter and transfer private key `key_id` to that machine.
+Connects to remote node and transfer private key to that machine.
 This way remote user will be able to access those of your files which were encrypted with that private key.
+You can also share a public key, this way your supplier will know which data packets can be accessed by
+another customer.
 
 Returns:
 
+
+
+## key\_audit(key\_id, untrusted\_global\_id\_or\_idurl, is\_private=False, timeout=10)
+
+Connects to remote node identified by `idurl` parameter and request audit
+of a public or private key `key_id` on that machine.
+Returns True in the callback if audit process succeed - that means remote user
+posses that public or private key.
+
+Returns:
 
 
 ## filemanager(json\_request)
@@ -226,10 +248,11 @@ but just in case.
     {'status': 'OK', 'result': 'the main files sync loop has been restarted'}
 
 
-## files\_list(remote\_path=None)
+## files\_list(remote\_path=None, key\_id=None, recursive=True)
 
 Returns list of known files registered in the catalog under given `remote_path` folder.
 By default returns items from root of the catalog.
+If `key_id` is passed will only return items encrypted using that key.
 
 
 
@@ -238,6 +261,7 @@ By default returns items from root of the catalog.
       u'result': [
                    { u'childs': False,
                      u'customer': u'veselin@veselin-p2p.ru',
+                     u'remote_path': u'master$veselin@veselin-p2p.ru:cats.png',
                      u'glob_id': u'master$veselin@veselin-p2p.ru:1',
                      u'idurl': u'http://veselin-p2p.ru/veselin.xml',
                      u'key_id': u'master$veselin@veselin-p2p.ru',
@@ -251,6 +275,7 @@ By default returns items from root of the catalog.
                      u'versions': []},
                    { u'childs': False,
                      u'customer': u'veselin@veselin-p2p.ru',
+                     u'remote_path': u'master$veselin@veselin-p2p.ru:dogs.jpg',
                      u'glob_id': u'master$veselin@veselin-p2p.ru:2',
                      u'idurl': u'http://veselin-p2p.ru/veselin.xml',
                      u'key_id': u'master$veselin@veselin-p2p.ru',
@@ -379,7 +404,11 @@ Abort currently running restore process.
     {'status': 'OK', 'result': 'restoring of "alice@p2p-host.com:0/1/2" aborted'}
 
 
-## suppliers\_list()
+## file\_explore(local\_path)
+
+
+
+## suppliers\_list(customer\_idurl=None)
 
 This method returns a list of suppliers - nodes which stores your encrypted data on own machines.
 
@@ -391,15 +420,15 @@ This method returns a list of suppliers - nodes which stores your encrypted data
      'result':[{
         'connected': '05-06-2016 13:06:05',
         'idurl': 'http://p2p-id.ru/bitdust_j_vps1014.xml',
-        'numfiles': 14,
+        'files_count': 14,
         'position': 0,
-        'status': 'offline'
+        'contact_status': 'offline'
      }, {
         'connected': '05-06-2016 13:04:57',
         'idurl': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
-        'numfiles': 14,
+        'files_count': 14,
         'position': 1,
-        'status': 'offline'
+        'contact_status': 'offline'
     }]}
 
 
@@ -417,7 +446,7 @@ getting a reconstructed fragments.
     {'status': 'OK', 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by new peer'}
 
 
-## supplier\_change(index\_or\_idurl, new\_idurl)
+## supplier\_change(index\_or\_idurl, new\_supplier\_idurl)
 
 Doing same as supplier_replace() but new node must be provided by you - you can manually assign a supplier.
 
@@ -558,6 +587,26 @@ Returns detailed statistics about current usage of your local disk.
     }]}
 
 
+## share\_create(key\_alias, folder\_name=None)
+
+
+
+## share\_grant(remote\_user, key\_id)
+
+
+
+## share\_open(key\_id)
+
+
+
+## share\_close(key\_id)
+
+
+
+## share\_history()
+
+
+
 ## automats\_list()
 
 Returns a list of all currently running state machines.
@@ -661,6 +710,18 @@ Dependent services will be stopped as well.
     {'status': 'OK', 'result': 'service_tcp_connections was switched off'}
 
 
+## service\_restart(service\_name, wait\_timeout=10)
+
+Stop given service and start it again, but only if it is already enabled.
+Do not change corresponding `.bitdust/config/services/[service name]/enabled` option.
+Dependent services will be "restarted" as well.
+
+
+
+
+    {'status': 'OK', 'result': 'service_tcp_connections was restarted'}
+
+
 ## packets\_stats()
 
 Returns detailed info about current network usage.
@@ -694,6 +755,10 @@ Returns detailed info about current network usage.
 Return list of incoming and outgoing packets.
 
 
+## transfers\_list()
+
+
+
 ## connections\_list(wanted\_protos=None)
 
 Returns list of opened/active network connections. Argument `wanted_protos`
@@ -705,6 +770,10 @@ can be used to select which protocols to list:
 ## streams\_list(wanted\_protos=None)
 
 Return list of active sending/receiveing files.
+
+
+## queue\_list()
+
 
 
 ## ping(idurl, timeout=10)
@@ -846,6 +915,9 @@ several kilobytes per message.
 ## event\_send(event\_id, json\_data=None)
 
 
+## events\_listen(consumer\_id)
+
+
 ## network\_stun(udp\_port=None, dht\_port=None)
 
 
@@ -860,6 +932,17 @@ network connection.
 
 
     {'status': 'OK', 'result': 'reconnected'}
+
+
+## network\_connected(wait\_timeout=5)
+
+Be sure BitDust software is connected to other nodes in the network.
+If all is good this method will block for `wait_timeout` seconds.
+In case of some network issues method will return result asap.
+
+
+## network\_status()
+
 
 
 
