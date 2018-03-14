@@ -50,10 +50,11 @@ for agreeing on other methods of supporting BitDust project.
 + Niek Dikhuis
 + Oleg Mackarov
 + Jordi
-    
-    
-    
-    
++ Renato Cardoso
++ Anton Grishun
++ Desmond Dekker
++ Corne van Schaik
+
 
 <div class=fbcomments markdown="1">
 </div>

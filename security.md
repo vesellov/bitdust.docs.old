@@ -15,9 +15,9 @@
 ## Brief Summary 
 
 * Data encryption algorithm: `DES3`
-* Session key size: `24` байта
+* Session key size: `24` bytes
 * Key session encryption algorithm: `RSA`
-* Possible RSA key sizes: `1024`, `2048` и `4096` бит
+* Possible RSA key sizes: `1024`, `2048` and `4096` bit
 * Hash-function for digital signature: `SHA1`
 
 
