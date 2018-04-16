@@ -262,7 +262,7 @@ If `key_id` is passed will only return items encrypted using that key.
                    { u'childs': False,
                      u'customer': u'veselin@veselin-p2p.ru',
                      u'remote_path': u'master$veselin@veselin-p2p.ru:cats.png',
-                     u'glob_id': u'master$veselin@veselin-p2p.ru:1',
+                     u'global_id': u'master$veselin@veselin-p2p.ru:1',
                      u'idurl': u'http://veselin-p2p.ru/veselin.xml',
                      u'key_id': u'master$veselin@veselin-p2p.ru',
                      u'latest': u'',
@@ -276,7 +276,7 @@ If `key_id` is passed will only return items encrypted using that key.
                    { u'childs': False,
                      u'customer': u'veselin@veselin-p2p.ru',
                      u'remote_path': u'master$veselin@veselin-p2p.ru:dogs.jpg',
-                     u'glob_id': u'master$veselin@veselin-p2p.ru:2',
+                     u'global_id': u'master$veselin@veselin-p2p.ru:2',
                      u'idurl': u'http://veselin-p2p.ru/veselin.xml',
                      u'key_id': u'master$veselin@veselin-p2p.ru',
                      u'latest': u'',
@@ -408,7 +408,50 @@ Abort currently running restore process.
 
 
 
-## suppliers\_list(customer\_idurl=None)
+## share\_create(key\_alias, remote\_path=None)
+
+
+
+## share\_grant(trusted\_remote\_user, key\_id)
+
+
+
+## share\_open(key\_id)
+
+
+
+## share\_close(key\_id)
+
+
+
+## share\_refresh(key\_id)
+
+
+
+## share\_list()
+
+
+
+## share\_history()
+
+
+
+## friend\_list()
+
+Returns list of correspondents ids
+
+
+## friend\_add(idurl\_or\_global\_id, alias='')
+
+Add user to the list of friends
+
+
+## friend\_remove(idurl\_or\_global\_id)
+
+Remove user from the list of friends
+
+
+## suppliers\_list(customer\_idurl\_or\_global\_id=None)
 
 This method returns a list of suppliers - nodes which stores your encrypted data on own machines.
 
@@ -432,7 +475,7 @@ This method returns a list of suppliers - nodes which stores your encrypted data
     }]}
 
 
-## supplier\_replace(index\_or\_idurl)
+## supplier\_replace(index\_or\_idurl\_or\_global\_id)
 
 Execute a fire/hire process for given supplier, another random node will
 replace this supplier. As soon as new supplier is found and connected,
@@ -446,7 +489,7 @@ getting a reconstructed fragments.
     {'status': 'OK', 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by new peer'}
 
 
-## supplier\_change(index\_or\_idurl, new\_supplier\_idurl)
+## supplier\_change(index\_or\_idurl\_or\_global\_id, new\_supplier\_idurl\_or\_global\_id)
 
 Doing same as supplier_replace() but new node must be provided by you - you can manually assign a supplier.
 
@@ -483,7 +526,7 @@ List of customers - nodes who stores own data on your machine.
     }]}
 
 
-## customer\_reject(idurl)
+## customer\_reject(idurl\_or\_global\_id)
 
 Stop supporting given customer, remove all his files from local disc, close
 connections with that node.
@@ -585,26 +628,6 @@ Returns detailed statistics about current usage of your local disk.
         'total_percent': '0%',
         'total_str': '43.14 MB'
     }]}
-
-
-## share\_create(key\_alias, folder\_name=None)
-
-
-
-## share\_grant(remote\_user, key\_id)
-
-
-
-## share\_open(key\_id)
-
-
-
-## share\_close(key\_id)
-
-
-
-## share\_history()
-
 
 
 ## automats\_list()
@@ -776,7 +799,7 @@ Return list of active sending/receiveing files.
 
 
 
-## ping(idurl, timeout=10)
+## user\_ping(idurl\_or\_global\_id, timeout=10)
 
 Sends Identity packet to remote peer and wait for Ack packet to check connection status.
 The "ping" command performs following actions:
@@ -795,77 +818,33 @@ You can use this method to check and be sure that remote node is alive at the mo
     {'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 
 
-## user\_ping(idurl, timeout=10)
-
-Sends Identity packet to remote peer and wait for Ack packet to check connection status.
-The "ping" command performs following actions:
-
-  1. Request remote identity source by idurl,
-  2. Sends my Identity to remote contact addresses, taken from identity,
-  3. Wait first Ack packet from remote peer,
-  4. Failed by timeout or identity fetching error.
-
-You can use this method to check and be sure that remote node is alive at the moment.
+## user\_status(idurl\_or\_global\_id)
 
 
 
-
-
-    {'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
-
-
-## user\_search(nickname)
+## user\_search(nickname, attempts=1)
 
 Starts nickname_observer() Automat to lookup existing nickname registered
 in DHT network.
 
 
-## set\_my\_nickname(nickname)
+## user\_observe(nickname, attempts=3)
+
+Starts nickname_observer() Automat to lookup existing nickname registered
+in DHT network.
+
+
+## nickname\_get()
+
+
+
+## nickname\_set(nickname)
 
 Starts nickname_holder() machine to register and keep your nickname in DHT
 network.
 
 
-## find\_peer\_by\_nickname(nickname)
-
-Starts nickname_observer() Automat to lookup existing nickname registered
-in DHT network.
-
-
-## send\_message(recipient, message\_body)
-
-Sends a text message to remote peer, `recipient` is a string with nickname or global_id.
-
-
-
-
-
-    {'status': 'OK', 'result': ['signed.Packet[Message(146681300413)]']}
-
-
-## receive\_one\_message()
-
-This method can be used to listen and process incoming chat messages.
-
-  + creates a callback to receive all incoming messages,
-  + wait until one incoming message get received,
-  + remove the callback after receiving the message.
-
-After you received the message you can call this method again,
-this is very simillar to message queue polling interface.
-
-
-
-
-
-    {'status': 'OK',
-     'result': [{
-        'from': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
-        'message': 'Hello my dear Friend!'
-    }]}
-
-
-## message\_send(recipient, message\_body)
+## message\_send(recipient, json\_data, timeout=5)
 
 Sends a text message to remote peer, `recipient` is a string with nickname or global_id.
 
@@ -900,6 +879,9 @@ Both, incoming and outgoing, messages will be populated here.
         'message': 'Hello World!',
         'time': 123456789
     }]}
+
+
+## messages\_get\_all(index\_name, limit, offset, with\_doc, with\_storage)
 
 
 ## broadcast\_send\_message(payload)
@@ -939,10 +921,6 @@ network connection.
 Be sure BitDust software is connected to other nodes in the network.
 If all is good this method will block for `wait_timeout` seconds.
 In case of some network issues method will return result asap.
-
-
-## network\_status()
-
 
 
 
