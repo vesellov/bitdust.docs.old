@@ -124,7 +124,7 @@ Use `include_private=True` to get Private Keys as openssh formated strings.
     {'status': 'OK',
      'result': [{
          'alias': 'master',
-         'id': 'master$veselin@p2p-id.ru',
+         'key_id': 'master$veselin@p2p-id.ru',
          'creator': 'http://p2p-id.ru/veselin.xml',
          'fingerprint': '60:ce:ea:98:bf:3d:aa:ba:29:1e:b9:0c:3e:5c:3e:32',
          'size': '2048',
@@ -134,7 +134,7 @@ Use `include_private=True` to get Private Keys as openssh formated strings.
          'private': '-----BEGIN RSA PRIVATE KEY-----\nMIIJKAIBAAKCAgEAj8uw...'
      }, {
          'alias': 'another_key01',
-         'id': 'another_key01$veselin@p2p-id.ru',
+         'key_id': 'another_key01$veselin@p2p-id.ru',
          'creator': 'http://p2p-id.ru/veselin.xml',
          'fingerprint': '43:c8:3b:b6:da:3e:8a:3c:48:6f:92:bb:74:b4:05:6b',
          'size': '4096',
@@ -451,7 +451,7 @@ Add user to the list of friends
 Remove user from the list of friends
 
 
-## suppliers\_list(customer\_idurl\_or\_global\_id=None)
+## suppliers\_list(customer\_idurl\_or\_global\_id=None, verbose=False)
 
 This method returns a list of suppliers - nodes which stores your encrypted data on own machines.
 
@@ -511,7 +511,13 @@ Sends short requests to all suppliers to get their current statuses.
     {'status': 'OK',  'result': 'requests to all suppliers was sent'}
 
 
-## customers\_list()
+## suppliers\_dht\_lookup(customer\_idurl\_or\_global\_id)
+
+Scans DHT network for key-value pairs related to given customer and
+returns a list of his "possible" suppliers.
+
+
+## customers\_list(verbose=False)
 
 List of customers - nodes who stores own data on your machine.
 
