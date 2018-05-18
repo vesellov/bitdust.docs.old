@@ -205,7 +205,7 @@ Enable service "backup-db".
 
 ### preferred block size (disk space)
 
-services/backups/block-size, default value: 16 MB
+services/backups/block-size, default value: 2 MB
 
 Preferred block size in bytes which used to split the raw data during backup.
 
@@ -229,7 +229,7 @@ Every one Mb of source data uploaded will consume two Mb on your local HDD.
 
 ### maximum block size (disk space)
 
-services/backups/max-block-size, default value: 128 MB
+services/backups/max-block-size, default value: 4 MB
 
 Maximum block size in bytes which used to split the raw data during backup.
 The actual block size is calculated depending on size of the particular backup to optimize performance and data storage.
@@ -251,6 +251,60 @@ services/backups/wait-suppliers-enabled, default value: false
 
 If you disabled storing of local data of your backups but one day a critical amount of your suppliers become unreliable - your data may be lost completely.
 Enable this option to wait for 24 hours after finishing any backup and perform a check all of your suppliers before removing the locally backed up data for this copy.
+
+
+### services/blockchain/enabled (boolean)
+
+services/blockchain/enabled, default value: false
+
+
+
+### services/blockchain/explorer/enabled (boolean)
+
+services/blockchain/explorer/enabled, default value: true
+
+
+
+### services/blockchain/explorer/port (non zero positive integer)
+
+services/blockchain/explorer/port, default value: 9180
+
+
+
+### services/blockchain/host (string)
+
+services/blockchain/host, default value: 127.0.0.1
+
+
+
+### services/blockchain/miner/enabled (boolean)
+
+services/blockchain/miner/enabled, default value: false
+
+
+
+### services/blockchain/port (non zero positive integer)
+
+services/blockchain/port, default value: 9100
+
+
+
+### services/blockchain/seeds (undefined)
+
+services/blockchain/seeds, default value: 
+
+
+
+### services/blockchain/wallet/enabled (boolean)
+
+services/blockchain/wallet/enabled, default value: true
+
+
+
+### services/blockchain/wallet/port (non zero positive integer)
+
+services/blockchain/wallet/port, default value: 9280
+
 
 
 ### services/broadcasting/enabled (boolean)
@@ -336,9 +390,59 @@ services/entangled-dht/enabled, default value: true
 
 
 
+### services/entangled-dht/known-nodes (string)
+
+services/entangled-dht/known-nodes, default value: 
+
+
+
+### udp port number for distributed hash table (positive integer)
+
+services/entangled-dht/udp-port, default value: 14441
+
+This is a UDP port number for Distributed Hash Table communications.
+BitDust uses <a href="http://entangled.sourceforge.net/">Entangled Project</a> to implement DHT functionality.
+
+
 ### services/gateway/enabled (boolean)
 
 services/gateway/enabled, default value: true
+
+
+
+### services/http-connections/enabled (boolean)
+
+services/http-connections/enabled, default value: false
+
+
+
+### services/http-connections/http-port (positive integer)
+
+services/http-connections/http-port, default value: 9993
+
+
+
+### services/http-transport/enabled (boolean)
+
+services/http-transport/enabled, default value: false
+
+
+
+### services/http-transport/priority (positive integer)
+
+services/http-transport/priority, default value: 50
+
+
+
+### services/http-transport/receiving-enabled (boolean)
+
+services/http-transport/receiving-enabled, default value: true
+
+
+
+### services/http-transport/sending-enabled (boolean)
+
+services/http-transport/sending-enabled, default value: true
 
 
 
@@ -503,6 +607,12 @@ services/p2p-hookups/enabled, default value: true
 
 
 
+### services/p2p-notifications/enabled (boolean)
+
+services/p2p-notifications/enabled, default value: true
+
+
+
 ### services/private-messages/enabled (boolean)
 
 services/private-messages/enabled, default value: true
@@ -553,7 +663,7 @@ services/proxy-transport/preferred-routers, default value:
 
 ### services/proxy-transport/priority (positive integer)
 
-services/proxy-transport/priority, default value: 30
+services/proxy-transport/priority, default value: 100
 
 
 
@@ -584,6 +694,12 @@ services/rebuilding/enabled, default value: true
 ### services/restores/enabled (boolean)
 
 services/restores/enabled, default value: true
+
+
+
+### services/shared-data/enabled (boolean)
+
+services/shared-data/enabled, default value: true
 
 
 

@@ -1,29 +1,38 @@
-# Big respsect to
+# BitDust supporters and contributors
 
 
-## Vincent Cate
-
-Vincent was a creator of DataHaven.NET project, he invented most core methods used to process the customer. Later my work on DataHaven.NET was continued as part of BitDust project, so Vincent took major role in the second project as well.
+### Veselin Penev
 
 
-## Kozlov Nikolay
+### Vincent Cate
 
 
-## Karasev Petr
+### Kozlov Nikolay
 
 
-## Kashin Albert
+### Karasev Petr
 
 
-## Oleg Makarov
+### Kashin Albert
 
 
-## Jordi
+### Oleg Makarov
 
 
-## Donations
+### Jordi Heesakkers
 
-Greath thanks to those persons for financial support:
 
-    + Daniel Petrarca
-    
+### Daniel Petrarca
+
+
+### Niek Dijkhuis
+
+
+### Desmond Dekker
+
+
+### Renato Cardoso
+
+
+### Anton Grishun
+
