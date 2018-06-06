@@ -2,40 +2,40 @@
 
 
 ## BitDust
-global network for distributed data storage, sharing, publishing, etc.  
+global computer network for distributed data storage, sharing, publishing, digital communications, etc.
 
 
 ## BitDust Program
-software delivered and distributed by [BitDust Team](https://bitdust.io/#slide-7)
+open-source software delivered and distributed by [BitDust contributors](https://bitdust.io/#slide-7)
 under [GNU Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
 
 ## Node
-computer connected to the Internet, which has [BitDust Software](#bitdust-program) installed  
+computer connected to the Internet, which has [BitDust Software](#bitdust-program) installed and running
 
 
 ## BitDust Network
-voluntary association of people using their personal computers as independent interacting with each other [BitDust Nodes](#node)
+voluntary association of people using their personal computers as independently interacting with each other [BitDust Nodes](#node)
 
 
 ## Data
-any information which can be stored on HDD as a single file or folder
+any information which can be stored on computer disk drive as a single file or folder
 
 
 ## Backup Copy
-exact copy of [data](#data) belonging to specified user, which was created at some point of time
+exact copy of [data](#data) encrypted by some [node](#node), which was created at some point of time
 
 
 ## Folder Backup Copy
-[backup copy](#backup-copy) of data, which was obtained from archiving all files stored in the given folder on computer hard disk drive, including also (by user choice) all sub-folders
+[backup copy](#backup-copy) of data, which was obtained from archiving all files stored in the given folder on computer hard disk drive, possibly including also all sub-folders
 
 
 ## Distributed Copy
-a [backup copy](#backup-copy), which is stored on different [nodes](#node) in [BitDust network](#bitdust-network)
+a [backup copy](#backup-copy), which was stored on different [nodes](#node) in [BitDust network](#bitdust-network)
 
 
 ## Block
-file on a hard disk drive containing only a part of [backup copy](#backup-copy) and having an order number, assigned at the moment of block creation
+file on a hard disk drive containing only a part of [backup copy](#backup-copy) and having an order number, assigned at the moment of creation
 
 
 ## Fragment
@@ -58,8 +58,8 @@ a [packet](#packet), containing [encrypted](#encryption) [fragment](#fragment) o
 
 
 ## BitDust Data Storage
-a method of information processing which implies source data [encryption](#encryption),
-[archivation](#archivation) and location on different [nodes](#node),
+a method of [data](#data) processing which implies source data [encryption](#encryption),
+[archivation](#archivation) and relocation on different [nodes](#node),
 divided into [blocks](#block) and [fragments](#fragment)
 
 

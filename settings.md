@@ -789,7 +789,7 @@ Set a UDP port for sending and receiving UDP datagrams.
 
 ### enable udp-transport service (boolean)
 
-services/udp-transport/enabled, default value: true
+services/udp-transport/enabled, default value: false
 
 Enable "UDP-transport" service.
 

@@ -54,7 +54,7 @@ copy private key into file
 
 ### key print
 print private key to console
-WARNING!!! do not publish your key  
+WARNING!!! never publish your key
 
 
 ### get [option]

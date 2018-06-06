@@ -10,16 +10,16 @@
 
 ## Description
 
-Automat `network_connector ()` is needed to monitor the status of the connection to the Internet and start the redirection procedures on the network in various parts of the software when the network connection is subsequently restored.
+Automat `network_connector()` is needed to monitor the status of the connection to the Internet and start the redirection procedures on the network in various parts of the software when the network connection is subsequently restored.
 
 In the __CONNECTED__ state, it will periodically check for the next traffic and determine the current state of the connection.
 
 The two main methods control the switch-over:
 
-* doSetUp ()
-* doSetDown ()
+* doSetUp()
+* doSetDown()
 
-If some network interfaces are active at the moment, but the software still can not connect to other nodes, Automat will try to ping the site https://bitdust.io (this part will be re-reworked soon) and decide whether there is any connection to the Internet.
+If some network interfaces are active at the moment, but the software still can not connect to other nodes, `network_connector()` will try to ping few other nodes and decide whether there is any connection to the Internet or not.
 
 
 ## Events:

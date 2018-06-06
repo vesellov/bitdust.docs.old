@@ -33,7 +33,7 @@ On each start of BitDust program the key will be loaded into the operational mem
 #### ATTENTION!
     It is highly recommended to make several backup copies of the key, record it on different media
     and hide in safe places just after secret key generation.
-    These could be USB-flash card, CD-disk, A4 list or encrypted file on another machine.
+    These could be USB-flash card, CD-disk, A4 paper sheet or encrypted file on another machine.
     Only this secret key gives an access to user data!
     By its loss all your information will be completely lost.!!!
     Never do copies of the key thru open or untrusted channels! 
@@ -128,36 +128,33 @@ When user requests his data back from supplier’s machine they are back in the 
 
 ## Data Integrity
 
-You can upload some data into BitDust network and immediately remove the source file from your computer - now only you can restore it again using your Private Key. Since that moment, exactly same file (or its copies) is no longer exists in our World!
+You can upload some data into BitDust network and immediately remove the source file from your computer - now only you can restore it again using your Private Key. Since that moment, exactly same file (or its copies) is no longer exists in our Universe!
 
-The information uploaded in the BitDust network loses its integrity, as each supplier allocates at his machines only encrypted blocks. Nodes storing user data cannot be identified and read in any way. 
+The information uploaded to the BitDust network loses its integrity, as each supplier allocates at his machines only encrypted blocks. Nodes storing your data can be identified, but they are located in different part of the World and read your data is possible only by using private kry. 
 
 One may talk of uploaded in the network data going through the process of "data disintegration" – become absolutely useless for everyone except for the data owner himself. Only he having the private key can reassemble them providing having the baseline minimum quantity of fragments in each block.
 
-The given fact allows storing data of any sensitivity level in the BitDust network, as only the owner of data has an access to them. 
-
-Upload an remove the source file from your computer.
+The given fact allows storing data of any sensitivity level in the BitDust network, as only the owner of data has an access to it. 
 
 
 # Full Control
 
 In addition to a possibility of storing your data distributed on the remote machines, BitDust project offers another, absolutely unique possibility to have a total control over your distributed space and secure the data from __theft__ or __elimination__.
 
-It is possible to organize the fully secured storage of user data so that they will be absolutely unavailable for anyone apart from the owner. He and only he will have the key to the only existing copy of these data, allocated on the multiple machines in BitDust network. These nodes store only encrypted fragments of the general data array and cannot read them or use them in any way.  
+It is possible to organize the fully secured storage of user data so that it will be absolutely unavailable for anyone apart from the owner. He and only he will have the key to the only existing copy of these data, allocated on the multiple machines in BitDust network. These nodes store only encrypted fragments of the general data array and cannot read them or use them in any way.  
 
-It is provided to delete source files from the user disk drive after data upload in the BitDust network. His private key the user keeps on USB-stick, and local copy of the private key is deleted from computer local disk. BitDust program will be started on the given computer only with the help off this USB-stick and will be reading the secret key by the start and storing it in computer random access memory, not creating a copy on the local disk drive. After launching the program the user extracts USB-stick and hides in a safe place.
+It is okay to just delete the original file from the disk drive after the data upload to the BitDust network has been finished. The private key user can store on a USB-stick, and a local copy of the private key can be deleted from local disk. BitDust program will be started on the given computer only if this USB-stick is plugged in and software will read the secret key by the start and store it in computer operation memory, without creating a copy on the local disk drive. Now, after launching the program the user extracts USB-stick and hides it in a safe place. So USB-stick acts as a normal "physical" key - just like a key for your car.
 
-Let us suppose that the user has lost physical control over his computer due to its theft, taking away or any other reason. To keep the total control over his data he needs to be sure that computer power source was turned off – in some cases it is easily done.
+Let us suppose that the user has lost physical control over his computer due to its theft, or any other reason. To keep the total control over his data user needs to be sure that computer power source was turned off – in most cases it is easily can be done with additional hardware devices/sensors installed on your laptop.
 
-By doing this you lose the copy of user secret key kept in the random access memory irrevocably. Afterwards the only private key copy is left with the user’s USB-stick and the access to his personal data is possible only to him. The user needs to download BitDust program again on another computer and restore his data, using his secret key.
+By doing this you can be sure that the copy of secret key which was left in the operation memory of your computer was erased. Afterwards the only private key copy is left with the user’s USB-stick and the access to his personal data is possible only to him. So user just need to download BitDust program again on another computer, insert USB-stick, and restore access to his data. Because data still was kept on his suppliers securely! 
 
-In addition to portative USB-stick we recommend you to print the private key on a regular A4 paper list and keep it in the safe place. In this case the user provides additional security if the USB-stick is out of order.
+In addition to portative USB-stick we recommend you to print the private key on a regular A4 paper list and keep it in the safe place. In this case the user provides additional security if the USB-stick gets broken for example. We also advice you to put a password and encrypt your private key stored on USB-stick, so that even if you lost it you are still safe.
 
-The given approach is unique, after uploading personal user data in the BitDust network and deleting original data from the local hard disk drive of the computer no physical integral copy of the data exists. Data stored distributed on remote computers are just fragments of source data and are useful taken separately – they undergo a process of "disintegration". 
+This approach enables practically the same common mode of operations with data, which are usually stored at a cloud server, for example, but gives a significantly higher level of control over them. As data stored at cloud servers are under control of service suppliers, even if it was encrypted on client side. Indeed, data can be encrypted by the user before he put it on the cloud server. Still the data is stored in data centers in an integrated form and can be read (in most cases it is still not encrypted), deleted, taken away without notice. Another aspect here is that access/traffic to your customer account can be monitored by service provider in real time - they will know exactly when, who, and which file was uploaded/downloaded.
+
+The given approach is unique, after uploading personal user data in the BitDust network and deleting original data from the local hard disk drive of the computer no physical integral copy of the given piece of data exists on the Earth. Data stored distributed on remote computers are just fragments of source data and they are useless if taken separately – they undergo a process of "data disintegration". 
 Restoring the source user data is possible only with the help of the private key which is kept on user’s USB-stick or possibly on additional media. 
-
-This approach enables practically the same common mode of operations with data, which are usually stored at a cloud server, for example, but gives a significantly higher level of control over them. As data stored at cloud servers are under control of service suppliers. They can be encrypted by the user before they are put on the cloud server. Still the data are stored in data centers in an integrated form and can be read (if they are not encrypted), deleted or taken away without notice.
-
 
 
 <div class=fbcomments markdown="1">

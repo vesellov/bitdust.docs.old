@@ -1,5 +1,6 @@
 # BitDust Crypto Contracts
 
+(in progress)
 
 * [Business requirements](#business-requirements)
 * [The idea](#the-idea)

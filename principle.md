@@ -1,16 +1,16 @@
 # How does it work?
 
 
-## Fully decentralized network
+## Fully decentralized peer-to-peer network
 
-The whole BitDust network consists of equal nodes, each one of which is both a client and a server for others. 
-The user authorizes in the network by himself and safely interacts with others using his ID and a secret key. 
+The whole BitDust network consists of equal nodes, every device acts as a client and server for others at same time. 
+The user authorizes in the network by himself and safely interacts with others using his ID and a secret key.
 
 
 ## Distributed Data Storage
 
-Each BitDust network participant gets a chance to allocate his data on machines of other users, his suppliers. 
-Uploaded data are backed up and organized into RAID array for ensuring possibility of their recovery. 
+Each BitDust network participant have a chance to allocate his data on machines of other users - his suppliers. 
+Uploaded data are backed up and organized into RAID array for ensuring possibility of reliable recovery. 
 
 
 ## Automatic Data Recovery
@@ -22,20 +22,20 @@ any action from the user.
 
 ## User Information Protection
 
-All service packages have digital signature and personal user data are encrypted, using his secret key – suppliers 
-do not have access to them. Only having a private key you can restore the input data.
+All service packets are digitaly signed and personal user data is also encrypted with one of his secret keys – suppliers 
+do not have access to your data. Only with a correct private key you can restore the uploaded data.
 
 
 ## Anonymous Network Log-On
 
-For network log on you do not need to pass through any authorization, leave email or phone number, 
-there is no support team and BitDust company does not run centralized user information acquisition.
+For network log on you do not need to pass through any authorization, provide your email or phone number. 
+There is no support team or call center - BitDust company does not run centralized user information acquisition or users accounting.
 
 
 ## Uses Distributed Hash-Table
 
-Distributed hash-table is used for service information storage, interconnection of users and maintenance 
-of the network on the whole.
+Distributed hash-table is used for service information storage, connection between users and maintenance 
+of the network as a whole.
 
 
 ## Transmits Data by TCP and UDP
@@ -44,22 +44,19 @@ Nodes in the BitDust network are connected to each other directly and data are t
 the protocols TCP and UDP.
 
 
-## Users Connection beyond NAT
+## Users Connections beyond NAT
 
-There is a possibility of network connection of nodes which are beyond NAT and cannot receive direct 
-incoming connections in regular form. In this case a distributed hash-table for service information 
-storage similar to rendezvous point is used. 
+There are situations when network connection between nodes which are behind NAT cannot be established - receive direct 
+incoming connections in regular manner is not possible. In those cases a distributed hash-table for service information 
+storage is used, similar to rendezvous-point principle other nodes will help you to connect to the network. 
 
 
 ## Managed by Finite State Machines
 
-BitDust project is developed on the principles of automata-based programming and 
+BitDust project is developed based on principles of automata-based programming and 
 [open project documentation](http://is.ifmo.ru/articles_en/).
 This is a programming paradigm in which a program or its fragment is represented as a model of 
 some finite state machine.
-
-
-
 
 
 <div class=fbcomments markdown="1">

@@ -6,11 +6,11 @@
 [Distributed hash-table]( https://en.wikipedia.org/wiki/Distributed_hash_table),
 or `DHT`, provides an interface close to associative array or dictionary with key/value pair where storage of all pairs (key, value) is distributed into multiple nodes.
 
-Thanks to such DHT’s characteristics as decentralization, scalability and fault-tolerance it creates an integrated space for service information storage. This means switching to absolutely different approach to organization of network infrastructure rather than common centralized client-server solutions.
+Because of such useful DHT’s characteristics as decentralization, scalability and fault-tolerance it is possible to creates an integrated space for service information storage. This means switching to absolutely different approach to organization of network infrastructure rather than common centralized client-server solutions.
 
-Each computer running a BitDust program is a node in DHT network and stores key/value pairs created by other users.
+Each computer running a BitDust program can be a node in DHT network and stores key/value pairs created by other users.
 
-BitDust software includes functional realizing DHT network by means of [Entangled](http://entangled.sourceforge.net/) library – its source code is wholly included in the source code of BitDust and is distributed jointly.
+BitDust software runs DHT network based on implementation from [Entangled](http://entangled.sourceforge.net/) library – its source code is wholly included in the source code of BitDust and is distributed together.
 
 
 
@@ -21,7 +21,7 @@ Each user node uses different types of service data to interact with other compu
 The following table has a list of command boxes, which can be written to the hash-table by each node:
 
 * `[IDURL]` 
-    user identity file stuff
+    user identity file source
 
 * `[username]@[id-server]:address`
     external net address in [IP]:[PORT] format for receiving incoming connections
@@ -29,6 +29,9 @@ The following table has a list of command boxes, which can be written to the has
 * `[username]@[id-server]:incoming`
     list of nodes trying to connect to the user at the moment
 
+* `customer_supplier:[index]:[prefix]:[version]`
+    list of relations for given customer with other suppliers 
+        
 
 ## Support BitDust network
 

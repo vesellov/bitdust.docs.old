@@ -1,5 +1,7 @@
 # Monetization
 
+(under construction)
+
 
 ## The Idea
 

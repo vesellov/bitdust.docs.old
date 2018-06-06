@@ -9,7 +9,10 @@
 * [Binary Dependencies](#binary-dependencies)
 
 
+
 ## Intro
+
+BitDust is a distributed on-line storage and communication network where only data owner posses full access to his personal data.
 
 Current project stage is about to only research opportunities of
 building a holistic eco-system that protects your privacy in the network
@@ -23,21 +26,22 @@ We decided to publish those earlier works to verify/test/share our ideas and exp
 
 ## Install software dependencies
 
-Seems like in Ubuntu (probably most other distros) you can install all dependencies in that way:
+Under Ubuntu/Debian, and probably most other distros as well, you can install all dependencies with single command:
 
         sudo apt-get install git gcc python-dev python-virtualenv
 
 
-Optionally, you can also install [miniupnpc](http://miniupnp.tuxfamily.org/) tool if you want BitDust automatically deal with UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:
+Optionally, you can also install [miniupnpc](http://miniupnp.tuxfamily.org/) tool if you want BitDust automatically set up UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:
 
         sudo apt-get install miniupnpc
 
 
-On MacOSX platform you can install requirements in that way:
+On MacOSX platform you can install requirements with that command:
 
         brew install git python2
 
-And use pip to get all required packages:
+
+Then you need to use pip manager to get all required packages:
 
         pip install --upgrade --user
         pip install --upgrade pip --user
@@ -45,7 +49,7 @@ And use pip to get all required packages:
 
 
 
-## Get BitDust to your local machine
+## Get BitDust sources to your local machine
 
 Second step is to get the BitDust sources. To have a full control over BitDust process running on your local machine you better make a fork of the Public BitDist repository on GitHub at https://github.com/bitdust-io/public and clone it on your local machine:
 
@@ -64,16 +68,16 @@ However if you just trust BitDust contributors you can simply clone the Public r
 
 Then you need to build virtual environment with all required Python dependencies, BitDust software will run fully isolated.
 
-Single command should make it for you, all required files will be generated in `~/.bitdust/venv/` sub-folder:
+Single command should make it for you, all required files will be generated in `~/.bitdust/venv/` folder:
 
         cd bitdust
         python bitdust.py install
 
 
-Last step to make BitDust software ready is to make a short alias in your OS, then you can just type `bitdust` in command line to fast access the program:
+Last step to make BitDust software ready to be used is to make a short alias in your OS, then you can just type `bitdust` in command line to get fast access to the program:
         
         sudo ln -s -f /home/<user>/.bitdust/bitdust /usr/local/bin/bitdust
-        
+
 
 
 ## Run BitDust
@@ -88,7 +92,12 @@ I recommend you to create another copy of your Private Key in a safe place to be
         bitdust key copy <nickname>.bitdust.key
 
 
-Your settings and local files are located in that folder: ~/.bitdust
+In the future, just in case you need to restore access to your data, you will need to install BitDust on again and recover your identity:
+
+        bitdust id restore <nickname>.bitdust.key
+
+
+Your settings and local files are located in that folder: `~/.bitdust/`
 
 Type this command to read more info about BitDust commands:
 
@@ -119,7 +128,7 @@ If you are installing BitDust on Windows platforms, you may require some binary 
 * cygwin: [cygwin.com](https://cygwin.com/install.html)
 * git: [git-scm.com](https://git-scm.com/download/win)
 * python 2.7 (python3 is not supported yet): [python.org](http://python.org/download/releases)
-* twisted 11.0 or higher: [twistedmatrix.com](http://twistedmatrix.com)
+* twisted 16.0 or higher: [twistedmatrix.com](http://twistedmatrix.com)
 * pyasn1: [pyasn1.sourceforge.net](http://pyasn1.sourceforge.net)
 * pyOpenSSL: [launchpad.net/pyopenssl](https://launchpad.net/pyopenssl)
 * pycrypto: [dlitz.net/software/pycrypto](https://www.dlitz.net/software/pycrypto/)

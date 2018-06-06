@@ -90,6 +90,10 @@ Provide detailed info about all options and values from settings.
 ## identity\_recover(private\_key\_source, known\_idurl=None)
 
 
+## identity\_list()
+
+
+
 ## key\_get(key\_id, include\_private=False)
 
 Returns details of known private key.
@@ -145,7 +149,7 @@ Use `include_private=True` to get Private Keys as openssh formated strings.
     }]}
 
 
-## key\_create(key\_alias, key\_size=4096, include\_private=False)
+## key\_create(key\_alias, key\_size=2048, include\_private=False)
 
 Generate new Private Key and add it to the list of known keys with given `key_id`.
 
@@ -340,7 +344,7 @@ list of pending items to be uploaded.
     }
 
 
-## file\_upload\_start(local\_path, remote\_path, wait\_result=True)
+## file\_upload\_start(local\_path, remote\_path, wait\_result=False, open\_share=True)
 
 
 
@@ -372,7 +376,7 @@ Returns a list of currently running downloads.
     }]}
 
 
-## file\_download\_start(remote\_path, destination\_path=None, wait\_result=False)
+## file\_download\_start(remote\_path, destination\_path=None, wait\_result=False, open\_share=True)
 
 Download data from remote suppliers to your local machine. You can use
 different methods to select the target data with `remote_path` input:
@@ -408,7 +412,11 @@ Abort currently running restore process.
 
 
 
-## share\_create(key\_alias, remote\_path=None)
+## share\_list(only\_active=False, include\_mine=True, include\_granted=True)
+
+
+
+## share\_create(owner\_id=None, key\_size=2048)
 
 
 
@@ -421,14 +429,6 @@ Abort currently running restore process.
 
 
 ## share\_close(key\_id)
-
-
-
-## share\_refresh(key\_id)
-
-
-
-## share\_list()
 
 
 
@@ -465,13 +465,15 @@ This method returns a list of suppliers - nodes which stores your encrypted data
         'idurl': 'http://p2p-id.ru/bitdust_j_vps1014.xml',
         'files_count': 14,
         'position': 0,
-        'contact_status': 'offline'
+        'contact_status': 'offline',
+        'contact_state': 'OFFLINE'
      }, {
         'connected': '05-06-2016 13:04:57',
         'idurl': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
         'files_count': 14,
         'position': 1,
-        'contact_status': 'offline'
+        'contact_status': 'online'
+        'contact_state': 'CONNECTED'
     }]}
 
 
@@ -809,15 +811,11 @@ Return list of active sending/receiveing files.
 
 Sends Identity packet to remote peer and wait for Ack packet to check connection status.
 The "ping" command performs following actions:
-
   1. Request remote identity source by idurl,
   2. Sends my Identity to remote contact addresses, taken from identity,
   3. Wait first Ack packet from remote peer,
   4. Failed by timeout or identity fetching error.
-
 You can use this method to check and be sure that remote node is alive at the moment.
-
-
 
 
 
@@ -825,6 +823,10 @@ You can use this method to check and be sure that remote node is alive at the mo
 
 
 ## user\_status(idurl\_or\_global\_id)
+
+
+
+## user\_status\_check(idurl\_or\_global\_id, timeout=5)
 
 
 

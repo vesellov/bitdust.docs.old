@@ -9,3 +9,4 @@ Authorised access to data from any device and any points of the planet.
 This approach will allow organizations to completely isolate its operations and protect information from any external threats.
 
 No passwords, external servers, is completely independent and isolated solution - all employees of the company itself can set up in an hour.
+
