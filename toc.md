@@ -19,6 +19,7 @@
 + [Distributed Storage](storage.md)
 + [Data Security](security.md)
 + [Automatic Rebuilding](rebuilding.md)
++ [File Sharing](sharing.md)
 + [Distributed Hash-Table](dht.md)
 
 
