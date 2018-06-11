@@ -15,6 +15,7 @@
 
 
 ## Graphical user interface
+
 Has already begun work on creating a visual user interface for BitDust software.
 
 Interaction with the user will be implemented using a standard Internet browser,
@@ -26,7 +27,9 @@ This way we can develop a lightweight and cross-platform user interface
 and provide complete freedom for designer.
 
 
+
 ## Data share
+
 This is one of the key steps that will allow users not only to store their own data 
 in a completely secure environment, but also provide access to distributed data to other members 
 of the network.
@@ -50,7 +53,9 @@ Imagine, if you posses appropriate permissions:
 + create endless storage
 
 
+
 ## Distributed data rebuilding
+
 At this point in the BitDust software implemented a mechanism for automatic data rebuilding,
 to be able to reconstruct a missing data segments when updating a lost supplier.
 The whole process is fully automatic and does not require any actions from user in order
@@ -84,6 +89,7 @@ Later, the owner of the data can go and download them using a different identity
 he will not be recognized.
 
 
+
 ## Global search
 
 We would like to add a search engine in the BitDust software.
@@ -103,6 +109,7 @@ This is a significant advantage in comparison with classical torrent trackers.
 Their WEB sites are  under pressure from the copyright holders of content that is distributed there.
 
 
+
 ## Chat/Video/Conferencing
 
 Has already been implemented simple functionality to transfer encrypted private messages between nodes.
@@ -115,6 +122,7 @@ The history can be stored on user's suppliers so can be accessible at any time.
 
 We planned also to introduce a streaming voice and video transmission
 and implement a fully distributed and safe conferencing.
+
 
 
 ## Decentralized Mail
@@ -142,25 +150,26 @@ within the network BitDust. Probably they will be formed based on user's IDURL, 
 http://p2p-id.ru/veselin.xml will be translated to veselin@p2p-id.ru.
 
 
+
 ## Monetization through cryptocurrency
 
 To create the most equitable relations between users, we plan to introduce
-methods to encourage each other.
-Each user should have the ability to make profit
-from donating resources of its PC into the BitDust network .
+methods to encourage each other to donate resources of own PC to the network.
+Each user should have the ability to make a profit
+from donating resources of his device to other users of the software.
 
-We plan to use well-known "Cryptocurrency" to create an electronic "coins".
+We plan to use well-known "Cryptocurrencies" to create an electronic "coins".
 Such coins can be used to conduct transactions between users and "pay" for services 
-of suppliers and scrubbers.
+of suppliers, scrubbers, routers, id-servers, etc.
 Like the well-known BitCoin, it will be possible to create a free conversion of BitDust 
-coins into any material assets, including real money.
+coins into any material assets, including real money in the end.
 
-The next step could release of our own electronic "shares" of the BitDust company, 
-which will be fully protected by the same way.
-Anyone will be able to instantly invest in BitDust company from home and gain profits
-from the growth of capitalization of the entire project.
+This will attract real funds to the netowrk with a corresponding increase of the BitDust society itself.
 
-This will attract almost unlimited funding with a corresponding increase in the BitDust network itself.
+We need to drive the development of the project and people might want to release finaly some sort of electronic "shares" of the BitDust "foundation", 
+which will be fully protected by the same way using Blockchain technology.
+Anyone will be able to instantly invest in BitDust development process directly from home and gain profits in the future from the growth of capitalization of the entire project.
+
 
 
 ## Anonymous logon
@@ -168,7 +177,7 @@ This will attract almost unlimited funding with a corresponding increase in the 
 At the moment, user identification  in the BitDust system let you hide your personal data 
 and uses only short text identifiers.
 Not required any authorization, provide your email or phone number.
-BitDust company do not know any info about the users and do not care about that.
+BitDust contributors do not know any overal or detailed info about the users of the software.
 
 However, the user's IP address at this stage of the project development can not be hidden - it 
 is published in his identiy file in open or semi-open form.
@@ -179,6 +188,7 @@ The implementation of the algorithm of hiding the real IP address of the user wi
 + anonymously store and distribute data across the network
 + a completely anonymous correspondence
 + create a personal sites whose owners are almost impossible to calculate
+
 
 
 ## Decentralized social network
@@ -205,6 +215,7 @@ The owner's machine is not involved in the rendering process and it can
 leave the network immediately after the initial setup of the entire environment for such WEB hosting.
 
 
+
 ## Endless virtual worlds
 
 Modern on-line games allow virtual travel in artificially created 3D space,
@@ -226,7 +237,6 @@ The whole process will happen automatically - long before the player reach the v
 of the current location, the next piece of global map will already be loaded on his computer 
 and rendering process will be continued without delays.
 
-
 The more players are in on-line game, the more nodes may be used to accommodate generated data, 
 and bigger may be the whole virtual universe.
 
@@ -239,7 +249,6 @@ This makes it easy to create a project of unlimited scope, based on the 3D engin
 the on-line games. The interaction of players will happens not through a single dedicated server, 
 but directly to each other in the framework of that piece of global map in which 
 they are currently located.
-
 
 
 

@@ -1,6 +1,5 @@
 ﻿# Shared data
 
-
 * [Intro](#intro)
 * [Master Key](#master-key)
 * [Shared keys](#shared-keys)
@@ -8,7 +7,6 @@
 * [Audit access](#audit-access)
 * [Receiving shared keys](#receiving-shared-keys)
 * [Reading shared data](#reading-shared-data)
-
 
 
 ## Intro

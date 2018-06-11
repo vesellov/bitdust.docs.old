@@ -28,8 +28,8 @@ do not have access to your data. Only with a correct private key you can restore
 
 ## Anonymous Network Log-On
 
-For network log on you do not need to pass through any authorization, provide your email or phone number. 
-There is no support team or call center - BitDust company does not run centralized user information acquisition or users accounting.
+For network log on you do not need to pass through any authorization, provide your email or phone number to someone. 
+There is no support team or call center or "head" office. BitDust contributors are just enthusiasts, they are not running "centralized" user information acquisition or some kind of users accounting on the network.
 
 
 ## Uses Distributed Hash-Table
