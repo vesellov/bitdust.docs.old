@@ -119,4 +119,4 @@ At the moment BitDust program does not have a mechanism of sponsoring users and 
 
 
 <div class=fbcomments markdown="1">
-</div>
+</div
