@@ -4,97 +4,103 @@
 
 ## Intro
 
-Основная цель проекта BitDust является создание такой среды для пользователя, в которой он имел бы полный контроль над собственными данными и каналами связи.
+The main goal of the BitDust project is to create such an environment for the user, in which he would have full control over his own data and communication channels.
 
-Однако в мире, где общение между людьми все чаще и чаще происходит с помощью цифорвых устройств, невозможно оставаться полностью изолированным в цифровой среде. Другими словами нам просто необходимо иметь возможность работать не только с собственными данными, но и с данными, поступающих к нам извне.
+However, in a world where people talk to each other via "black mirrors" more and more often, it is impossible to remain completely isolated in a such digital environment. In other words, we simply need to be able to work not only with our own data, but also with data coming to us from outside.
 
-Еще одна цель проекта BitDust, заключается в создании альтернативных способов для обмена цифровыми данными между пользователями, которые бы предоставили более высокий уровень приватности и контроля над подобными "общими" данными.
+So another very important goal of BitDust project is to create alternative ways to exchange digital data between users that will enable a higher level of privacy and control over such "common" or "shared" data.
 
-В этой статье содержится подробная информация о способах контроля и предоставления доступа к собственным данным для других пользователей программы BitDust. 
-
+This article contains detailed information on how to control and provide access to your own data to other users of BitDust software.
 
 
 ## Master Key
 
-Поскольку все твои персональные данные в сети BitDust хранятся распределенно на машинах других пользователей, они всегдя шифруются перед тем как покинут твой компьютер - подробно метод защиты изложен в статье [Data Security](security). Ваш основной приватный ключ, здесь и далее мы будем называть его "master key", используется для шифрования-дешифрования ваших личных данных в процессе хранения на машинах поставщиков.
+Since every piece of your personal data in BitDust network is stored on the machines of other users, it is always encrypted before leaving your computer - the method of protection is described in detail in the article [Data Security](security). Your main private key, here and below, we will refer to it as a "Master Key", used to encrypt and decrypt your personal data for storing on supplier machines.
 
-В целях личной безопасности вам следует сделать резервную копию Master ключа в надежном месте сразу после установки программы BitDust на ваше устройство. В любых других случаях Master key никогда не должен покидать ваше устройство и ни при каких обстоятельствах не должен быть передам кому либо другому. Он и только он защищает ваши личные данные и доступ к сети BitDust.
-
+For your personal safety, you should make a backup copy of the Master Key in a safe place immediately after installing BitDust on your device. In any other cases, the Master Key should never leave your device and under no circumstances should be transferred to anyone else. Only Master Key protects your personal data and access to the BitDust network.
 
 
 ## Shared keys
 
-Кроме Master key, в BitDust существуют и другие приватные ключи которые можно использовать для работы с данными. В программе BitDust были реализованы криптографические методы для работы с многими ключами, которые пользователь может использовать по собственному желанию и полностью имеет контроль над ними.
+In addition to the Master key, there are other private keys in BitDust that you can use to work with the data. BitDust software implements extra logic to use same cryptographic methods but to make it possible to work with many different keys, which the user can use at any time by his own choice and completely under full own control.
 
-Использование дополнительных ключей в BitDust очень похоже на то как вы используете обычную связку ключей, которыми вы закрываете-открываете двери в ваш дом. Например если к вам приехал гость и вы бы хотели поселить его в одну из своих комнат, вы даете ему копию ключа от этой комнаты а оригинал оставляете себе. Таким образом и вы и он имеете доступ к общему пространству гостевой комнаты. Однако у вас в доме, может например существовать сейф для хранения семейных документов или ценностей, и ключ к сейфу вы никогда и ни прикаких обстоятельствах не передаете кому либо.
+Using additional private and public keys in BitDust is very similar to real life actually - how you use a regular keychain that you lock/open the doors in your house. For example, if a new guest, your good firend, visited your place and you would like to settle him in one of your rooms, you will probably give him a copy of the key you have on the chain to be ably to unlock this room. but you will also leave the original key for yourself. Thus, both you and him will have access to the common space of the guest room. However, in your house, for example there may be another safe place for storing family documents or valuable things or a "private" room, and you never give the key to that place to anyone.
 
-Вы BitDust вы можете в любой момент создать новый дополнительный приватный ключ и использовать его для того что бы зашифровать некоторые данные, которые будут загружены на машины ваших поставщиков. Данные хранятся распределенно, точно также как это происходит когда вы шифруете их вашим master key - это подробно описано в статье (Data Storage)[storage], но вы просто используете не основной а дополнительный ключ для шифрования. Позже вы можете передать этот дополнительный ключ другому пользователю, которому вы доверяете, и он будет иметь возмоность скачать конкретно этот кусок данных и расшифровать их на своем устройстве. Таким образом мы можем обмениваться личными данными друг с другом и при этом наши хранители, как и раньше, лишь помогают нам в этом, но не имеют доступ к данным.
+In BitDust software you can at any time create a new additional private key and use it to encrypt some data that will be uploaded to your suppliers's machines. The data is stored in a distributed way, just as it happens when you encrypt it with your Master Key - this is described in detail in the article [Data Storage](storage), but you just switched from Master Key to the additional key when you are doing encryption.
 
-В BitDust вы можете совершать следующие действия с вашими дополнительными ключами:
+Later, you can transfer this additional key to another user who you trust and he will have the ability to download this particular piece of data and decrypt it on his own device. Thus, we can exchange personal data with each other and at the same time our suppliers only helps us during this process, but do not have access to data directly. Finally it makes our digital life depend on the "crowd" instead of single "service" provider. 
 
-    * создать новый ключ присвоив ему некоторое имя
-    * создать новый ключ со случайно сгенерированным именем
-    * удалить существующий приватный ключ
-    * переслать публичную часть ключа другому пользователю
-    * переслать приватную часть ключа другому пользователю
-    * просмотреть список всех ключей: созданных вами или полученных от других пользователей
-    * провести аудит данного публичного ключа и проверить что другой пользователь так же обладает этим публичным ключом 
-    * провести аудит данного приватного ключа и проверить что другой пользователь так же обладает этим приватным ключом 
-    * использовать приватный ключ для шифрования загружаемых в сеть BitDust данных
-    * использовать приватный ключ для дешифрования скачиваемых из сети данных
+With BitDust software, you can perform the following actions with your additional keys:
+
+    * create a new key by giving it a name and store locally
+    * create a new key with a randomly generated name
+    * delete an existing private key
+    * backup and store the keys on your suppliers - will be encrypted with your Master Key
+    * send the public part of given key to another "un-trusted" user
+    * send the private part of given key to another "trusted" user
+    * view a list of all keys: created by you or received from other users
+    * perform "audit" process of given public key and verify that another user also posses exactly same copy of that public key
+    * perform "audit" of given private key and verify that another user also posses exactly same copy of that private key
+    * use a private key to encrypt data downloaded to the BitDust network
+    * use a private key to decrypt data downloaded from the network
 
 
-Вы найдете ваши дополнительные приватные ключи в папке `.bitdust/keys`, в данный момент используется алгоритм RSA который широко используется в Мире.
+You will find your additional private keys in the `.bitdust/keys` folder,
+currently BitDust software is using [RSA algorithm](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) which is widely used in the World.
+Those methods was implemented using [PyCrypto](https://pypi.org/project/pycrypto/) library.
 
 
 
 ## Grant access
 
-При передаче дополнительного ключа от одного пользователя к другому фактически происходит пересылка одного из текстовых файлов из папки `.bitdust/keys` на удаленную машину получателя. Ключ не передается в открытом виде а шифруется с помощию Master key получателя перед отправкой - только он сможет дешифровать этот текстовый файл и получить копию передаваемоо ключа. Программа BitDust на его машине получив ключ, сохранит файл ключа в папке `.bitdust/keys` и в дальнейшем пользователь сможет использовать данный ключ для работы с общими файлами.
+When transferring an additional key from one user to another, one of the text files from the `.bitdust/keys` folder is actually sent to the remote recipient's machine. The key is not transmitted in plaintext but it is encrypted using the public part of Master Key of the recipient before sending - only "trusted" user will be able to decrypt this text file and get a copy of the transmitted additional key. The BitDust program on his machine will receive the key and save it in the new text file in the `.bitdust/keys` folder. Then the user will be able to use it to work with the "shared" files.
 
-Важно понимать, что данное действие необратимо. Вы не можете "забрать" ключ обратно, после того как передали его вашему другу, ведь контроль над его операционнй системой имеет только он! Фактически, после того как вы передали ключ другому пользователю - вы оба являетесь почти полностью полноправными владельцами тех данных, которые были зашифрованны данным ключом. Мы говорим ­"почти" потому как данные хранятся на ваших хранителях и вы имеете "больше прав" внутри собственного распределенного хранилища чем тот пользователь который получил лишь копию одного из ваших дополнительных ключей. Например в любой момент вы можете потребовать у ваших хранителей удалить эти данные и по умолчанию они выполнят это.
+It is important to understand that this action is "irreversible"! You can not "take" the key back after you handed it to your friend, because only he controls his operating system and BitDust software running on his device. In fact, after you have passed the key to another user - both of you are almost completely are "fully equal" owners of the data that was encrypted with that additional key.
+
+We say you both posses "almost equal" ownership because the data is stored on your suppliers, but not his suppliers. So you have always "more rights" inside your own distributed storage than anyone else. For example, at any time you can requst your suppliers to delete this piece of data and by default they will do it for you.
+
 
 
 ## Audit access
 
-Основная задача поставщика - хранить и предоставлять доступ к файлам тебе и другим пользователям, фактически "позволять скачать" файл по запросу. Для этого каждый поставщик должен иметь конкретные инструкции и установленный порядок действий, которые ему следует выполнить в момент запроса к распределенным "общим" данным на его устройстве от тебя или доверенного пользователя. Поскольку все данные, которые поставщик хранит являются зашифрованными, то даже если он является "злоумышленником" и "отдает" куски ваших данных всем подряд, вы все равно можете быть спокойны - только тот, кто обладает нужным ключом, сможет "прочитать" ваши файлы.
+The most important role of the supplier is to store and provide access to the files to you and other users, in fact it must be siad that way: "to make possible to download the fragments of the file at any time by authorized request". To acheive this, each supplier must have specific instructions and well-defined order of actions that he must perform at the time of the request to the distributed "shared" data on his device from you or a "trusted" user. Since all data that the supplier stores is encrypted, even if he is an "intruder" and "gives away" pieces of your data to everyone in a row without any control, you can still be calm - only those who posses the right key will be able to "read" your files.
 
-Однако в программе BitDust были реализованы методы фильтрации и валидации запросов к загруженным в сеть данным – по умолчанию поставщик "проверит" что тот кто запрашивает кусок данных действительно обладает нужным ключом для расшифровки данных. Он может провести "аудит" ключа пользователя, который обращается к нем. Для этого он должен хранить у себя публичную часть ключа, которым были зашифрованны данные. Этот публичный ключ он получает от тебя, в момент, когда ты предоставляешь доступ к данным "доверенному" пользователю.
+However, the BitDust software implements methods for filtering and validating such "access requests" to all data uploaded to the network - by default the supplier will "check" that the one who requests the piece of data does have the right additional key to decrypt the data. He must "audit" the user's key, which refers to it. To do this, he must keep the public part of the key, which was used to encrypt the data. This public key is usually received from you, exactly at the moment when you grant access to the data to the "trusted" user.
 
-Ниже приведен общий порядок действий совершаемых программой BitDust на твоем устройстве в момент передачи одного из твоих дополнительных ключей другому пользователю:
+To keep it short, below is the general plan implemented in BitDust software which executes on your device when you transfer one of your additional keys to another user:
 
-	1. проверка состояния соединения с компьютером доверенного пользователя
-	2. аудит мастер ключа доверенного пользователя
-	3. пересылка публичной части дополнительного ключа всем твоим хранителям
-	4. пересылка приватной части дополнительгого ключа доверенному пользователю
-	5. пересылка списка имен файлов, которые уже были зашифрованны данным дополнительным ключом доверенному пользователю
+    1. checking the connection status of the trusted user's computer
+    2. audit of the master key of the trusted user
+    3. sending the public part of the additional key to all your suppliers
+    4. forwarding the private part of the additional key to a trusted user
+    5. forwarding a list of file names that have already been encrypted with this additional key to a trusted user
 
 
 
 ## Receiving shared keys
 
-В предыдущих параграфах были описаны методы передачи прав доступа к твоим данным другому пользователю, которому вы доверяете. Далее будет подробно изложено что происходит на его устройстве и как он может использовать полученный от тебя ключ для того что бы скачать общие данные к себе.
+In the previous paragraphs, we described a methods for transferring access rights to your data to another user who you trust. Next, you will find a detailed info about what happens on his device and how he can use the additional key he received from you to download "shared" data to his device.
 
-Подразумевается что программа BitDust уже запущенна и подключена к другим узлам сети BitDust в момент передачи дополнительного ключа на обоих устройствах. В случае если даритель или получатель не были подключены к сети и не имели возможность напрямую обмениваться сервисными пакетами по каналам BitDust – процесс окончится неудачей и доступ не будет предоставлен.
+It is assumed that the BitDust program  on both devices is already running and connected to other nodes of the BitDust network at the time of the transfer of an additional key was started. In case when "donor" or "recipient" was not connected to the network and did not have the opportunity to directly exchange service packages via BitDust "channels", the process will fail and no access will be granted at all.
 
-Программа BitDust на машине доверенного пользователя постоянно находится в состоянии ожидания входящих сервисных пакетов данных и всегда готова принять новый ключ доступа. После получения и дешифровки файла с ключом он будет сохранен в папке `.bitdust/keys`. Ты всегда можешь узнать какие ключи доступа были переданны тебе от других пользователей - каждый ключ имеет уникальный глобальный идентификатор, который выглядит следующим образом:
+BitDust on the machine of the "trusted" user is constantly in a waiting state to receive incoming service data packets and is always ready to accept a new incoming access keys. After receiving and decrypting the file with the own Master Key, it will be stored in the `.bitdust/keys` folder. You can always find out the full list of all access keys have been passed to you from other users - each key has a unique global identifier that looks like that:
 
         share_0780f0d64b017303a0d81865eee009f1$veselin_penev@some-id-hostname.net
 
 
-Начальная часть идентификатора до знака `$` называется "key alias" и служит для идентификации конкретного ключа среди множества дополнительных ключей, созданных данным пользователем. Оставшаяся часть после знака `$` является уникальным глобальным идентификатором того пользователя, который первым сгенерировал данный ключ на своем устройсте. Более подробно об идентификации пользователей в сети BitDust ты сможешь прочитать в статье (User Identification)[#identities].
+The initial part of the identifier before the character `$` is called "key alias" and serves to identify a particular key among a set of additional keys created by this user. The second part after the `$` character is the unique global identifier of the user who first generated the key. For more details about the identification of users in the BitDust network, you can read in the article [User Identification](identities).
 
-Данный метод идентфикации ключей доступа всегда однозначно определяет кто является создателем данных и на чьих поставщиках фактически хранятся зашифрованные фрагменты файлов в сети BitDust. Другими словами, получив новый ключ доступа от кого либо, ты всегда знаешь где находится тот "сундук", который был "заперт" данным ключом.
+This method of identifying access keys always uniquely defines who is the creator of the data and on whose suppliers the encrypted fragments of files in the BitDust network are actually stored. In other words, having received a new access key from someone, you always know where the "shared" files are located.
 
 
 
 ## Reading shared data
 
-Итак для доступа к "чужим" файлам необходимо использовать идентификатор ключа для определения "местоположения" данных. Мы используе слово "местоположение" в переносном смысле, поскольку все данные хранятся полностью распределенно на машинах поставщиков. Для скачивания фрагментов файлов и дешифровки необходимо определить текущих активных поставщиков, соединиться с ними и запросить все фрагменты данных относящихся к данному "общему" файлу.
+So to access the "foreign" files, you need to use the key identifier to determine the "location" of the data. We use the word "location" in a figurative sense, since all data is stored completely distributed on the suppliers' machines. For downloading fragments of files and decryption, it is necessary to determine the current active suppliers, connect to them and request all the fragments of data related to that given "common" file.
 
-В программе BitDust список твоих поставщиков хранится и поддерживается не только на твоем устройстве, но и в распределенной хэш таблице - твои поставщики автоматически поддерживают и периодически обновляют эти записи. Благодаря этому любой пользователь всегда имеет возможность "просканировать" список твоих поставщиков и узнать куда ему необходимо обращаться что бы скачать те файлы к которым ты ему "открыл доступ". Процесс "сканирования" данного списка  занимает некоторое время, в зависимости от колличества твоих поставщиков. Более подробно вы можете ознакомиться с тем как программа BitDust использует эти сервисные данные в статье (Distributed Hash-table)[#dht].
+In BitDust, the list of your suppliers is stored and maintained not only on your own device, but also in a distributed hash table - your suppliers automatically support and periodically update these "globally distributed" records. Thanks to this, any user always has the ability to "scan" the list of your suppliers and find out where he needs to go to download those files to which you "opened access to him." The process of "scanning" that list takes some time, depending on the number of your suppliers. In more detail, you can see how BitDust uses these service records in the article (Distributed Hash-table)[dht].
 
-Соединившись с "чужими" поставщиками ты можешь запросить у них нужные фрагменты данных, относящиеся к тому или иному "общему" файлу. Если ключ доступа который ты получил от "дарителя" 
+After connecting with the "foreign" suppliers, you can request them the necessary pieces of data related to a particular "shared" file. If the access key you received from the "donor" is valid, "external" suppliers will accept your request and BitDust software on your device will receive needed fragments, decrypt, combine into one chunk and create exactly same copy of "shared" file which "donor" granted you access.
 
 
 
