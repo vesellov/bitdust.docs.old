@@ -1,6 +1,15 @@
 ﻿# Shared data
 
 
+* [Intro](#intro)
+* [Master Key](#master-key)
+* [Shared keys](#shared-keys)
+* [Grant access](#grant-access)
+* [Audit access](#audit-access)
+* [Receiving shared keys](#receiving-shared-keys)
+* [Reading shared data](#reading-shared-data)
+
+
 
 ## Intro
 
@@ -15,7 +24,7 @@ This article contains detailed information on how to control and provide access 
 
 ## Master Key
 
-Since every piece of your personal data in BitDust network is stored on the machines of other users, it is always encrypted before leaving your computer - the method of protection is described in detail in the article [Data Security](security). Your main private key, here and below, we will refer to it as a "Master Key", used to encrypt and decrypt your personal data for storing on supplier machines.
+Since every piece of your personal data in BitDust network is stored on the machines of other users, it is always encrypted before leaving your computer - the method of protection is described in detail in the article [Data Security](security.md). Your main private key, here and below, we will refer to it as a "Master Key", used to encrypt and decrypt your personal data for storing on supplier machines.
 
 For your personal safety, you should make a backup copy of the Master Key in a safe place immediately after installing BitDust on your device. In any other cases, the Master Key should never leave your device and under no circumstances should be transferred to anyone else. Only Master Key protects your personal data and access to the BitDust network.
 
@@ -26,7 +35,7 @@ In addition to the Master key, there are other private keys in BitDust that you 
 
 Using additional private and public keys in BitDust is very similar to real life actually - how you use a regular keychain that you lock/open the doors in your house. For example, if a new guest, your good firend, visited your place and you would like to settle him in one of your rooms, you will probably give him a copy of the key you have on the chain to be ably to unlock this room. but you will also leave the original key for yourself. Thus, both you and him will have access to the common space of the guest room. However, in your house, for example there may be another safe place for storing family documents or valuable things or a "private" room, and you never give the key to that place to anyone.
 
-In BitDust software you can at any time create a new additional private key and use it to encrypt some data that will be uploaded to your suppliers's machines. The data is stored in a distributed way, just as it happens when you encrypt it with your Master Key - this is described in detail in the article [Data Storage](storage), but you just switched from Master Key to the additional key when you are doing encryption.
+In BitDust software you can at any time create a new additional private key and use it to encrypt some data that will be uploaded to your suppliers's machines. The data is stored in a distributed way, just as it happens when you encrypt it with your Master Key - this is described in detail in the article [Data Storage](storage.md), but you just switched from Master Key to the additional key when you are doing encryption.
 
 Later, you can transfer this additional key to another user who you trust and he will have the ability to download this particular piece of data and decrypt it on his own device. Thus, we can exchange personal data with each other and at the same time our suppliers only helps us during this process, but do not have access to data directly. Finally it makes our digital life depend on the "crowd" instead of single "service" provider. 
 
@@ -88,7 +97,7 @@ BitDust on the machine of the "trusted" user is constantly in a waiting state to
         share_0780f0d64b017303a0d81865eee009f1$veselin_penev@some-id-hostname.net
 
 
-The initial part of the identifier before the character `$` is called "key alias" and serves to identify a particular key among a set of additional keys created by this user. The second part after the `$` character is the unique global identifier of the user who first generated the key. For more details about the identification of users in the BitDust network, you can read in the article [User Identification](identities).
+The initial part of the identifier before the character `$` is called "key alias" and serves to identify a particular key among a set of additional keys created by this user. The second part after the `$` character is the unique global identifier of the user who first generated the key. For more details about the identification of users in the BitDust network, you can read in the article [User Identification](identities.md).
 
 This method of identifying access keys always uniquely defines who is the creator of the data and on whose suppliers the encrypted fragments of files in the BitDust network are actually stored. In other words, having received a new access key from someone, you always know where the "shared" files are located.
 
@@ -98,7 +107,7 @@ This method of identifying access keys always uniquely defines who is the creato
 
 So to access the "foreign" files, you need to use the key identifier to determine the "location" of the data. We use the word "location" in a figurative sense, since all data is stored completely distributed on the suppliers' machines. For downloading fragments of files and decryption, it is necessary to determine the current active suppliers, connect to them and request all the fragments of data related to that given "common" file.
 
-In BitDust, the list of your suppliers is stored and maintained not only on your own device, but also in a distributed hash table - your suppliers automatically support and periodically update these "globally distributed" records. Thanks to this, any user always has the ability to "scan" the list of your suppliers and find out where he needs to go to download those files to which you "opened access to him." The process of "scanning" that list takes some time, depending on the number of your suppliers. In more detail, you can see how BitDust uses these service records in the article (Distributed Hash-table)[dht].
+In BitDust, the list of your suppliers is stored and maintained not only on your own device, but also in a distributed hash table - your suppliers automatically support and periodically update these "globally distributed" records. Thanks to this, any user always has the ability to "scan" the list of your suppliers and find out where he needs to go to download those files to which you "opened access to him." The process of "scanning" that list takes some time, depending on the number of your suppliers. In more detail, you can see how BitDust uses these service records in the article [Distributed Hash-table](dht.md).
 
 After connecting with the "foreign" suppliers, you can request them the necessary pieces of data related to a particular "shared" file. If the access key you received from the "donor" is valid, "external" suppliers will accept your request and BitDust software on your device will receive needed fragments, decrypt, combine into one chunk and create exactly same copy of "shared" file which "donor" granted you access.
 
