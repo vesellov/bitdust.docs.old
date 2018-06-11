@@ -41,17 +41,18 @@ Later, you can transfer this additional key to another user who you trust and he
 
 With BitDust software, you can perform the following actions with your additional keys:
 
-    * create a new key by giving it a name and store locally
-    * create a new key with a randomly generated name
-    * delete an existing private key
-    * backup and store the keys on your suppliers - will be encrypted with your Master Key
-    * send the public part of given key to another "un-trusted" user
-    * send the private part of given key to another "trusted" user
-    * view a list of all keys: created by you or received from other users
-    * perform "audit" process of given public key and verify that another user also posses exactly same copy of that public key
-    * perform "audit" of given private key and verify that another user also posses exactly same copy of that private key
-    * use a private key to encrypt data downloaded to the BitDust network
-    * use a private key to decrypt data downloaded from the network
+
+* create a new key by giving it a name and store locally
+* create a new key with a randomly generated name
+* delete an existing private key
+* backup and store the keys on your suppliers - will be encrypted with your Master Key
+* send the public part of given key to another "un-trusted" user
+* send the private part of given key to another "trusted" user
+* view a list of all keys: created by you or received from other users
+* perform "audit" process of given public key and verify that another user also posses exactly same copy of that public key
+* perform "audit" of given private key and verify that another user also posses exactly same copy of that private key
+* use a private key to encrypt data downloaded to the BitDust network
+* use a private key to decrypt data downloaded from the network
 
 
 You will find your additional private keys in the `.bitdust/keys` folder,
@@ -78,11 +79,12 @@ However, the BitDust software implements methods for filtering and validating su
 
 To keep it short, below is the general plan implemented in BitDust software which executes on your device when you transfer one of your additional keys to another user:
 
-    1. checking the connection status of the trusted user's computer
-    2. audit of the master key of the trusted user
-    3. sending the public part of the additional key to all your suppliers
-    4. forwarding the private part of the additional key to a trusted user
-    5. forwarding a list of file names that have already been encrypted with this additional key to a trusted user
+
+1. checking the connection status of the trusted user's computer
+2. audit of the master key of the trusted user
+3. sending the public part of the additional key to all your suppliers
+4. forwarding the private part of the additional key to a trusted user
+5. forwarding a list of file names that have already been encrypted with this additional key to a trusted user
 
 
 
