@@ -357,7 +357,7 @@ services/customer/enabled, default value: true
 
 ### needed space (disk space)
 
-services/customer/needed-space, default value: 1024 MB
+services/customer/needed-space, default value: 256 MB
 
 How many megabytes you need to store your files?
 
@@ -627,7 +627,7 @@ services/proxy-server/current-routes, default value: {}
 
 ### services/proxy-server/enabled (boolean)
 
-services/proxy-server/enabled, default value: false
+services/proxy-server/enabled, default value: true
 
 
 

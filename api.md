@@ -1,6 +1,6 @@
 # BitDust API
 
-## stop()
+## process\_stop()
 
 Stop the main process immediately.
 
@@ -11,7 +11,7 @@ Stop the main process immediately.
     {'status': 'OK', 'result': 'stopped'}
 
 
-## restart(showgui=False)
+## process\_restart(showgui=False)
 
 Restart the main process, if flag show=True the GUI will be opened after
 restart.
@@ -23,8 +23,9 @@ restart.
     {'status': 'OK', 'result': 'restarted'}
 
 
-## show()
+## process\_show()
 
+Deprecated.
 Opens a default web browser to show the BitDust GUI.
 
 
@@ -32,6 +33,22 @@ Opens a default web browser to show the BitDust GUI.
 
 
     {'status': 'OK',   'result': '"show" event has been sent to the main process'}
+
+
+## process\_health()
+
+Returns true if system is running 
+
+
+
+
+
+    {'status': 'OK' }
+
+
+## process\_debug()
+
+Execute a breakpoint inside main thread and start Python shell using standard `pdb.set_trace()` debugger.
 
 
 ## config\_get(key)
@@ -85,6 +102,9 @@ Provide detailed info about all options and values from settings.
 
 
 ## identity\_create(username)
+
+
+## identity\_backup(destination\_filepath)
 
 
 ## identity\_recover(private\_key\_source, known\_idurl=None)
@@ -252,7 +272,7 @@ but just in case.
     {'status': 'OK', 'result': 'the main files sync loop has been restarted'}
 
 
-## files\_list(remote\_path=None, key\_id=None, recursive=True)
+## files\_list(remote\_path=None, key\_id=None, recursive=True, all\_customers=False)
 
 Returns list of known files registered in the catalog under given `remote_path` folder.
 By default returns items from root of the catalog.
@@ -344,7 +364,7 @@ list of pending items to be uploaded.
     }
 
 
-## file\_upload\_start(local\_path, remote\_path, wait\_result=False, open\_share=True)
+## file\_upload\_start(local\_path, remote\_path, wait\_result=False, open\_share=False)
 
 
 
@@ -852,6 +872,9 @@ Starts nickname_holder() machine to register and keep your nickname in DHT
 network.
 
 
+## message\_history(user)
+
+
 ## message\_send(recipient, json\_data, timeout=5)
 
 Sends a text message to remote peer, `recipient` is a string with nickname or global_id.
@@ -881,10 +904,12 @@ Both, incoming and outgoing, messages will be populated here.
      'result': [{
         'type': 'private_message',
         'dir': 'incoming',
-        'id': '123456788',
-        'sender': 'abc$alice@first-host.com',
-        'recipient': 'abc$bob@second-host.net',
-        'message': 'Hello World!',
+        'message_id': '123456788',
+        'sender': 'messages$alice@first-host.com',
+        'recipient': 'messages$bob@second-host.net',
+        'data': {
+            'message': 'Hello BitDust!'
+        },
         'time': 123456789
     }]}
 
